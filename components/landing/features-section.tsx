@@ -5,27 +5,27 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     number: "01",
-    title: "Autonomous Execution",
-    description: "Deploy AI agents that work independently. They analyze, decide, and execute complex multi-step tasks without human intervention.",
-    stats: { value: "99.7%", label: "task completion" },
+    title: "The Workspace",
+    description: "Runtime, memory, files, tools. One portable home for the work.",
+    stats: { value: "1", label: "workspace, any host" },
   },
   {
     number: "02",
-    title: "Distributed Computing",
-    description: "Offload compute-heavy tasks to our global network. Your agents run on optimized infrastructure across 50+ regions worldwide.",
-    stats: { value: "50+", label: "global regions" },
+    title: "Budget by Outcome",
+    description: "Set value before the agent starts. Pay for results, not machinery.",
+    stats: { value: "0", label: "tokens without an outcome" },
   },
   {
     number: "03",
-    title: "Multi-Agent Orchestration",
-    description: "Coordinate teams of specialized agents. They communicate, delegate, and collaborate to solve complex problems together.",
-    stats: { value: "1000x", label: "parallel execution" },
+    title: "Verify State Changed",
+    description: "Snapshot before and after. Did the world move the way you asked?",
+    stats: { value: "1", label: "check per unit" },
   },
   {
     number: "04",
-    title: "Secure Sandboxing",
-    description: "Each agent runs in isolated environments. Full audit trails, encrypted execution, and zero data leakage between tasks.",
-    stats: { value: "0", label: "data breaches" },
+    title: "Full Record",
+    description: "Identity, budget, audit log. Every action on the record.",
+    stats: { value: "0", label: "blind spots" },
   },
 ];
 
@@ -46,7 +46,7 @@ function ParticleVisualization() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -60,7 +60,6 @@ function ParticleVisualization() {
     };
     canvas.addEventListener("mousemove", handleMouseMove);
 
-    // Generate stable particle positions
     const COUNT = 70;
     const particles = Array.from({ length: COUNT }, (_, i) => {
       const seed = i * 1.618;
@@ -110,6 +109,7 @@ function ParticleVisualization() {
       time += 0.016;
       frameRef.current = requestAnimationFrame(render);
     };
+
     render();
 
     return () => {
@@ -158,23 +158,23 @@ export function FeaturesSection() {
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-12 h-px bg-foreground/30" />
-                Capabilities
+                Thesis
               </span>
               <h2
                 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                Intelligent
+                Work is
                 <br />
-                <span className="text-muted-foreground">workers.</span>
+                <span className="text-muted-foreground">the unit.</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-4">
               <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}>
-                Deploy autonomous AI agents that execute complex tasks across distributed infrastructure. No supervision required.
+                Hand over outcomes to own. Not prompts to run.
               </p>
             </div>
           </div>

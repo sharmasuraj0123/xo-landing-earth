@@ -1,29 +1,30 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { AsciiScene } from "@/components/landing/ascii-scene";
 
 const features = [
   { 
-    title: "TypeScript native", 
-    description: "Full type safety for agent configs and responses."
+    title: "Define units in code", 
+    description: "Define units in code."
   },
   { 
-    title: "Streaming results", 
-    description: "Watch your agents think and act in real-time."
+    title: "Streaming execution", 
+    description: "Live cost metering as work runs."
   },
   { 
-    title: "Multi-model support", 
-    description: "OpenAI, Anthropic, Mistral, or bring your own."
+    title: "Verification hooks", 
+    description: "Snapshot before and after."
   },
   { 
-    title: "Local debugging", 
-    description: "Test agents locally before deploying to cloud."
+    title: "Local to production", 
+    description: "Same contract, any environment."
   },
 ];
 
 export function DevelopersSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLSection>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,6 +40,9 @@ export function DevelopersSection() {
 
   return (
     <section id="developers" ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
+      <div className="absolute inset-0 opacity-40 pointer-events-none">
+        <AsciiScene />
+      </div>
 
       {/* Image — absolute, bottom-right, behind all content */}
       <div
@@ -71,9 +75,9 @@ export function DevelopersSection() {
             Developer SDK
           </span>
           <h2 className="text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9]">
-            Code your agents.
+            Define the work.
             <br />
-            <span className="text-muted-foreground">Or let them code.</span>
+            <span className="text-muted-foreground">Environments settle it.</span>
           </h2>
         </div>
 
@@ -84,8 +88,7 @@ export function DevelopersSection() {
           }`}
         >
           <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-md">
-            A powerful SDK for building, deploying, and orchestrating AI agents. 
-            Define behaviors in code or natural language.
+            An SDK for define, budget, execute, verify, settle.
           </p>
           <div className="grid grid-cols-2 gap-6">
             {features.map((feature, index) => (

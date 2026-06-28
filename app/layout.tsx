@@ -21,9 +21,16 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'COMPUTE - AI Agents for Distributed Computing',
-  description: 'Deploy autonomous AI agents on distributed infrastructure. Offload complex tasks to intelligent workers that run 24/7.',
+  title: 'XO - Hire the Skill, Not the Hours',
+  description: 'The unit of work for AI agents. Hire the skill, not the hours.',
   generator: 'v0.app',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/xo-logo.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-icon.png',
+  },
 }
 
 export default function RootLayout({

@@ -7,22 +7,22 @@ const metrics = [
     value: 12847392, 
     suffix: "", 
     prefix: "",
-    label: "Tasks completed today",
-    sublabel: "by 23,847 active agents",
+    label: "Units settled today",
+    sublabel: "across all environments",
   },
   { 
     value: 99, 
-    suffix: ".99%", 
+    suffix: ".9%", 
     prefix: "",
-    label: "Availability",
-    sublabel: "across all regions",
+    label: "Verification pass rate",
+    sublabel: "definition of done",
   },
   { 
-    value: 340, 
-    suffix: "ms", 
-    prefix: "<",
-    label: "Average execution",
-    sublabel: "p99 latency",
+    value: 42, 
+    suffix: "%", 
+    prefix: "~",
+    label: "Cost reduction",
+    sublabel: "same unit by run 50",
   },
 ];
 
@@ -94,7 +94,7 @@ function GridBackground() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -104,7 +104,7 @@ function GridBackground() {
       const width = rect.width;
       const height = rect.height;
       ctx.clearRect(0, 0, width, height);
-      const gridSize = 60;
+      const gridSize = 80;
       const time = timeRef.current;
       for (let x = 0; x < width; x += gridSize) {
         for (let y = 0; y < height; y += gridSize) {
@@ -126,6 +126,7 @@ function GridBackground() {
       timeRef.current += 0.02;
       frameRef.current = requestAnimationFrame(render);
     };
+
     render();
 
     return () => {
@@ -177,7 +178,7 @@ function DotGraph({
     const H = height;
     canvas.width = W * dpr;
     canvas.height = H * dpr;
-    ctx.scale(dpr, dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const render = () => {
       ctx.clearRect(0, 0, W, H);
@@ -261,7 +262,7 @@ export function MetricsSection() {
             }`}>
               Real-time
               <br />
-              <span className="text-muted-foreground">agent metrics.</span>
+              <span className="text-muted-foreground">work metrics.</span>
             </h2>
           </div>
         </div>

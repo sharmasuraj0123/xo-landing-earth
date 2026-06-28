@@ -5,32 +5,32 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Our agents handle 80% of our customer support tickets autonomously. The ROI was immediate.",
+    quote: "We pay for closed tickets, not agent seats.",
     author: "Sarah Chen",
     role: "CTO",
     company: "Meridian Labs",
-    metric: { value: "80%", label: "Ticket resolution" },
+    metric: { value: "80%", label: "Cost vs. seats" },
   },
   {
-    quote: "We deployed research agents that work 24/7. They surface insights we'd never find manually.",
+    quote: "Every report is budgeted and verified.",
     author: "Marcus Webb",
     role: "Head of Research",
     company: "Flux Systems",
-    metric: { value: "10x", label: "Research output" },
+    metric: { value: "10x", label: "Reports per dollar" },
   },
   {
-    quote: "The multi-agent orchestration is incredible. Complex workflows that took weeks now run in hours.",
+    quote: "One contract across human and agent handoffs.",
     author: "Elena Rodriguez",
     role: "VP Engineering",
     company: "Beacon AI",
-    metric: { value: "40x", label: "Faster workflows" },
+    metric: { value: "40x", label: "Faster handoffs" },
   },
   {
-    quote: "Security was our biggest concern. The sandboxing and audit trails gave us full confidence.",
+    quote: "Settlement requires proof, not trust.",
     author: "James Liu",
     role: "CISO",
     company: "Prism Analytics",
-    metric: { value: "0", label: "Security incidents" },
+    metric: { value: "0", label: "Unverified settlements" },
   },
 ];
 

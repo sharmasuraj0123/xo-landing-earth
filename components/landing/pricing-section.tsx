@@ -6,13 +6,13 @@ import { ArrowRight, Check, Zap } from "lucide-react";
 const plans = [
   {
     name: "Explorer",
-    description: "For tinkering and small automations",
+    description: "For trying units of work",
     price: { monthly: 0, annual: 0 },
     features: [
-      "3 concurrent agents",
-      "1,000 tasks/month",
+      "500 units of work / month",
+      "Basic verification checks",
+      "1 environment",
       "Community support",
-      "Basic logging",
       "Public integrations",
     ],
     cta: "Start free",
@@ -20,33 +20,33 @@ const plans = [
   },
   {
     name: "Builder",
-    description: "For teams shipping with agents",
+    description: "For teams at scale",
     price: { monthly: 79, annual: 65 },
     features: [
-      "25 concurrent agents",
-      "50,000 tasks/month",
-      "Priority support",
+      "10,000 units of work / month",
+      "Custom definitions of done",
+      "Multi-environment deploy",
       "Full audit trails",
       "Private integrations",
       "Team workspaces",
-      "Custom agent roles",
+      "Budget caps per unit",
     ],
     cta: "Start trial",
     highlight: true,
   },
   {
     name: "Scale",
-    description: "For agent-first organizations",
+    description: "For agentic workforces",
     price: { monthly: null, annual: null },
     features: [
-      "Unlimited agents",
-      "Unlimited tasks",
+      "Volume unit pricing",
+      "Custom settlement rules",
+      "Unlimited environments",
       "24/7 dedicated support",
-      "On-premise deployment",
-      "SLA guarantee",
-      "Custom LLM routing",
+      "On-premise environments",
+      "SLA on verification",
       "Advanced security",
-      "Dedicated compute",
+      "Dedicated regions",
     ],
     cta: "Contact sales",
     highlight: false,
@@ -85,7 +85,7 @@ export function PricingSection() {
             }`}>
               Pay for
               <br />
-              <span className="text-stroke">results.</span>
+              <span className="text-stroke">work.</span>
             </h2>
           </div>
           
@@ -190,19 +190,24 @@ export function PricingSection() {
           <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#eca8d6]" />
-              Encrypted execution
+              Pay only on verified units
             </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#eca8d6]" />
-              Full audit logs
+              Environment metering
             </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#eca8d6]" />
-              Multi-model routing
+              Budget before execute
             </span>
           </div>
-          <a href="#" className="text-sm underline underline-offset-4 hover:text-foreground transition-colors">
-            Compare all features
+          <a
+            href="https://docs.xo.builders/future-of-work"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            Future of work thesis
           </a>
         </div>
       </div>

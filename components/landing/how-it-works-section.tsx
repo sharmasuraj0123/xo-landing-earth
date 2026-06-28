@@ -6,38 +6,34 @@ const steps = [
   {
     number: "01",
     title: "Define",
-    subtitle: "your agent",
-    description: "Describe what your agent should do. Set its capabilities, constraints, and goals in natural language or code.",
-    code: `const researcher = new Agent({
-  role: 'Research Analyst',
-  capabilities: ['web', 'docs', 'api'],
-  memory: true,
-  autonomy: 'full'
+    subtitle: "the work",
+    description: "Outcome, definition of done, one owner.",
+    code: `const analysis = work.define({
+  outcome: 'Competitor pricing report',
+  definitionOfDone: ['3 sources', 'structured-output'],
+  owner: 'research-team',
 })`,
   },
   {
     number: "02",
-    title: "Assign",
-    subtitle: "the task",
-    description: "Give your agent a mission. It breaks down complex tasks into steps and executes them autonomously.",
-    code: `await researcher.execute({
-  task: 'Analyze competitor pricing',
-  sources: ['public-data', 'news'],
-  output: 'structured-report',
-  deadline: '2h'
+    title: "Budget",
+    subtitle: "& execute",
+    description: "Set a budget. Execute inside an environment.",
+    code: `await analysis.budget({ maxUsd: 12, maxTokens: 2_000_000 })
+await analysis.execute({
+  environment: 'us-east-sandbox',
+  agent: researcher,
 })`,
   },
   {
     number: "03",
-    title: "Monitor",
-    subtitle: "& scale",
-    description: "Track progress in real-time. Spin up more agents as needed. Pay only for compute used.",
-    code: `optimus.dashboard({
-  agents: [researcher],
-  metrics: ['tasks', 'latency', 'cost'],
-  alerts: true
-})
-// 847 tasks completed today`,
+    title: "Verify",
+    subtitle: "& settle",
+    description: "Verify proof. Settle when the work is done.",
+    code: `const proof = await analysis.verify()
+// weighted checks against definition of done
+settle(analysis, proof)
+// 12.8M units settled today`,
   },
 ];
 
@@ -89,8 +85,8 @@ export function HowItWorksSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
               <span className="block">Define.</span>
-              <span className="block text-white/30">Deploy.</span>
-              <span className="block text-white/10">Scale.</span>
+              <span className="block text-white/30">Execute.</span>
+              <span className="block text-white/10">Settle.</span>
             </h2>
           </div>
 
@@ -99,7 +95,7 @@ export function HowItWorksSection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tree-uAia6REvB137CQyHFCf0za3O6h2zKO.png"
+              src="/images/tree-green.png"
               alt=""
               aria-hidden="true"
               className="absolute bottom-0 left-0 w-full h-full object-contain object-bottom"
@@ -125,13 +121,13 @@ export function HowItWorksSection() {
               {/* Step number with animated line */}
               <div className="flex items-center gap-4 mb-8">
                 <span className={`text-4xl font-display transition-colors duration-300 ${
-                  activeStep === index ? "text-[#eca8d6]" : "text-white/20"
+                  activeStep === index ? "text-[#83d63a]" : "text-white/20"
                 }`}>
                   {step.number}
                 </span>
                 <div className="flex-1 h-px bg-white/10 overflow-hidden">
                   {activeStep === index && (
-                    <div className="h-full bg-[#eca8d6]/50 animate-progress" />
+                    <div className="h-full bg-[#83d63a]/50 animate-progress" />
                   )}
                 </div>
               </div>
@@ -152,7 +148,7 @@ export function HowItWorksSection() {
               </p>
 
               {/* Active indicator */}
-              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-[#eca8d6] transition-transform duration-500 origin-left ${
+              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-[#83d63a] transition-transform duration-500 origin-left ${
                 activeStep === index ? "scale-x-100" : "scale-x-0"
               }`} />
             </button>

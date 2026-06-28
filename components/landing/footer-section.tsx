@@ -2,17 +2,18 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 
 const footerLinks = {
   Product: [
-    { name: "Agent capabilities", href: "#features" },
+    { name: "Unit of work", href: "#features" },
     { name: "How it works", href: "#how-it-works" },
     { name: "Pricing", href: "#pricing" },
     { name: "Integrations", href: "#integrations" },
   ],
   Developers: [
     { name: "Documentation", href: "#developers" },
-    { name: "Agent SDK", href: "#" },
+    { name: "Workspace SDK", href: "#" },
     { name: "API Reference", href: "#developers" },
     { name: "Status", href: "#" },
   ],
@@ -49,9 +50,10 @@ function AnimatedWaveCanvas() {
     let time = 0;
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = canvas.offsetWidth * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -88,7 +90,12 @@ function AnimatedWaveCanvas() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="w-full h-full" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none z-[1]"
+    />
+  );
 }
 
 export function FooterSection() {
@@ -96,6 +103,7 @@ export function FooterSection() {
     <footer className="relative bg-black">
       {/* Panoramic banner image */}
       <div className="relative w-full h-[340px] md:h-[420px] overflow-hidden">
+        <AnimatedWaveCanvas />
         <img
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Upscaled%20Image%20%2810%29-UnDKstODkIENp5xqTYUEpt0Sm8tNOw.png"
           alt="Bioluminescent landscape"
@@ -114,13 +122,13 @@ export function FooterSection() {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="col-span-2">
-              <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display text-white">COMPUTE</span>
-                <span className="text-xs text-white/40 font-mono">TM</span>
+              <a href="#" className="inline-flex items-center gap-2.5 mb-6">
+                <BrandLogo variant="dark" className="h-8 w-8" />
+                <span className="text-2xl font-display text-white">XO</span>
               </a>
 
               <p className="text-white/50 leading-relaxed mb-8 max-w-xs text-sm">
-                Autonomous AI agents for distributed computing. Delegate complex tasks to intelligent workers.
+                Hire the skill, not the hours.
               </p>
 
               {/* Social Links */}
@@ -167,13 +175,13 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/30">
-            &copy; 2025 COMPUTE. All rights reserved.
+            &copy; 2025 XO. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-white/30">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#eca8d6]" />
-              All agents operational
+              All settlements operational
             </span>
           </div>
         </div>
