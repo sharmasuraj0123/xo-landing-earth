@@ -1,0 +1,72 @@
+<svg width="1600" height="820" viewBox="0 0 1600 820" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">XO retention decision loop</title>
+  <desc id="desc">A simple flow diagram showing that XO treats new user spikes as an input, checks whether users return, scales when retention grows, and goes back to user feedback and product rebuilding when retention is weak.</desc>
+
+  <defs>
+    <filter id="shadow" x="-8%" y="-12%" width="116%" height="128%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+    <marker id="arrowPurple" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto" markerUnits="strokeWidth">
+      <path d="M3 2L13 8L3 14" stroke="#8B6DFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto" markerUnits="strokeWidth">
+      <path d="M3 2L13 8L3 14" stroke="#4BD5A7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="820" rx="32" fill="#17171C"/>
+  <rect x="1" y="1" width="1598" height="818" rx="31" stroke="#2E2E38" stroke-width="2"/>
+
+  <text x="80" y="86" fill="#F6F3FF" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="760">The product decision loop</text>
+  <text x="80" y="126" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="23">New-user spikes start the question. Retention answers it.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="210" width="320" height="150" rx="22" fill="#211F2A" stroke="#3A3745" stroke-width="2"/>
+    <text x="240" y="266" text-anchor="middle" fill="#F4F1FF" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="730">New-user spike</text>
+    <text x="240" y="308" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="21">People try XO</text>
+    <text x="240" y="338" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="21">This is not PMF yet</text>
+
+    <path d="M620 194L800 285L620 376L440 285L620 194Z" fill="#211B32" stroke="#7357F3" stroke-width="3"/>
+    <text x="620" y="270" text-anchor="middle" fill="#F6F3FF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="740">Do users</text>
+    <text x="620" y="305" text-anchor="middle" fill="#F6F3FF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="740">come back?</text>
+    <text x="620" y="340" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="18">Retention gate</text>
+
+    <rect x="900" y="210" width="300" height="150" rx="22" fill="#172B25" stroke="#3EC49A" stroke-width="2"/>
+    <text x="1050" y="266" text-anchor="middle" fill="#ECFFF8" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="730">Yes</text>
+    <text x="1050" y="307" text-anchor="middle" fill="#B8EBDD" font-family="Inter, Arial, sans-serif" font-size="21">Retention grows</text>
+    <text x="1050" y="337" text-anchor="middle" fill="#B8EBDD" font-family="Inter, Arial, sans-serif" font-size="21">Scale carefully</text>
+
+    <rect x="1280" y="210" width="240" height="150" rx="22" fill="#1D2B25" stroke="#3EC49A" stroke-width="2"/>
+    <text x="1400" y="266" text-anchor="middle" fill="#ECFFF8" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="730">PMF signal</text>
+    <text x="1400" y="307" text-anchor="middle" fill="#B8EBDD" font-family="Inter, Arial, sans-serif" font-size="20">Users return</text>
+    <text x="1400" y="336" text-anchor="middle" fill="#B8EBDD" font-family="Inter, Arial, sans-serif" font-size="20">without pressure</text>
+
+    <rect x="470" y="505" width="300" height="136" rx="22" fill="#221F2A" stroke="#3A3745" stroke-width="2"/>
+    <text x="620" y="560" text-anchor="middle" fill="#F4F1FF" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="730">No</text>
+    <text x="620" y="600" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="21">Weak stickiness</text>
+    <text x="620" y="628" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="21">Do not scale the spike</text>
+
+    <rect x="880" y="505" width="280" height="136" rx="22" fill="#221F2A" stroke="#3A3745" stroke-width="2"/>
+    <text x="1020" y="560" text-anchor="middle" fill="#F4F1FF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="730">Listen to users</text>
+    <text x="1020" y="600" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="21">Find the missing</text>
+    <text x="1020" y="628" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="21">value moment</text>
+
+    <rect x="1230" y="505" width="290" height="136" rx="22" fill="#221F2A" stroke="#3A3745" stroke-width="2"/>
+    <text x="1375" y="560" text-anchor="middle" fill="#F4F1FF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="730">Rebuild product</text>
+    <text x="1375" y="600" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="21">Fix the wedge</text>
+    <text x="1375" y="628" text-anchor="middle" fill="#AAA6B5" font-family="Inter, Arial, sans-serif" font-size="21">Then relaunch</text>
+  </g>
+
+  <path d="M400 285H438" stroke="#8B6DFF" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowPurple)"/>
+  <path d="M800 285H888" stroke="#4BD5A7" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowGreen)"/>
+  <path d="M1200 285H1268" stroke="#4BD5A7" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowGreen)"/>
+  <path d="M620 376V492" stroke="#8B6DFF" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowPurple)"/>
+  <path d="M770 573H868" stroke="#8B6DFF" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowPurple)"/>
+  <path d="M1160 573H1218" stroke="#8B6DFF" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowPurple)"/>
+  <path d="M1375 505V443C1375 415 1352 392 1324 392H620C590 392 566 368 566 338" stroke="#8B6DFF" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 14" marker-end="url(#arrowPurple)"/>
+
+  <text x="850" y="438" text-anchor="middle" fill="#8F8A9D" font-family="Inter, Arial, sans-serif" font-size="19">Repeat until retained usage becomes the largest signal.</text>
+
+  <rect x="310" y="708" width="980" height="58" rx="18" fill="#211B31" stroke="#5B3BE3" stroke-width="2"/>
+  <text x="800" y="745" text-anchor="middle" fill="#EEE9FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Rule: acquisition is useful only when it turns into retained usage.</text>
+</svg>

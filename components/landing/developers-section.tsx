@@ -44,25 +44,6 @@ export function DevelopersSection() {
         <AsciiScene />
       </div>
 
-      {/* Image — absolute, bottom-right, behind all content */}
-      <div
-        className={`absolute bottom-0 right-0 w-[55%] h-[85%] pointer-events-none transition-all duration-1000 delay-300 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Upscaled%20Image%20%2813%29-OQ2DiR3ElVsUg8kTvTL1kC5A3Q6maM.png"
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover object-left-top"
-        />
-        {/* Fade left edge */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
-        {/* Fade top edge */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-transparent" />
-      </div>
-
-      {/* All text content sits on top */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header — Full width */}
         <div

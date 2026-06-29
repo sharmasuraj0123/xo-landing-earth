@@ -2,11 +2,30 @@
 
 import { useEffect, useState } from "react";
 
+const cyclingPhrases = [
+  { line1: "Quantify", line2pre: "agent ", word: "impact." },
+  { line1: "Compare", line2pre: "agent ", word: "cost." },
+  { line1: "Justify your", line2pre: "AI ", word: "spend." },
+];
+
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [phraseVisible, setPhraseVisible] = useState(true);
 
   useEffect(() => {
     setIsVisible(true);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhraseVisible(false);
+      setTimeout(() => {
+        setPhraseIndex((prev) => (prev + 1) % cyclingPhrases.length);
+        setPhraseVisible(true);
+      }, 400);
+    }, 2800);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -64,7 +83,7 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-white/60">
             <span className="w-8 h-px bg-white/30" />
-            Unit of work
+            Agent intelligence · XO
           </span>
         </div>
         
@@ -74,8 +93,29 @@ export function HeroSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="block whitespace-nowrap">Hire the skill.</span>
-            <span className="block whitespace-nowrap">Not the hours.</span>
+            <span
+              className="block transition-all duration-300"
+              style={{
+                opacity: phraseVisible ? 1 : 0,
+                transform: phraseVisible ? "translateY(0)" : "translateY(10px)",
+              }}
+            >
+              {cyclingPhrases[phraseIndex].line1}
+            </span>
+            <span
+              className="block transition-all duration-300"
+              style={{
+                opacity: phraseVisible ? 1 : 0,
+                transform: phraseVisible ? "translateY(0)" : "translateY(10px)",
+                transitionDelay: phraseVisible ? "60ms" : "0ms",
+              }}
+            >
+              {cyclingPhrases[phraseIndex].line2pre}
+              <span className="text-[#83d63a]">{cyclingPhrases[phraseIndex].word}</span>
+            </span>
+            <span className="block text-white/50 mt-4 text-[clamp(0.9rem,1.8vw,1.75rem)] font-sans font-normal tracking-normal leading-snug max-w-[28ch]">
+              The environment that shows you what your agents are actually worth.
+            </span>
           </h1>
         </div>
         </div>
@@ -88,9 +128,9 @@ export function HeroSection() {
       >
         <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
           {[
-            { value: "12.8M+", label: "units settled" },
-            { value: "99.9%", label: "verified" },
-            { value: "~42%", label: "cheaper by run 50" },
+            { value: "1000+", label: "active environments" },
+            { value: "100B+", label: "monthly optimization" },
+            { value: "~42%", label: "cost drop by run 50" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">
               <span className="text-3xl lg:text-4xl font-display text-white">{stat.value}</span>

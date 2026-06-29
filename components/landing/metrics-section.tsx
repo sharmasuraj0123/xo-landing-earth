@@ -329,11 +329,11 @@ export function MetricsSection() {
         <div className={`mt-16 pt-8 border-t border-foreground/10 flex flex-wrap items-center gap-x-12 gap-y-4 text-sm font-mono text-muted-foreground transition-all duration-1000 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          <span>OpenAI GPT-4 Turbo</span>
-          <span>Anthropic Claude 3</span>
-          <span>Mistral Large</span>
-          <span>Llama 3</span>
-          <span className="text-foreground">+12 more models</span>
+          <span>Claude Opus 4</span>
+          <span>Claude Sonnet 4</span>
+          <span>GPT-4o</span>
+          <span>Codex</span>
+          <span className="text-foreground">bring your own model</span>
         </div>
       </div>
     </section>

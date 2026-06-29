@@ -5,35 +5,38 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "01",
-    title: "Define",
-    subtitle: "the work",
-    description: "Outcome, definition of done, one owner.",
-    code: `const analysis = work.define({
-  outcome: 'Competitor pricing report',
-  definitionOfDone: ['3 sources', 'structured-output'],
-  owner: 'research-team',
+    title: "Create",
+    subtitle: "a project",
+    description: "Define the project and its purpose. Any business owner can do it — no engineering required.",
+    code: `xo.create({
+  name: 'Q3 Pricing Analysis',
+  purpose: 'Understand where we lose deals on price',
+  owner:   'sarah@company.com',
 })`,
   },
   {
     number: "02",
-    title: "Budget",
-    subtitle: "& execute",
-    description: "Set a budget. Execute inside an environment.",
-    code: `await analysis.budget({ maxUsd: 12, maxTokens: 2_000_000 })
-await analysis.execute({
-  environment: 'us-east-sandbox',
-  agent: researcher,
+    title: "Execute",
+    subtitle: "with your team",
+    description: "Set up agents, humans, tools, and fleets. They work together inside a single shared workspace.",
+    code: `project.setup({
+  agents: ['researcher', 'analyst'],
+  humans: ['alice@company.com'],
+  tools:  ['linear', 'slack', 'browser'],
+  fleet:  'xo-platform',
 })`,
   },
   {
     number: "03",
-    title: "Verify",
-    subtitle: "& settle",
-    description: "Verify proof. Settle when the work is done.",
-    code: `const proof = await analysis.verify()
-// weighted checks against definition of done
-settle(analysis, proof)
-// 12.8M units settled today`,
+    title: "Share",
+    subtitle: "or connect",
+    description: "Share the work so any human or agent can take over. Or connect directly to a project already running.",
+    code: `// share with anyone
+project.share({ with: 'bob@company.com' })
+project.share({ with: 'agent:claude-opus-4' })
+
+// or join an existing one
+xo.connect({ project: 'pricing-analysis-q3' })`,
   },
 ];
 
@@ -84,24 +87,33 @@ export function HowItWorksSection() {
             <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.85] transition-all duration-1000 delay-100 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
-              <span className="block">Define.</span>
+              <span className="block">Create.</span>
               <span className="block text-white/30">Execute.</span>
-              <span className="block text-white/10">Settle.</span>
+              <span className="block text-white/10">Share.</span>
+
             </h2>
           </div>
 
-          {/* Image cerisier — se colle en bas sur les blocs */}
+          {/* Bridge shown normally with a mirrored reflection, the two arcs
+              closing into a circle */}
           <div className={`relative h-[320px] lg:h-[640px] overflow-hidden transition-all duration-1000 delay-200 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
-            <img
-              src="/images/tree-green.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute bottom-0 left-0 w-full h-full object-contain object-bottom"
-            />
-            {/* Fade sur le bord gauche */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.09_0.01_260)] via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* Left half — mirrored reflection */}
+              <img
+                src="/images/bridge-vertical-mirror.png"
+                alt=""
+                aria-hidden="true"
+                className="h-full w-1/2 object-contain object-right"
+              />
+              {/* Right half — normal */}
+              <img
+                src="/images/bridge-vertical.png"
+                alt="Organic bridge mirrored into a circle"
+                className="h-full w-1/2 object-contain object-left"
+              />
+            </div>
           </div>
         </div>
 

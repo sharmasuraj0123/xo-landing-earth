@@ -1,52 +1,56 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, Zap } from "lucide-react";
 
 const plans = [
   {
-    name: "Explorer",
-    description: "For trying units of work",
-    price: { monthly: 0, annual: 0 },
+    name: "Starter",
+    description: "One environment. Try it free for 14 days.",
+    price: { monthly: 10, annual: 10 },
+    trial: "14-day free trial",
     features: [
-      "500 units of work / month",
-      "Basic verification checks",
-      "1 environment",
+      "1 workspace (2 CPU / 8 GB)",
+      "Runs 24/7",
+      "Full agent SDK + tools",
+      "Basic launchpad templates",
       "Community support",
-      "Public integrations",
+      "BYOM — bring your own model",
     ],
-    cta: "Start free",
+    cta: "Start free trial",
     highlight: false,
   },
   {
-    name: "Builder",
-    description: "For teams at scale",
-    price: { monthly: 79, annual: 65 },
+    name: "Pro",
+    description: "Three environments for builders who need more.",
+    price: { monthly: 20, annual: 20 },
+    trial: null,
     features: [
-      "10,000 units of work / month",
-      "Custom definitions of done",
-      "Multi-environment deploy",
-      "Full audit trails",
-      "Private integrations",
-      "Team workspaces",
-      "Budget caps per unit",
+      "3 workspaces (1 Standard + 2 Medium)",
+      "Full launchpad template library",
+      "MCP integrations",
+      "Agent spend tracking per run",
+      "Compare agents across environments",
+      "Community support",
+      "BYOM — bring your own model",
     ],
-    cta: "Start trial",
+    cta: "Get started",
     highlight: true,
   },
   {
-    name: "Scale",
-    description: "For agentic workforces",
-    price: { monthly: null, annual: null },
+    name: "Business",
+    description: "100 environments. White-label. Dedicated VM.",
+    price: { monthly: 500, annual: 500 },
+    trial: null,
     features: [
-      "Volume unit pricing",
-      "Custom settlement rules",
-      "Unlimited environments",
-      "24/7 dedicated support",
-      "On-premise environments",
-      "SLA on verification",
-      "Advanced security",
-      "Dedicated regions",
+      "100 workspaces (Standard or Medium mix)",
+      "Dedicated VM — 24/7",
+      "White-label",
+      "SSO / SAML",
+      "Full audit trails per environment",
+      "Email + Slack support",
+      "Custom templates",
+      "Enterprise: custom allocation + SLA",
     ],
     cta: "Contact sales",
     highlight: false,
@@ -54,7 +58,6 @@ const plans = [
 ];
 
 export function PricingSection() {
-  const [isAnnual, setIsAnnual] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -83,21 +86,21 @@ export function PricingSection() {
             <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              Pay for
+              Pay only for
               <br />
-              <span className="text-stroke">work.</span>
+              <span className="text-stroke">Compute.</span>
             </h2>
           </div>
           
           <div className="lg:col-span-5 relative p-0 h-96 lg:h-auto">
-            {/* Whale image */}
+            {/* Tree image */}
             <div className={`absolute inset-0 pointer-events-none transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}>
               <img
-                src="/images/whale.png"
-                alt="Organic whale"
-                className="w-full h-full object-contain object-center"
+                src="/images/tree-green.png"
+                alt="Organic tree"
+                className="w-full h-full object-contain object-bottom"
               />
             </div>
 
@@ -139,20 +142,14 @@ export function PricingSection() {
 
                   {/* Price */}
                   <div className="mb-8">
-                    {plan.price.monthly !== null ? (
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-5xl lg:text-6xl font-display">
-                          ${isAnnual ? plan.price.annual : plan.price.monthly}
-                        </span>
-                        <span className="text-muted-foreground text-sm">/month</span>
-                      </div>
-                    ) : (
-                      <span className="text-4xl font-display">Custom</span>
-                    )}
-                    {plan.price.monthly !== null && plan.price.monthly > 0 && (
-                      <p className="text-xs text-muted-foreground mt-2 font-mono">
-                        {isAnnual ? "billed annually" : "billed monthly"}
-                      </p>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-5xl lg:text-6xl font-display">
+                        ${plan.price.monthly}
+                      </span>
+                      <span className="text-muted-foreground text-sm">/month</span>
+                    </div>
+                    {plan.trial && (
+                      <p className="text-xs text-[#83d63a] mt-2 font-mono">{plan.trial}</p>
                     )}
                   </div>
 
@@ -189,25 +186,25 @@ export function PricingSection() {
         }`}>
           <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-[#eca8d6]" />
-              Pay only on verified units
+              <Check className="w-4 h-4 text-[#83d63a]" />
+              Per-workspace billing — active only
             </span>
             <span className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-[#eca8d6]" />
-              Environment metering
+              <Check className="w-4 h-4 text-[#83d63a]" />
+              BYOM — no model markup
             </span>
             <span className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-[#eca8d6]" />
-              Budget before execute
+              <Check className="w-4 h-4 text-[#83d63a]" />
+              Overage at $20/ws — Standard $40/ws
             </span>
           </div>
           <a
-            href="https://docs.xo.builders/future-of-work"
+            href="https://xo.builders"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm underline underline-offset-4 hover:text-foreground transition-colors"
           >
-            Future of work thesis
+            xo.builders
           </a>
         </div>
       </div>

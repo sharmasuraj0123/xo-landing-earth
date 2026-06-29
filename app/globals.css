@@ -203,4 +203,21 @@
     50%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
+
+  /* Gentle bobbing for floating elements. Amplitude / speed / phase are
+     parametrised per element via CSS custom properties. */
+  .animate-float {
+    animation: float var(--float-dur, 6s) ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+    will-change: transform;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(calc(var(--float-amp, 8px) * -1)); }
+    50%      { transform: translateY(var(--float-amp, 8px)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float { animation: none; }
+  }
 }

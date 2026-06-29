@@ -1,0 +1,63 @@
+<svg width="2048" height="900" viewBox="0 0 2048 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Last three months cohort movement</title>
+  <desc id="desc">A dark themed cohort chart for February, March, and April showing new, reactivated, retained, and churned users.</desc>
+  <rect width="2048" height="900" rx="24" fill="#18181E"/>
+  <rect x="1" y="1" width="2046" height="898" rx="23" stroke="#26262E" stroke-width="2"/>
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+    <g font-size="25" fill="#A5A3AD" font-weight="500">
+      <circle cx="45" cy="66" r="5" fill="#BAAEFF"/>
+      <text x="65" y="74">New</text>
+      <circle cx="187" cy="66" r="5" fill="#835DFF"/>
+      <text x="207" y="74">Reactivated</text>
+      <circle cx="404" cy="66" r="5" fill="#5B0FE6"/>
+      <text x="424" y="74">Retained</text>
+      <circle cx="592" cy="66" r="5" fill="#22222A"/>
+      <text x="612" y="74">Retained churned</text>
+      <circle cx="868" cy="66" r="5" fill="#464653"/>
+      <text x="888" y="74">Reactivated churned</text>
+      <circle cx="1174" cy="66" r="5" fill="#858593"/>
+      <text x="1195" y="74">New churned</text>
+    </g>
+    <g stroke="#3B3B49" stroke-width="2" stroke-dasharray="3 6">
+      <line x1="132" y1="153" x2="2022" y2="153"/>
+      <line x1="132" y1="285" x2="2022" y2="285"/>
+      <line x1="132" y1="419" x2="2022" y2="419"/>
+      <line x1="132" y1="684" x2="2022" y2="684"/>
+      <line x1="132" y1="817" x2="2022" y2="817"/>
+    </g>
+    <line x1="132" y1="551" x2="2022" y2="551" stroke="#A1A0A8" stroke-width="4"/>
+    <g font-size="24" fill="#B1AFBA">
+      <text x="30" y="160">150</text>
+      <text x="30" y="293">100</text>
+      <text x="43" y="426">50</text>
+      <text x="51" y="559">0</text>
+      <text x="30" y="692">-50</text>
+      <text x="18" y="825">-100</text>
+    </g>
+    <g>
+      <!-- Feb -->
+      <rect x="419" y="487" width="57" height="59" rx="7" fill="#5B0FE6"/>
+      <rect x="419" y="433" width="57" height="51" rx="7" fill="#835DFF"/>
+      <rect x="419" y="318" width="57" height="112" rx="8" fill="#BAAEFF"/>
+      <rect x="419" y="557" width="57" height="18" rx="6" fill="#22222A"/>
+      <rect x="419" y="579" width="57" height="6" rx="3" fill="#464653"/>
+      <rect x="419" y="587" width="57" height="174" rx="8" fill="#858593"/>
+      <!-- Mar -->
+      <rect x="1048" y="441" width="57" height="105" rx="7" fill="#5B0FE6"/>
+      <rect x="1048" y="412" width="57" height="26" rx="7" fill="#835DFF"/>
+      <rect x="1048" y="226" width="57" height="183" rx="8" fill="#BAAEFF"/>
+      <rect x="1048" y="557" width="57" height="14" rx="6" fill="#22222A"/>
+      <rect x="1048" y="574" width="57" height="23" rx="6" fill="#464653"/>
+      <rect x="1048" y="600" width="57" height="80" rx="8" fill="#858593"/>
+      <!-- Apr -->
+      <rect x="1679" y="416" width="57" height="130" rx="7" fill="#5B0FE6"/>
+      <rect x="1679" y="396" width="57" height="17" rx="6" fill="#835DFF"/>
+      <rect x="1679" y="239" width="57" height="154" rx="8" fill="#BAAEFF"/>
+    </g>
+    <g font-size="22" fill="#A5A3AD">
+      <text x="431" y="871">Feb</text>
+      <text x="1060" y="871">Mar</text>
+      <text x="1692" y="871">Apr</text>
+    </g>
+  </g>
+</svg>

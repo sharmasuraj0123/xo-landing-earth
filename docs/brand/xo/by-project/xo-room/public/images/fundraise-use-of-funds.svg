@@ -1,0 +1,82 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">XO use of funds by current operating categories</title>
+  <desc id="desc">A visual allocation of XO's June-November gross modeled spend across payroll, operations for onboarding and support, infrastructure, AI subscriptions and credits, and marketing and growth. Payroll is 160K, operations is 60K, infrastructure is 180K, AI subscriptions and credits is 180K, marketing and growth is 260K, gross modeled spend is 840K, partner offsets reduce 360K, net modeled cash spend is 480K, and a separate AI model token grant pool adds 200K of extra partner capacity.</desc>
+  <rect width="1600" height="980" rx="8" fill="#141418"/>
+  <rect x="1" y="1" width="1598" height="978" rx="8" stroke="#2B2B35" stroke-width="2"/>
+
+  <text x="80" y="92" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="760">Use of funds</text>
+  <text x="80" y="137" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="24">Current June-November operating model using the same categories as the monthly budget.</text>
+
+  <rect x="80" y="184" width="1440" height="124" rx="8" fill="#1D1D25"/>
+  <text x="116" y="236" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">GROSS MODELED SPEND</text>
+  <text x="116" y="278" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="820">$840K</text>
+  <text x="486" y="236" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">PARTNER OFFSET</text>
+  <text x="486" y="278" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="820">-$360K</text>
+  <text x="824" y="236" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">NET MODELED CASH</text>
+  <text x="824" y="278" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="820">$480K</text>
+  <text x="1190" y="236" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">ROUND</text>
+  <text x="1190" y="278" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="820">$500K SAFE</text>
+
+  <text x="80" y="376" fill="#EDEBFF" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="740">Gross spend by category</text>
+  <text x="80" y="412" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="19">Support stays fixed after payroll; Infra and AI can be covered by partner grants, credits, and model-token grants.</text>
+
+  <rect x="80" y="452" width="1440" height="88" rx="8" fill="#20202A"/>
+  <path d="M88 452H354V540H88C83.582 540 80 536.418 80 532V460C80 455.582 83.582 452 88 452Z" fill="#7C3AED"/>
+  <rect x="354" y="452" width="103" height="88" fill="#EC4899"/>
+  <rect x="457" y="452" width="309" height="88" fill="#0EA5E9"/>
+  <rect x="766" y="452" width="309" height="88" fill="#F59E0B"/>
+  <path d="M1075 452H1512C1516.42 452 1520 455.582 1520 460V532C1520 536.418 1516.42 540 1512 540H1075V452Z" fill="#16A34A"/>
+
+  <text x="104" y="488" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Payroll</text>
+  <text x="104" y="517" fill="#EDEBFF" font-family="Inter, Arial, sans-serif" font-size="18">$160K</text>
+  <text x="366" y="488" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Support</text>
+  <text x="366" y="517" fill="#FCE7F3" font-family="Inter, Arial, sans-serif" font-size="17">$60K</text>
+  <text x="482" y="488" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Infrastructure</text>
+  <text x="482" y="517" fill="#EAF8FF" font-family="Inter, Arial, sans-serif" font-size="18">$180K</text>
+  <text x="792" y="488" fill="#1F1300" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="850">AI Subs</text>
+  <text x="792" y="517" fill="#1F1300" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="740">$180K</text>
+  <text x="1102" y="488" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Marketing &amp; Growth</text>
+  <text x="1102" y="517" fill="#EFFFF4" font-family="Inter, Arial, sans-serif" font-size="18">$260K</text>
+
+  <g>
+    <rect x="80" y="600" width="432" height="118" rx="8" fill="#1D1D25" stroke="#33275C"/>
+    <rect x="104" y="626" width="14" height="66" rx="7" fill="#7C3AED"/>
+    <text x="140" y="641" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">Payroll</text>
+    <text x="140" y="676" fill="#CFC6FF" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="850">$160K</text>
+    <text x="140" y="704" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="17">Lean team execution across product, infra, GTM, support</text>
+  </g>
+
+  <g>
+    <rect x="584" y="600" width="432" height="118" rx="8" fill="#1D1D25" stroke="#5B2140"/>
+    <rect x="608" y="626" width="14" height="66" rx="7" fill="#EC4899"/>
+    <text x="644" y="641" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">Support &amp; Onboarding</text>
+    <text x="644" y="676" fill="#FBCFE8" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="850">$60K</text>
+    <text x="644" y="704" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="17">Constant support, docs, templates, activation</text>
+  </g>
+
+  <g>
+    <rect x="1088" y="600" width="432" height="118" rx="8" fill="#1D1D25" stroke="#20506B"/>
+    <rect x="1112" y="626" width="14" height="66" rx="7" fill="#0EA5E9"/>
+    <text x="1148" y="641" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">Infrastructure</text>
+    <text x="1148" y="676" fill="#BAE6FD" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="850">$180K gross</text>
+    <text x="1148" y="704" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="17">$0 cash if partner grants cover modeled infra</text>
+  </g>
+
+  <g>
+    <rect x="80" y="762" width="696" height="118" rx="8" fill="#1D1D25" stroke="#5B4215"/>
+    <rect x="104" y="788" width="14" height="66" rx="7" fill="#F59E0B"/>
+    <text x="140" y="803" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">AI Subscriptions &amp; Credits</text>
+    <text x="140" y="838" fill="#FDE68A" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="850">$180K gross</text>
+    <text x="140" y="866" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="17">$0 cash if AI credits cover modeled usage; token grants add headroom</text>
+  </g>
+
+  <g>
+    <rect x="824" y="762" width="696" height="118" rx="8" fill="#1D1D25" stroke="#244D33"/>
+    <rect x="848" y="788" width="14" height="66" rx="7" fill="#16A34A"/>
+    <text x="884" y="803" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">Marketing &amp; Growth</text>
+    <text x="884" y="838" fill="#BFF7CF" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="850">$260K</text>
+    <text x="884" y="866" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="17">Launches, referrals, OpenClaw growth, GTM experiments</text>
+  </g>
+
+  <text x="80" y="930" fill="#777786" font-family="Inter, Arial, sans-serif" font-size="16">Investor read: $600K partner support is available; $360K applies to the shown model, leaving $240K extra capacity.</text>
+</svg>

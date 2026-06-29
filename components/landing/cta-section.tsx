@@ -51,13 +51,13 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1">
                 <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95]">
-                  Ready to pay
+                  Ready for the future
                   <br />
-                  for work?
+                  of work?
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  Settle on proof. Not on seats.
+                  Settle on outcomes. Not on prompts.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -78,7 +78,7 @@ export function CtaSection() {
                 </div>
 
                 <p className="text-sm text-muted-foreground mt-8 font-mono">
-                  500 free units on XO
+                  15 days free trial
                 </p>
               </div>
 

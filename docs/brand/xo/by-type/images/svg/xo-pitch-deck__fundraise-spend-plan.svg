@@ -1,0 +1,145 @@
+<svg width="1600" height="1080" viewBox="0 0 1600 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">XO month-by-month categorized spend from June to November</title>
+  <desc id="desc">A stacked bar chart showing categorized monthly spend from June through November across payroll, operations for onboarding and support, infrastructure, AI subscriptions and credits, and marketing and growth. Support stays second as the constant category, marketing and growth totals 260K after moving 40K into payroll, gross modeled spend is 840K, 360K can be offset by infrastructure grants and AI credits, and 200K of AI model token grants adds extra partner capacity.</desc>
+  <rect width="1600" height="1080" rx="8" fill="#141418"/>
+  <rect x="1" y="1" width="1598" height="1078" rx="8" stroke="#2B2B35" stroke-width="2"/>
+
+  <text x="80" y="92" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="760">Monthly categorized spend</text>
+  <text x="80" y="137" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="24">Gross ramp is $840K. Partner offsets cover $360K; AI model token grants add $200K of headroom.</text>
+
+  <rect x="80" y="184" width="1440" height="124" rx="8" fill="#1D1D25"/>
+  <text x="116" y="236" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">ROUND</text>
+  <text x="116" y="278" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="820">$500K SAFE</text>
+  <text x="418" y="236" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">SHOWN EXPENSES</text>
+  <text x="418" y="278" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="820">$840K</text>
+  <text x="760" y="236" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">PARTNER OFFSET</text>
+  <text x="760" y="278" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="820">-$360K</text>
+  <text x="1208" y="236" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">NET CASH SPEND</text>
+  <text x="1208" y="278" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="820">$480K</text>
+
+  <g>
+    <circle cx="92" cy="360" r="8" fill="#7C3AED"/>
+    <text x="110" y="367" fill="#D9D5FF" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="680">Payroll</text>
+    <circle cx="220" cy="360" r="8" fill="#EC4899"/>
+    <text x="238" y="367" fill="#FBCFE8" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="680">Support / Onboarding</text>
+    <circle cx="478" cy="360" r="8" fill="#0EA5E9"/>
+    <text x="496" y="367" fill="#C6EEFF" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="680">Infra</text>
+    <circle cx="588" cy="360" r="8" fill="#F59E0B"/>
+    <text x="606" y="367" fill="#FDE68A" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="680">AI Subscriptions &amp; Credits</text>
+    <circle cx="892" cy="360" r="8" fill="#16A34A"/>
+    <text x="910" y="367" fill="#C7F9D4" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="680">Marketing &amp; Growth</text>
+  </g>
+
+  <line x1="232" y1="424" x2="1332" y2="424" stroke="#343441" stroke-width="2" stroke-dasharray="4 8"/>
+  <line x1="232" y1="424" x2="232" y2="1018" stroke="#343441" stroke-width="2"/>
+  <line x1="232" y1="1018" x2="1332" y2="1018" stroke="#A1A1AA" stroke-width="3"/>
+  <text x="232" y="405" fill="#777786" font-family="Inter, Arial, sans-serif" font-size="16">0</text>
+  <text x="520" y="405" fill="#777786" font-family="Inter, Arial, sans-serif" font-size="16">$50K</text>
+  <text x="820" y="405" fill="#777786" font-family="Inter, Arial, sans-serif" font-size="16">$100K</text>
+  <text x="1120" y="405" fill="#777786" font-family="Inter, Arial, sans-serif" font-size="16">$150K</text>
+  <text x="1420" y="405" fill="#777786" font-family="Inter, Arial, sans-serif" font-size="16">$200K</text>
+
+  <line x1="532" y1="424" x2="532" y2="1018" stroke="#2A2A33" stroke-width="2" stroke-dasharray="4 8"/>
+  <line x1="832" y1="424" x2="832" y2="1018" stroke="#2A2A33" stroke-width="2" stroke-dasharray="4 8"/>
+  <line x1="1132" y1="424" x2="1132" y2="1018" stroke="#2A2A33" stroke-width="2" stroke-dasharray="4 8"/>
+  <line x1="1432" y1="424" x2="1432" y2="1018" stroke="#2A2A33" stroke-width="2" stroke-dasharray="4 8"/>
+
+  <text x="80" y="476" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="780">June</text>
+  <text x="80" y="508" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="20">$100K shown</text>
+  <text x="80" y="574" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="780">July</text>
+  <text x="80" y="606" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="20">$91K shown</text>
+  <text x="80" y="672" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="780">August</text>
+  <text x="80" y="704" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="20">$117K shown</text>
+  <text x="80" y="770" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="780">September</text>
+  <text x="80" y="802" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="20">$148K shown</text>
+  <text x="80" y="868" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="780">October</text>
+  <text x="80" y="900" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="20">$179K shown</text>
+  <text x="80" y="966" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="780">November</text>
+  <text x="80" y="998" fill="#A7A7B5" font-family="Inter, Arial, sans-serif" font-size="20">$205K shown</text>
+
+  <g aria-label="June stacked spend">
+    <rect x="232" y="440" width="120" height="52" rx="8" fill="#7C3AED"/>
+    <rect x="352" y="440" width="60" height="52" fill="#EC4899"/>
+    <rect x="412" y="440" width="60" height="52" fill="#0EA5E9"/>
+    <rect x="472" y="440" width="60" height="52" fill="#F59E0B"/>
+    <path d="M532 440H832C836.418 440 840 443.582 840 448V484C840 488.418 836.418 492 832 492H532V440Z" fill="#16A34A"/>
+    <text x="248" y="473" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$20K</text>
+    <text x="364" y="473" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$10K</text>
+    <text x="424" y="473" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$10K</text>
+    <text x="484" y="473" fill="#1F1300" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="820">$10K</text>
+    <text x="655" y="473" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$50K</text>
+    <text x="864" y="473" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="820">$100K</text>
+  </g>
+
+  <g aria-label="July stacked spend">
+    <rect x="232" y="538" width="120" height="52" rx="8" fill="#7C3AED"/>
+    <rect x="352" y="538" width="60" height="52" fill="#EC4899"/>
+    <rect x="412" y="538" width="108" height="52" fill="#0EA5E9"/>
+    <rect x="520" y="538" width="108" height="52" fill="#F59E0B"/>
+    <path d="M628 538H778C782.418 538 786 541.582 786 546V582C786 586.418 782.418 590 778 590H628V538Z" fill="#16A34A"/>
+    <text x="248" y="571" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$20K</text>
+    <text x="364" y="571" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$10K</text>
+    <text x="444" y="571" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$18K</text>
+    <text x="552" y="571" fill="#1F1300" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="820">$18K</text>
+    <text x="678" y="571" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$25K</text>
+    <text x="810" y="571" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="820">$91K</text>
+  </g>
+
+  <g aria-label="August stacked spend">
+    <rect x="232" y="636" width="180" height="52" rx="8" fill="#7C3AED"/>
+    <rect x="412" y="636" width="60" height="52" fill="#EC4899"/>
+    <rect x="472" y="636" width="156" height="52" fill="#0EA5E9"/>
+    <rect x="628" y="636" width="156" height="52" fill="#F59E0B"/>
+    <path d="M784 636H934C938.418 636 942 639.582 942 644V680C942 684.418 938.418 688 934 688H784V636Z" fill="#16A34A"/>
+    <text x="248" y="669" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$30K</text>
+    <text x="424" y="669" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$10K</text>
+    <text x="524" y="669" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$26K</text>
+    <text x="680" y="669" fill="#1F1300" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="820">$26K</text>
+    <text x="828" y="669" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$25K</text>
+    <text x="966" y="669" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="820">$117K</text>
+  </g>
+
+  <g aria-label="September stacked spend">
+    <rect x="232" y="734" width="180" height="52" rx="8" fill="#7C3AED"/>
+    <rect x="412" y="734" width="60" height="52" fill="#EC4899"/>
+    <rect x="472" y="734" width="204" height="52" fill="#0EA5E9"/>
+    <rect x="676" y="734" width="204" height="52" fill="#F59E0B"/>
+    <path d="M880 734H1120C1124.42 734 1128 737.582 1128 742V778C1128 782.418 1124.42 786 1120 786H880V734Z" fill="#16A34A"/>
+    <text x="248" y="767" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$30K</text>
+    <text x="424" y="767" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$10K</text>
+    <text x="548" y="767" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$34K</text>
+    <text x="746" y="767" fill="#1F1300" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="820">$34K</text>
+    <text x="978" y="767" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$40K</text>
+    <text x="1152" y="767" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="820">$148K</text>
+  </g>
+
+  <g aria-label="October stacked spend">
+    <rect x="232" y="832" width="180" height="52" rx="8" fill="#7C3AED"/>
+    <rect x="412" y="832" width="60" height="52" fill="#EC4899"/>
+    <rect x="472" y="832" width="252" height="52" fill="#0EA5E9"/>
+    <rect x="724" y="832" width="252" height="52" fill="#F59E0B"/>
+    <path d="M976 832H1306C1310.42 832 1314 835.582 1314 840V876C1314 880.418 1310.42 884 1306 884H976V832Z" fill="#16A34A"/>
+    <text x="248" y="865" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$30K</text>
+    <text x="424" y="865" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$10K</text>
+    <text x="576" y="865" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$42K</text>
+    <text x="828" y="865" fill="#1F1300" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="820">$42K</text>
+    <text x="1112" y="865" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$55K</text>
+    <text x="1338" y="865" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="820">$179K</text>
+  </g>
+
+  <g aria-label="November stacked spend">
+    <rect x="232" y="930" width="180" height="52" rx="8" fill="#7C3AED"/>
+    <rect x="412" y="930" width="60" height="52" fill="#EC4899"/>
+    <rect x="472" y="930" width="300" height="52" fill="#0EA5E9"/>
+    <rect x="772" y="930" width="300" height="52" fill="#F59E0B"/>
+    <path d="M1072 930H1462C1466.42 930 1470 933.582 1470 938V974C1470 978.418 1466.42 982 1462 982H1072V930Z" fill="#16A34A"/>
+    <text x="248" y="963" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$30K</text>
+    <text x="424" y="963" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$10K</text>
+    <text x="592" y="963" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$50K</text>
+    <text x="892" y="963" fill="#1F1300" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="820">$50K</text>
+    <text x="1222" y="963" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="760">$65K</text>
+    <text x="1488" y="963" fill="#F5F3FF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="820">$205K</text>
+  </g>
+
+  <text x="232" y="1046" fill="#777786" font-family="Inter, Arial, sans-serif" font-size="17">Note: $200K infra grants and $200K AI credits cover $360K shown; $200K AI model token grants add extra token capacity.</text>
+</svg>

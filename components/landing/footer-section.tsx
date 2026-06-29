@@ -31,9 +31,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "Twitter", href: "#" },
-  { name: "GitHub", href: "#" },
-  { name: "LinkedIn", href: "#" },
+  { name: "Twitter", href: "https://x.com/xo_builders" },
+  { name: "GitHub", href: "https://github.com/sharmasuraj0123" },
+  { name: "LinkedIn", href: "https://linkedin.com/company/xo-builders" },
 ];
 
 function AnimatedWaveCanvas() {
@@ -122,9 +122,8 @@ export function FooterSection() {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="col-span-2">
-              <a href="#" className="inline-flex items-center gap-2.5 mb-6">
+              <a href="#" className="inline-flex items-center mb-6">
                 <BrandLogo variant="dark" className="h-8 w-8" />
-                <span className="text-2xl font-display text-white">XO</span>
               </a>
 
               <p className="text-white/50 leading-relaxed mb-8 max-w-xs text-sm">
@@ -173,17 +172,10 @@ export function FooterSection() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="py-8 border-t border-white/10">
           <p className="text-sm text-white/30">
-            &copy; 2025 XO. All rights reserved.
+            &copy; 2026 XO. All rights reserved.
           </p>
-
-          <div className="flex items-center gap-4 text-sm text-white/30">
-            <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#eca8d6]" />
-              All settlements operational
-            </span>
-          </div>
         </div>
       </div>
     </footer>
