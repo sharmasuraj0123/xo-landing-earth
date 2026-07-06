@@ -21,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'XO - Hire the Skill, Not the Hours',
-  description: 'The unit of work for AI agents. Hire the skill, not the hours.',
+  title: 'XO - Workspaces for AI Agents',
+  description: 'The environment where your agents do real work, and you see exactly what that work costs and delivers.',
   generator: 'v0.app',
   icons: {
     icon: [

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { DnaVisualization } from "@/components/landing/dna-visualization";
 
 export function CtaSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -51,13 +52,13 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1">
                 <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95]">
-                  Ready for the future
+                  Give your work
                   <br />
-                  of work?
+                  <span className="text-[#83d63a]">DNA.</span>
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  Settle on outcomes. Not on prompts.
+                  Each project deserves its own conditions, so each gets its own environment. The work it produces carries its DNA: memory, records, and a sharper definition of done, compounding run after run.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -78,17 +79,13 @@ export function CtaSection() {
                 </div>
 
                 <p className="text-sm text-muted-foreground mt-8 font-mono">
-                  15 days free trial
+                  14-day free trial
                 </p>
               </div>
 
-              {/* Right image */}
-              <div className="hidden lg:flex items-end justify-center w-[600px] h-[650px] -mr-16">
-                <img
-                  src="/images/bridge.png"
-                  alt="Two trees connected by glowing arcs"
-                  className="w-full h-full object-contain object-bottom"
-                />
+              {/* Right visual: rotating DNA helix */}
+              <div className="hidden lg:block relative w-[600px] h-[650px] -mr-16">
+                <DnaVisualization />
               </div>
             </div>
           </div>

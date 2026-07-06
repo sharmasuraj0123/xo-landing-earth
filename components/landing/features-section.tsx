@@ -5,27 +5,27 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     number: "01",
-    title: "Runtime",
-    description: "A live execution context. The agent runs here, reads files, calls tools, and persists state between steps.",
-    stats: { value: "1", label: "environment per unit of work" },
+    title: "A place to act",
+    description: "A desk, not a chat window. Any agent runs here.",
+    stats: { value: "1", label: "environment per agent" },
   },
   {
     number: "02",
-    title: "Memory",
-    description: "Context that survives the session. The environment remembers what the agent did, what it cost, and what came next.",
+    title: "Memory that compounds",
+    description: "Every job makes the next one smarter and cheaper.",
     stats: { value: "0", label: "context lost between runs" },
   },
   {
     number: "03",
-    title: "Tools",
-    description: "Every integration wired in at start. Linear, GitHub, Slack, your APIs — all available to the agent inside the environment.",
-    stats: { value: "12+", label: "integrations via MCP" },
+    title: "Tools to reach your systems",
+    description: "Linear, GitHub, Slack, your APIs. Wired in from the first second.",
+    stats: { value: "19+", label: "integrations via MCP" },
   },
   {
     number: "04",
-    title: "Measurement",
-    description: "Token spend, time, cost per outcome. The environment tracks it all so you can compare agents, models, and runs.",
-    stats: { value: "100%", label: "observable spend" },
+    title: "A record it can't fake",
+    description: "Before, after, and every action in between. The agent never grades its own homework.",
+    stats: { value: "100%", label: "of actions recorded as they happen" },
   },
 ];
 
@@ -165,16 +165,14 @@ export function FeaturesSection() {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                More than
-                <br />
-                <span className="text-muted-foreground">Memory.</span>
+                More than a <span className="text-[#83d63a]">runtime.</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-4">
               <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}>
-                An XO environment is where agents do real work: runtime, memory, tools, and a full record of everything it did and what it cost. Runs on XO, locally, or on GCP or any cloud.
+                An environment is a runtime plus memory, tools, and the record. It snapshots the state before and after, and meters every token in between. That is how AI work becomes something you can quantify.
               </p>
             </div>
           </div>

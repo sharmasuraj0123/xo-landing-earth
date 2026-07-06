@@ -3,17 +3,17 @@
 import { useEffect, useState, useRef } from "react";
 
 const hosts = [
-  { name: "XO Platform", detail: "managed, always-on", status: "operational" },
-  { name: "Local machine", detail: "dev and test", status: "operational" },
-  { name: "Google Cloud", detail: "GCP — US or India", status: "operational" },
-  { name: "Any cloud", detail: "AWS, Azure, Docker", status: "operational" },
+  { name: "Cowork", detail: "your everyday coworker", status: "ready" },
+  { name: "OpenClaw", detail: "agents on your channels", status: "ready" },
+  { name: "Hermes", detail: "your fast responder", status: "ready" },
+  { name: "Claude Code", detail: "the coding agent", status: "ready" },
 ];
 
 const PROVIDERS = [
-  { name: "XO Platform",   color: "#83d63a" },
-  { name: "Local machine", color: "rgba(255,255,255,0.85)" },
-  { name: "Google Cloud",  color: "#4285F4" },
-  { name: "Any cloud",     color: "#FF9900" },
+  { name: "Cowork",      color: "#83d63a" },
+  { name: "OpenClaw",    color: "rgba(255,255,255,0.85)" },
+  { name: "Hermes",      color: "#4285F4" },
+  { name: "Claude Code", color: "#FF9900" },
 ];
 
 // 20 dots (5 cols × 4 rows), each assigned a provider index 0-3
@@ -66,7 +66,7 @@ export function InfrastructureSection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <span className="w-12 h-px bg-foreground/20" />
-            One image, any host
+            Agents, separate from the work
           </span>
 
           <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-stretch">
@@ -86,15 +86,15 @@ export function InfrastructureSection() {
               <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}>
-                Run it
+                The agent is
                 <br />
-                <span className="text-muted-foreground">anywhere.</span>
+                <span className="text-muted-foreground">not the work.</span>
               </h2>
 
               <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg transition-all duration-1000 delay-100 ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}>
-                XO Project is lightweight script that can connect to any device and allow you to collaborate . Same workspace on your laptop, on XO Platform, on Google Cloud, or any Docker host. The trust boundary follows wherever you run it.
+                On XO Platform, agents and projects are separate. Set up an agent once: model, data, secrets. Then point it at any project, or put several agents on the same one. The work stays in the project: tracked, shared, yours.
               </p>
             </div>
           </div>
@@ -147,7 +147,7 @@ export function InfrastructureSection() {
               </svg>
             </div>
 
-            {/* Interactive dots — above animation layer, below tooltip */}
+            {/* Interactive dots - above animation layer, below tooltip */}
             {[...Array(20)].map((_, i) => {
               const xPct = 10 + (i % 5) * 20;
               const yPct = 10 + Math.floor(i / 5) * 25;
@@ -176,7 +176,7 @@ export function InfrastructureSection() {
               );
             })}
 
-            {/* Tooltip — rendered in card coordinate space, outside overflow-hidden */}
+            {/* Tooltip - rendered in card coordinate space, outside overflow-hidden */}
             {activeDot && (() => {
               const above = activeDot.yPct > 20;
               const provider = PROVIDERS[activeDot.providerIdx];
@@ -223,10 +223,10 @@ export function InfrastructureSection() {
             <div className="relative z-10 p-8 lg:p-12">
               <div className="flex items-baseline gap-2 mb-4">
                 <span className="text-8xl lg:text-[10rem] font-display leading-none">1</span>
-                <span className="text-2xl text-muted-foreground">image, any host</span>
+                <span className="text-2xl text-muted-foreground">agent, many projects</span>
               </div>
               <p className="text-muted-foreground max-w-md">
-                Build once. The workspace runs the same way everywhere: local dev, XO Platform, Google Cloud, or raw Docker.
+                Set up an agent once, reuse it on every project that needs it. The record of the work stays with the project, not the agent.
               </p>
             </div>
           </div>
@@ -236,15 +236,15 @@ export function InfrastructureSection() {
             <div className={`p-8 border border-foreground/10 bg-foreground/[0.02] transition-all duration-700 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              <span className="text-5xl lg:text-6xl font-display">99.99%</span>
-              <span className="block text-sm text-muted-foreground mt-2">Workspace uptime</span>
+              <span className="text-5xl lg:text-6xl font-display">3</span>
+              <span className="block text-sm text-muted-foreground mt-2">Steps to set up an agent: model, data, secrets</span>
             </div>
 
             <div className={`p-8 border border-foreground/10 bg-foreground/[0.02] transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              <span className="text-5xl lg:text-6xl font-display">&lt;50ms</span>
-              <span className="block text-sm text-muted-foreground mt-2">Workspace connect time</span>
+              <span className="text-5xl lg:text-6xl font-display">&infin;</span>
+              <span className="block text-sm text-muted-foreground mt-2">Agents on one project</span>
             </div>
           </div>
         </div>

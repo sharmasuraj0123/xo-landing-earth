@@ -6,7 +6,7 @@ import { BrandLogo } from "@/components/brand-logo";
 
 const footerLinks = {
   Product: [
-    { name: "Unit of work", href: "#features" },
+    { name: "The environment", href: "#features" },
     { name: "How it works", href: "#how-it-works" },
     { name: "Pricing", href: "#pricing" },
     { name: "Integrations", href: "#integrations" },
@@ -115,7 +115,7 @@ export function FooterSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
 
-      {/* Footer content — black background, white text */}
+      {/* Footer content - black background, white text */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Main Footer */}
         <div className="py-16 lg:py-20">
@@ -127,7 +127,7 @@ export function FooterSection() {
               </a>
 
               <p className="text-white/50 leading-relaxed mb-8 max-w-xs text-sm">
-                Hire the skill, not the hours.
+                Workspaces for AI agents.
               </p>
 
               {/* Social Links */}

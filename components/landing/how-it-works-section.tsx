@@ -7,36 +7,34 @@ const steps = [
     number: "01",
     title: "Create",
     subtitle: "a project",
-    description: "Define the project and its purpose. Any business owner can do it — no engineering required.",
+    description: "Pick a template: Cowork, OpenClaw, Hermes, or Claude Code. Your agent gets its own workspace, an ID, and a status the moment it exists.",
     code: `xo.create({
-  name: 'Q3 Pricing Analysis',
-  purpose: 'Understand where we lose deals on price',
-  owner:   'sarah@company.com',
-})`,
+  template: 'claude-code',  // cowork | openclaw | hermes
+  name:     'gcpt-e',
+})
+// -> project f6cf3515 · Ready`,
   },
   {
     number: "02",
-    title: "Execute",
-    subtitle: "with your team",
-    description: "Set up agents, humans, tools, and fleets. They work together inside a single shared workspace.",
+    title: "Setup",
+    subtitle: "the checklist",
+    description: "Three steps to bring the agent online: connect a model, sync your data, add secrets. The checklist takes it from created to ready.",
     code: `project.setup({
-  agents: ['researcher', 'analyst'],
-  humans: ['alice@company.com'],
-  tools:  ['linear', 'slack', 'browser'],
-  fleet:  'xo-platform',
+  model:   'claude',           // model connected
+  data:    ['knowledge/'],     // data synced
+  secrets: ['LINEAR_API_KEY'], // secrets added
 })`,
   },
   {
     number: "03",
     title: "Share",
-    subtitle: "or connect",
-    description: "Share the work so any human or agent can take over. Or connect directly to a project already running.",
-    code: `// share with anyone
-project.share({ with: 'bob@company.com' })
-project.share({ with: 'agent:claude-opus-4' })
+    subtitle: "and measure",
+    description: "Share the project with anyone by email. Then watch the work land: messages, sessions, cost, and latency, per project.",
+    code: `project.share({ with: 'bob@company.com' })
 
-// or join an existing one
-xo.connect({ project: 'pricing-analysis-q3' })`,
+// then measure what it delivers
+project.usage()
+// -> cost · tokens · messages · latency`,
   },
 ];
 
@@ -73,7 +71,7 @@ export function HowItWorksSection() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/[0.02] blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Header — titre + image cerisier */}
+        {/* Header - titre + image cerisier */}
         <div className="relative mb-0 lg:mb-0 grid lg:grid-cols-2 gap-4 lg:gap-12 items-end">
           {/* Titre colonne gauche */}
           <div className="overflow-hidden pb-0 lg:pb-32">
@@ -88,7 +86,7 @@ export function HowItWorksSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
             }`}>
               <span className="block">Create.</span>
-              <span className="block text-white/30">Execute.</span>
+              <span className="block text-white/30">Setup.</span>
               <span className="block text-white/10">Share.</span>
 
             </h2>
@@ -100,14 +98,14 @@ export function HowItWorksSection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              {/* Left half — mirrored reflection */}
+              {/* Left half - mirrored reflection */}
               <img
                 src="/images/bridge-vertical-mirror.png"
                 alt=""
                 aria-hidden="true"
                 className="h-full w-1/2 object-contain object-right"
               />
-              {/* Right half — normal */}
+              {/* Right half - normal */}
               <img
                 src="/images/bridge-vertical.png"
                 alt="Organic bridge mirrored into a circle"

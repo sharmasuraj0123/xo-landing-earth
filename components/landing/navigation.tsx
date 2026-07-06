@@ -6,9 +6,9 @@ import { BrandLogo } from "@/components/brand-logo";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Thesis", href: "#features"      },
+  { name: "Environment", href: "#features"      },
   { name: "Process",       href: "#how-it-works"  },
-  { name: "Environments", href: "#infra"          },
+  { name: "Agents", href: "#infra"          },
   { name: "Integrations",  href: "#integrations"  },
   { name: "Security",      href: "#security"      },
 ];
@@ -68,15 +68,29 @@ export function Navigation() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <a href="#" className={`transition-all duration-500 ${isScrolled ? "text-xs text-foreground/70 hover:text-foreground" : "text-sm text-white/70 hover:text-white"}`}>
-              Sign in
-            </a>
+          <div className="hidden md:flex items-center gap-3">
             <Button
+              asChild
+              variant="outline"
               size="sm"
-              className={`rounded-full transition-all duration-500 ${isScrolled ? "bg-foreground hover:bg-foreground/90 text-background px-4 h-8 text-xs" : "bg-white hover:bg-white/90 text-black px-6"}`}
+              className={`rounded-full transition-all duration-500 ${
+                isScrolled
+                  ? "border-foreground/20 text-foreground hover:bg-foreground/5 h-8 px-4 text-xs"
+                  : "border-white/30 text-white hover:bg-white/10 bg-transparent h-9 px-5"
+              }`}
             >
-              Start a unit
+              <a href="https://docs.xo.builders" target="_blank" rel="noopener noreferrer">Learn More</a>
+            </Button>
+            <Button
+              asChild
+              size="sm"
+              className={`rounded-full transition-all duration-500 ${
+                isScrolled
+                  ? "bg-foreground hover:bg-foreground/90 text-background px-4 h-8 text-xs"
+                  : "bg-white hover:bg-white/90 text-black px-6 h-9"
+              }`}
+            >
+              <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer">Try Now</a>
             </Button>
           </div>
 
@@ -126,25 +140,39 @@ export function Navigation() {
           </div>
           
           {/* Bottom CTAs */}
-          <div className={`flex gap-4 pt-8 border-t border-foreground/10 transition-all duration-500 ${
+          <div className={`flex flex-col sm:flex-row gap-3 pt-8 border-t border-foreground/10 transition-all duration-500 ${
             isMobileMenuOpen 
               ? "opacity-100 translate-y-0" 
               : "opacity-0 translate-y-4"
           }`}
           style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
-            <Button 
-              variant="outline" 
+            <Button
+              asChild
+              variant="outline"
               className="flex-1 rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
             >
-              Sign in
+              <a
+                href="https://docs.xo.builders"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Learn More
+              </a>
             </Button>
-            <Button 
+            <Button
+              asChild
               className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
             >
-              Start a unit
+              <a
+                href="https://app.xo.builders"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Try Now
+              </a>
             </Button>
           </div>
         </div>

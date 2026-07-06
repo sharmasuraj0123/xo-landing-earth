@@ -4,21 +4,21 @@ import { useState, useEffect, useRef } from "react";
 import { AsciiScene } from "@/components/landing/ascii-scene";
 
 const features = [
-  { 
-    title: "Define units in code", 
-    description: "Define units in code."
+  {
+    title: "Blank Canvas",
+    description: "Start from scratch or import from GitHub."
   },
-  { 
-    title: "Streaming execution", 
-    description: "Live cost metering as work runs."
+  {
+    title: "Any runtime",
+    description: "OpenClaw, Claude Code, Hermes, or your own."
   },
-  { 
-    title: "Verification hooks", 
-    description: "Snapshot before and after."
+  {
+    title: "Live logs",
+    description: "Watch every run as it happens."
   },
-  { 
-    title: "Local to production", 
-    description: "Same contract, any environment."
+  {
+    title: "Local to production",
+    description: "Same workspace on any host."
   },
 ];
 
@@ -45,7 +45,7 @@ export function DevelopersSection() {
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Header — Full width */}
+        {/* Header - Full width */}
         <div
           className={`mb-16 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -53,23 +53,23 @@ export function DevelopersSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
             <span className="w-8 h-px bg-foreground/30" />
-            Developer SDK
+            For developers
           </span>
           <h2 className="text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9]">
-            Define the work.
+            Bring your repo.
             <br />
-            <span className="text-muted-foreground">Environments settle it.</span>
+            <span className="text-muted-foreground">Or start blank.</span>
           </h2>
         </div>
 
-        {/* Description + Features — left half only */}
+        {/* Description + Features - left half only */}
         <div
           className={`max-w-[50%] transition-all duration-700 delay-100 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-md">
-            An SDK for define, budget, execute, verify, settle.
+            Blank Canvas gives you a full dev workspace: import from GitHub, pick your runtime, watch it run.
           </p>
           <div className="grid grid-cols-2 gap-6">
             {features.map((feature, index) => (

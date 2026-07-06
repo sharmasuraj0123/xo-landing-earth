@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Draft V3 Review: Before / After</title>
+<style>
+  :root { --lime: #83d63a; --bg: #0a0c09; --panel: #12150f; --line: rgba(131,214,58,.18); --dim: rgba(255,255,255,.55); }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: #fff; font: 15px/1.55 "Instrument Sans", system-ui, sans-serif; padding: 40px 24px 80px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 28px; font-weight: 600; letter-spacing: -.02em; }
+  .sub { color: var(--dim); margin: 8px 0 32px; }
+  .cols-head { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 16px; padding: 0 16px 10px; font-family: "JetBrains Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--dim); position: sticky; top: 0; background: var(--bg); padding-top: 10px; }
+  .cols-head .new { color: var(--lime); }
+  .row { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 10px; }
+  .sec { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--lime); }
+  .old { color: var(--dim); }
+  .cell b { display: block; font-weight: 600; margin-bottom: 2px; }
+  .cell small { display: block; color: var(--dim); font-size: 13px; margin-top: 4px; }
+  .old b { color: rgba(255,255,255,.7); }
+  .cut { text-decoration: line-through; opacity: .6; }
+  .flag { display: inline-block; font-family: "JetBrains Mono", monospace; font-size: 10px; color: #ffb347; border: 1px solid rgba(255,179,71,.4); border-radius: 4px; padding: 1px 6px; margin-top: 6px; }
+  @media (max-width: 760px) { .row, .cols-head { grid-template-columns: 1fr; } .cols-head { position: static; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Landing content: V2 → V3 draft</h1>
+  <p class="sub">Anchor: the environment. Voice: plain declarative. Layout untouched, copy only.</p>
+
+  <div class="cols-head"><span>Section</span><span>Current (V2)</span><span class="new">Draft (V3)</span></div>
+
+  <div class="row">
+    <div class="sec">hero</div>
+    <div class="cell old"><b>Quantify agent impact. / Compare agent cost. / Justify your AI spend.</b><small>The environment that shows you what your agents are actually worth.</small></div>
+    <div class="cell"><b>Workspaces for AI agents. / Runtime, memory, tools. One environment. / Build once. Run anywhere.</b><small>The environment where your agents do real work, and keep a record of all of it.</small><span class="flag">stats need real numbers</span></div>
+  </div>
+
+  <div class="row">
+    <div class="sec">features</div>
+    <div class="cell old"><b>More than Memory.</b><small>Runtime · Memory · Tools · Measurement, 12+ integrations</small></div>
+    <div class="cell"><b>More than Memory. (kept)</b><small>Cards tightened, Tools stat aligned to 100+ via MCP</small></div>
+  </div>
+
+  <div class="row">
+    <div class="sec">how-it-works</div>
+    <div class="cell old"><b>Create. Execute. Share.</b><small>Project framing: define project, set up team, share work</small></div>
+    <div class="cell"><b>Create. Execute. Share. (kept)</b><small>Reframed around the environment: spin up, work inside it, hand it off with context intact</small></div>
+  </div>
+
+  <div class="row">
+    <div class="sec">infrastructure</div>
+    <div class="cell old"><b>Run it anywhere.</b><small>"XO Project is lightweight script that can connect to any device and allow you to collaborate ." (grammar)</small></div>
+    <div class="cell"><b>Run it anywhere. (kept)</b><small>"One workspace image. The same environment runs on your laptop, on XO Platform, on Google Cloud, or on any Docker host."</small></div>
+  </div>
+
+  <div class="row">
+    <div class="sec">security</div>
+    <div class="cell old"><b>Verifiable, &amp; Secure.</b><small>"RBAC, budget caps, full record before settlement." + SOC 2 / ISO / HIPAA badges, "0 incidents"</small></div>
+    <div class="cell"><b>Isolated by default.</b><small>"Every environment is sandboxed, encrypted, and fully auditable."</small><span class="flag">badges cut unless verifiable</span></div>
+  </div>
+
+  <div class="row">
+    <div class="sec">developers</div>
+    <div class="cell old"><b>Define the work. Environments settle it.</b><small>"An SDK for define, budget, execute, verify, settle."</small></div>
+    <div class="cell"><b>Define the work. The environment runs it.</b><small>"An SDK to create, execute, and share environments from code."</small></div>
+  </div>
+
+  <div class="row">
+    <div class="sec">pricing</div>
+    <div class="cell old"><b>Pay only for Compute.</b><small>14-day trial (but CTA says 15)</small></div>
+    <div class="cell"><b>Pay only for Compute. (kept)</b><small>Trial fixed to 14 days everywhere</small></div>
+  </div>
+
+  <div class="row">
+    <div class="sec">cta + footer</div>
+    <div class="cell old"><b>Ready for the future of work?</b><small class="cut">Settle on outcomes. Not on prompts. / Hire the skill, not the hours.</small></div>
+    <div class="cell"><b>Ready to put your agents to work?</b><small>"Spin up an environment in under a minute." Footer: "Workspaces for AI agents."</small></div>
+  </div>
+</div>
+</body>
+</html>

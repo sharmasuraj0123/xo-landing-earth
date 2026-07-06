@@ -3,26 +3,26 @@
 import { useEffect, useState, useRef } from "react";
 
 const metrics = [
-  { 
-    value: 12847392, 
-    suffix: "", 
+  {
+    value: 54396,
+    suffix: "",
     prefix: "",
-    label: "Units settled today",
-    sublabel: "across all environments",
+    label: "Tokens metered daily",
+    sublabel: "volume across your projects",
   },
-  { 
-    value: 99, 
-    suffix: ".9%", 
+  {
+    value: 806,
+    suffix: "ms",
     prefix: "",
-    label: "Verification pass rate",
-    sublabel: "definition of done",
+    label: "Latency tracked",
+    sublabel: "min / avg / p95 / max over time",
   },
-  { 
-    value: 42, 
-    suffix: "%", 
-    prefix: "~",
-    label: "Cost reduction",
-    sublabel: "same unit by run 50",
+  {
+    value: 100,
+    suffix: "%",
+    prefix: "",
+    label: "Spend visibility",
+    sublabel: "actual cost per day, per project",
   },
 ];
 
@@ -260,9 +260,9 @@ export function MetricsSection() {
             <h2 className={`text-6xl md:text-7xl lg:text-[140px] font-display tracking-tight leading-[0.95] transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              Real-time
+              Every token,
               <br />
-              <span className="text-muted-foreground">work metrics.</span>
+              <span className="text-muted-foreground">every cent.</span>
             </h2>
           </div>
         </div>
@@ -275,7 +275,7 @@ export function MetricsSection() {
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/real-time-graph-INFmn3u0MlUwvNPynoIhwxtPaPjxM5.png"
             alt=""
             aria-hidden="true"
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover grayscale"
           />
         </div>
 
@@ -329,11 +329,11 @@ export function MetricsSection() {
         <div className={`mt-16 pt-8 border-t border-foreground/10 flex flex-wrap items-center gap-x-12 gap-y-4 text-sm font-mono text-muted-foreground transition-all duration-1000 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          <span>Claude Opus 4</span>
-          <span>Claude Sonnet 4</span>
-          <span>GPT-4o</span>
-          <span>Codex</span>
-          <span className="text-foreground">bring your own model</span>
+          <span>Cowork</span>
+          <span>OpenClaw</span>
+          <span>Hermes</span>
+          <span>Claude Code</span>
+          <span className="text-foreground">every project measured the same way</span>
         </div>
       </div>
     </section>

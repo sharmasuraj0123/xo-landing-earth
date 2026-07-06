@@ -7,7 +7,7 @@ const securityFeatures = [
   {
     icon: Shield,
     title: "Environment isolation",
-    description: "Each unit of work runs in its own sandboxed environment.",
+    description: "Each agent runs in its own sandboxed environment.",
     image: "/images/isolated.jpg",
   },
   {
@@ -30,7 +30,7 @@ const securityFeatures = [
   },
 ];
 
-const certifications = ["SOC 2", "ISO 27001", "HIPAA", "GDPR"];
+const certifications = ["Sandboxed", "Encrypted", "Audited", "RBAC"];
 
 export function SecuritySection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,14 +71,14 @@ export function SecuritySection() {
               alt=""
               className="h-full w-full object-contain object-right grayscale-[0.55] contrast-[1.05] brightness-[0.96]"
             />
-            {/* B&W film tint — light, translucent */}
+            {/* B&W film tint - light, translucent */}
             <div className="absolute inset-0 bg-[#0a0a0a]/8 mix-blend-multiply" />
             <div className="absolute inset-0 bg-white/[0.03] mix-blend-soft-light" />
           </div>
         ))}
       </div>
 
-      {/* Section gradient — strong on the left, apparent fade to images on the right */}
+      {/* Section gradient - strong on the left, apparent fade to images on the right */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -98,21 +98,21 @@ export function SecuritySection() {
             Security
           </span>
           
-          {/* Title — full width */}
+          {/* Title - full width */}
           <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] mb-12 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
-            Verifiable,
+            Isolated
             <br />
-            <span className="text-muted-foreground">& Secure.</span>
+            <span className="text-muted-foreground">by default.</span>
           </h2>
           
-          {/* Description — below title */}
+          {/* Description - below title */}
           <div className={`transition-all duration-1000 delay-100 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              RBAC, budget caps, full record before settlement.
+              Every environment is sandboxed, encrypted, and fully auditable.
             </p>
           </div>
         </div>
@@ -126,8 +126,8 @@ export function SecuritySection() {
             <div className="relative z-10">
               <span className="font-mono text-sm text-muted-foreground">Active protection</span>
               <div className="mt-8">
-                <span className="text-7xl lg:text-8xl font-display">0</span>
-                <span className="block text-muted-foreground mt-2">Security incidents this year</span>
+                <span className="text-7xl lg:text-8xl font-display">100%</span>
+                <span className="block text-muted-foreground mt-2">Of agent actions logged and inspectable</span>
               </div>
             </div>
             

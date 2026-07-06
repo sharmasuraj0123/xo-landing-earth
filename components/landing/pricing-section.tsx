@@ -5,54 +5,81 @@ import { ArrowRight, Check, Zap } from "lucide-react";
 
 const plans = [
   {
+    name: "Free",
+    description: "Start at zero. Researchers get 10 workspaces on us.",
+    price: { monthly: 0, annual: 0 },
+    trial: "Free forever",
+    features: [
+      "1 workspace to start",
+      "10 workspaces if you're doing research",
+      "Unlimited seats, share with anyone",
+      "Full SDK + usage dashboards",
+      "Bring your own model, no markup",
+    ],
+    cta: "Sign up",
+    highlight: false,
+  },
+  {
     name: "Starter",
-    description: "One environment. Try it free for 14 days.",
+    description: "10 workspaces to put agents to work.",
     price: { monthly: 10, annual: 10 },
     trial: "14-day free trial",
     features: [
-      "1 workspace (2 CPU / 8 GB)",
-      "Runs 24/7",
-      "Full agent SDK + tools",
-      "Basic launchpad templates",
+      "10 workspaces",
+      "Unlimited seats, share with anyone",
+      "Core templates: Cowork, OpenClaw, Hermes, Claude Code",
       "Community support",
-      "BYOM — bring your own model",
+      "Bring your own model, no markup",
     ],
-    cta: "Start free trial",
+    cta: "Sign up",
     highlight: false,
   },
   {
     name: "Pro",
-    description: "Three environments for builders who need more.",
+    description: "30 workspaces for teams shipping with agents.",
     price: { monthly: 20, annual: 20 },
     trial: null,
     features: [
-      "3 workspaces (1 Standard + 2 Medium)",
-      "Full launchpad template library",
+      "30 workspaces",
+      "Unlimited seats, share with anyone",
+      "Full template library (n8n, Gaia, and more)",
       "MCP integrations",
-      "Agent spend tracking per run",
+      "Spend tracking per run",
       "Compare agents across environments",
-      "Community support",
-      "BYOM — bring your own model",
     ],
-    cta: "Get started",
+    cta: "Sign up",
     highlight: true,
   },
   {
-    name: "Business",
-    description: "100 environments. White-label. Dedicated VM.",
-    price: { monthly: 500, annual: 500 },
+    name: "Max",
+    description: "500 workspaces. White-label. For fleets.",
+    price: { monthly: 100, annual: 100 },
     trial: null,
     features: [
-      "100 workspaces (Standard or Medium mix)",
-      "Dedicated VM — 24/7",
+      "500 workspaces",
+      "Unlimited seats, share with anyone",
       "White-label",
       "SSO / SAML",
       "Full audit trails per environment",
       "Email + Slack support",
       "Custom templates",
-      "Enterprise: custom allocation + SLA",
     ],
-    cta: "Contact sales",
+    cta: "Sign up",
+    highlight: false,
+  },
+  {
+    name: "Enterprise",
+    description: "Beyond Max: pay as you go, custom pricing.",
+    price: null,
+    trial: null,
+    features: [
+      "Pay as you go",
+      "Unlimited seats, share with anyone",
+      "Custom pricing and allocation",
+      "SLA + dedicated support",
+      "Deploy in your own cloud",
+    ],
+    cta: "Sign up",
     highlight: false,
   },
 ];
@@ -109,7 +136,7 @@ export function PricingSection() {
 
         {/* Pricing cards - Horizontal layout with overlap */}
         <div className="relative">
-          <div className="grid lg:grid-cols-3 gap-4 lg:gap-0">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-0">
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
@@ -130,7 +157,7 @@ export function PricingSection() {
                   </div>
                 )}
 
-                <div className="p-8 lg:p-10">
+                <div className="p-6 lg:p-8">
                   {/* Plan header */}
                   <div className="mb-8 pb-8 border-b border-foreground/10">
                     <span className="font-mono text-xs text-muted-foreground">
@@ -143,10 +170,16 @@ export function PricingSection() {
                   {/* Price */}
                   <div className="mb-8">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-5xl lg:text-6xl font-display">
-                        ${plan.price.monthly}
-                      </span>
-                      <span className="text-muted-foreground text-sm">/month</span>
+                      {plan.price ? (
+                        <>
+                          <span className="text-5xl lg:text-6xl font-display">
+                            ${plan.price.monthly}
+                          </span>
+                          <span className="text-muted-foreground text-sm">/month</span>
+                        </>
+                      ) : (
+                        <span className="text-5xl lg:text-6xl font-display">Custom</span>
+                      )}
                     </div>
                     {plan.trial && (
                       <p className="text-xs text-[#83d63a] mt-2 font-mono">{plan.trial}</p>
@@ -164,7 +197,10 @@ export function PricingSection() {
                   </ul>
 
                   {/* CTA */}
-                  <button
+                  <a
+                    href="https://app.xo.builders"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
                       plan.highlight
                         ? "bg-foreground text-background hover:bg-foreground/90"
@@ -173,7 +209,7 @@ export function PricingSection() {
                   >
                     {plan.cta}
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -187,15 +223,15 @@ export function PricingSection() {
           <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#83d63a]" />
-              Per-workspace billing — active only
+              Per-workspace billing, active only
             </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#83d63a]" />
-              BYOM — no model markup
+              Bring your own model, no markup
             </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#83d63a]" />
-              Overage at $20/ws — Standard $40/ws
+              Unlimited seats: priced per workspace, never per person
             </span>
           </div>
           <a

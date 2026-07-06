@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XO Landing: Current Content Preview</title>
+<style>
+  :root { --lime: #83d63a; --bg: #08090a; --dim: rgba(255,255,255,.55); --dim2: rgba(255,255,255,.35); --line: rgba(255,255,255,.1); }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: #fff; font: 16px/1.6 "Instrument Sans", system-ui, sans-serif; }
+  .section { max-width: 1100px; margin: 0 auto; padding: 72px 32px; border-bottom: 1px solid var(--line); }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .1em; color: var(--dim); display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .eyebrow::before { content: ""; width: 40px; height: 1px; background: rgba(255,255,255,.3); }
+  h1, h2 { font-weight: 500; letter-spacing: -.03em; line-height: .95; }
+  h1 { font-size: clamp(48px, 8vw, 96px); }
+  h2 { font-size: clamp(36px, 6vw, 72px); }
+  .muted { color: var(--dim2); }
+  .lime { color: var(--lime); }
+  .sub { font-size: 20px; color: var(--dim); max-width: 620px; margin-top: 24px; }
+  .stats { display: flex; gap: 56px; margin-top: 48px; flex-wrap: wrap; }
+  .stats .v { font-size: 34px; font-weight: 500; display: block; }
+  .stats .l { font-size: 12px; color: var(--dim); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
+  .card { border: 1px solid var(--line); padding: 24px; background: rgba(255,255,255,.02); }
+  .card .n { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--dim2); }
+  .card h3 { font-size: 20px; margin: 8px 0; font-weight: 500; }
+  .card p { font-size: 14px; color: var(--dim); }
+  .card .cs { display: block; margin-top: 16px; font-size: 24px; }
+  .card .cl { font-size: 11px; font-family: "JetBrains Mono", monospace; color: var(--dim2); }
+  .tag { display: inline-block; border: 1px solid var(--line); font-family: "JetBrains Mono", monospace; font-size: 11px; padding: 3px 10px; margin: 4px 6px 0 0; color: var(--dim); }
+  .btn { display: inline-block; border-radius: 999px; padding: 12px 28px; font-size: 14px; text-decoration: none; margin-right: 12px; margin-top: 32px; }
+  .btn.w { background: #fff; color: #000; }
+  .btn.o { border: 1px solid rgba(255,255,255,.3); color: #fff; }
+  .note { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--dim); margin-top: 20px; }
+  code { font-family: "JetBrains Mono", monospace; font-size: 12px; color: rgba(255,255,255,.7); display: block; white-space: pre; background: #000; border: 1px solid var(--line); padding: 14px; margin-top: 14px; overflow-x: auto; }
+  .marquee-wrap { position: relative; overflow: hidden; }
+  .marquee { display: flex; gap: 72px; white-space: nowrap; width: max-content; animation: mq 26s linear infinite; align-items: center; }
+  .marquee span { color: rgba(255,255,255,.4); font-size: 22px; letter-spacing: -.02em; }
+  @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+</style>
+</head>
+<body>
+
+<!-- 0 · Navigation -->
+<div class="section" style="padding:20px 32px;display:flex;gap:28px;align-items:center;font-size:14px">
+  <span class="lime" style="font-weight:700">XO</span>
+  <span class="muted">Environment · Process · Agents · Integrations · Security</span>
+  <span style="margin-left:auto" class="muted">Learn More · <span style="color:#000;background:#fff;border-radius:99px;padding:4px 14px">Try Now</span></span>
+</div>
+
+<!-- 1 · Hero -->
+<div class="section" style="padding-top:96px">
+  <div class="eyebrow">Workspaces for AI agents · XO</div>
+  <h1>Workspaces for<br><span class="lime" id="cycle">AI agents.</span></h1>
+  <p class="sub">The environment where your agents do real work, and you see exactly what that work costs and delivers.</p>
+  <a class="btn w" href="#">Try Now</a><a class="btn o" href="#">Learn More</a>
+  <div class="stats">
+    <div><span class="v">1T+</span><span class="l">tokens metered monthly</span></div>
+    <div><span class="v">100%</span><span class="l">of spend tracked to the cent</span></div>
+    <div><span class="v">1000+</span><span class="l">builders on XO</span></div>
+  </div>
+</div>
+
+<!-- 2 · Features (DNA) -->
+<div class="section">
+  <div class="eyebrow">The Environment</div>
+  <h2>Your work has <span class="lime">DNA.</span></h2>
+  <p class="sub">Each project deserves different conditions, so each gets its own environment: a workplace for your agents where the work is tracked, remembered, and shared.</p>
+  <div style="position:relative;height:220px;margin-top:24px">
+    <canvas id="dna" style="width:100%;height:100%;display:block"></canvas>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="n">01</span><h3>A place to act</h3><p>A desk, not a chat window. Any agent runs here.</p><span class="cs">1</span><span class="cl">environment per agent</span></div>
+    <div class="card"><span class="n">02</span><h3>Memory that compounds</h3><p>Every job makes the next one smarter and cheaper.</p><span class="cs">0</span><span class="cl">context lost between runs</span></div>
+    <div class="card"><span class="n">03</span><h3>Tools to reach your systems</h3><p>Linear, GitHub, Slack, your APIs. Wired in from the first second.</p><span class="cs">19+</span><span class="cl">integrations via MCP</span></div>
+    <div class="card"><span class="n">04</span><h3>A record it can't fake</h3><p>Before, after, and every action in between. The agent never grades its own homework.</p><span class="cs">100%</span><span class="cl">of actions recorded as they happen</span></div>
+  </div>
+  <p class="note">Note: on the real page only card 01 renders (with the helix). 02 to 04 are in the code, hidden.</p>
+</div>
+
+<!-- 3 · Trusted by -->
+<div class="section" style="padding:48px 0">
+  <div class="eyebrow" style="padding:0 32px">Trusted by</div>
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span>NVIDIA</span><span>Microsoft</span><span>AWS</span><span>Google</span><span>OKX</span>
+      <span>NVIDIA</span><span>Microsoft</span><span>AWS</span><span>Google</span><span>OKX</span>
+      <span>NVIDIA</span><span>Microsoft</span><span>AWS</span><span>Google</span><span>OKX</span>
+    </div>
+  </div>
+  <p class="note" style="padding:0 32px">Microsoft, AWS, Google render as greyscale logos on the real page; NVIDIA and OKX are text until their SVGs land in public/images/logos/.</p>
+</div>
+
+<!-- 4 · How It Works -->
+<div class="section">
+  <div class="eyebrow">Process</div>
+  <h2>Create. <span class="muted">Setup.</span> <span style="color:rgba(255,255,255,.15)">Share.</span></h2>
+  <div class="cards">
+    <div class="card">
+      <span class="n lime">01</span><h3>Create <span class="muted" style="font-size:16px">a project</span></h3>
+      <p>Pick a template: Cowork, OpenClaw, Hermes, or Claude Code. Your agent gets its own workspace, an ID, and a status the moment it exists.</p>
+      <code>xo.create({
+  template: 'claude-code',
+  name:     'gcpt-e',
+})
+// -> project f6cf3515 · Ready</code>
+    </div>
+    <div class="card">
+      <span class="n lime">02</span><h3>Setup <span class="muted" style="font-size:16px">the checklist</span></h3>
+      <p>Three steps to bring the agent online: connect a model, sync your data, add secrets. The checklist takes it from created to ready.</p>
+      <code>project.setup({
+  model:   'claude',
+  data:    ['knowledge/'],
+  secrets: ['LINEAR_API_KEY'],
+})</code>
+    </div>
+    <div class="card">
+      <span class="n lime">03</span><h3>Share <span class="muted" style="font-size:16px">and measure</span></h3>
+      <p>Share the project with anyone by email. Then watch the work land: messages, sessions, cost, and latency, per project.</p>
+      <code>project.share({ with: 'bob@company.com' })
+
+project.usage()
+// -> cost · tokens · messages · latency</code>
+    </div>
+  </div>
+</div>
+
+<!-- 5 · Metrics -->
+<div class="section">
+  <div class="eyebrow">LIVE · usage insights</div>
+  <h2>Every token, <span class="muted">every cent.</span></h2>
+  <div class="stats">
+    <div><span class="v">54,396</span><span class="l">Tokens metered daily · volume across your projects</span></div>
+    <div><span class="v">806ms</span><span class="l">Latency tracked · min / avg / p95 / max over time</span></div>
+    <div><span class="v">100%</span><span class="l">Spend visibility · actual cost per day, per project</span></div>
+  </div>
+  <p class="note">Ticker: Cowork · OpenClaw · Hermes · Claude Code · every project measured the same way</p>
+</div>
+
+<!-- 6 · Agents vs work -->
+<div class="section">
+  <div class="eyebrow">Agents, separate from the work</div>
+  <h2>The agent is <span class="muted">not the work.</span></h2>
+  <p class="sub">On XO Platform, agents and projects are separate. Set up an agent once: model, data, secrets. Then point it at any project, or put several agents on the same one. The work stays in the project: tracked, shared, yours.</p>
+  <div class="stats">
+    <div><span class="v">1</span><span class="l">agent, many projects</span></div>
+    <div><span class="v">3</span><span class="l">steps to set up an agent: model, data, secrets</span></div>
+    <div><span class="v">&infin;</span><span class="l">agents on one project</span></div>
+  </div>
+  <div style="margin-top:24px">
+    <span class="tag">Cowork · your everyday coworker · ready</span>
+    <span class="tag">OpenClaw · agents on your channels · ready</span>
+    <span class="tag">Hermes · your fast responder · ready</span>
+    <span class="tag">Claude Code · the coding agent · ready</span>
+  </div>
+</div>
+
+<!-- 7 · Integrations -->
+<div class="section">
+  <div class="eyebrow">Integrations</div>
+  <h2>Your tools, <span class="muted">your models.</span></h2>
+  <p class="sub">Bring your own model. Connect the tools you already use: WhatsApp, Slack, Telegram, GitHub, Linear, ClickUp. XO wires them into every environment.</p>
+  <div class="stats">
+    <div><span class="v">19+</span><span class="l">Integrations</span></div>
+    <div><span class="v">BYOM</span><span class="l">Bring your own model</span></div>
+    <div><span class="v">MCP</span><span class="l">Custom tool protocol</span></div>
+  </div>
+</div>
+
+<!-- 8 · Security -->
+<div class="section">
+  <div class="eyebrow">Security</div>
+  <h2>Isolated <span class="muted">by default.</span></h2>
+  <p class="sub">Every environment is sandboxed, encrypted, and fully auditable.</p>
+  <div class="stats"><div><span class="v">100%</span><span class="l">of agent actions logged and inspectable</span></div></div>
+  <div style="margin-top:20px"><span class="tag">Sandboxed</span><span class="tag">Encrypted</span><span class="tag">Audited</span><span class="tag">RBAC</span></div>
+  <div class="cards">
+    <div class="card"><h3>Environment isolation</h3><p>Each agent runs in its own sandboxed environment.</p></div>
+    <div class="card"><h3>Encrypted memory</h3><p>Data encrypted at rest and in transit.</p></div>
+    <div class="card"><h3>Full audit trails</h3><p>Every action logged and inspectable.</p></div>
+    <div class="card"><h3>Permission boundaries</h3><p>Principle of least privilege by design.</p></div>
+  </div>
+</div>
+
+<!-- 9 · Developers -->
+<div class="section">
+  <div class="eyebrow">For developers</div>
+  <h2>Bring your repo.<br><span class="muted">Or start blank.</span></h2>
+  <p class="sub">Blank Canvas gives you a full dev workspace: import from GitHub, pick your runtime, watch it run.</p>
+  <div class="cards">
+    <div class="card"><h3>Blank Canvas</h3><p>Start from scratch or import from GitHub.</p></div>
+    <div class="card"><h3>Any runtime</h3><p>OpenClaw, Claude Code, Hermes, or your own.</p></div>
+    <div class="card"><h3>Live logs</h3><p>Watch every run as it happens.</p></div>
+    <div class="card"><h3>Local to production</h3><p>Same workspace on any host.</p></div>
+  </div>
+</div>
+
+<!-- 10 · Pricing -->
+<div class="section">
+  <div class="eyebrow">Pricing</div>
+  <h2>Pay only for <span class="muted">Compute.</span></h2>
+  <div class="cards">
+    <div class="card"><span class="n">01</span><h3>Basic</h3><p>One environment. Try it free for 14 days.</p><span class="cs">$10<span style="font-size:13px;color:var(--dim)">/month</span></span><p style="margin-top:12px">1 workspace (2 CPU / 8 GB) · Runs 24/7 · SDK + tools · Core templates: Cowork, OpenClaw, Hermes, Claude Code · Bring your own model, no markup</p></div>
+    <div class="card" style="border-color:rgba(255,255,255,.5)"><span class="n">02 · Most Popular</span><h3>Pro</h3><p>Three environments for builders who need more.</p><span class="cs">$20<span style="font-size:13px;color:var(--dim)">/month</span></span><p style="margin-top:12px">3 workspaces · Full template library (n8n, Gaia, and more) · MCP integrations · Spend tracking per run · Compare agents</p></div>
+    <div class="card"><span class="n">03</span><h3>Business</h3><p>100 environments. White-label. Dedicated VM.</p><span class="cs">$500<span style="font-size:13px;color:var(--dim)">/month</span></span><p style="margin-top:12px">Dedicated VM, 24/7 · SSO/SAML · Audit trails · Custom templates</p></div>
+    <div class="card" style="border-color:rgba(131,214,58,.4)"><span class="n">04</span><h3>Enterprise</h3><p>Pay as you go. Custom pricing for fleets.</p><span class="cs">Custom</span><p style="margin-top:12px">Pay as you go · Custom pricing and allocation · SLA + dedicated support · Deploy in your own cloud · Contact us</p></div>
+  </div>
+  <p class="note">Per-workspace billing, active only · Bring your own model, no markup · Overage at $20/ws (Standard $40/ws)</p>
+</div>
+
+<!-- 11 · CTA + Footer -->
+<div class="section" style="border-bottom:none">
+  <h2>Ready to put your<br>agents to work?</h2>
+  <p class="sub">Spin up an environment and see what your AI actually delivers.</p>
+  <a class="btn w" href="#">Start free</a><a class="btn o" href="#">Book a demo</a>
+  <p class="note">14-day free trial</p>
+  <p class="note" style="margin-top:48px;color:var(--dim2)">Footer: "Workspaces for AI agents." · 2026 XO. All rights reserved.</p>
+</div>
+
+<script>
+  // Hero cycling word
+  var words = ["AI agents.", "teammates.", "partners.", "coworkers."], wi = 0;
+  var el = document.getElementById("cycle");
+  el.style.transition = "opacity .3s, transform .3s";
+  setInterval(function () {
+    el.style.opacity = 0; el.style.transform = "translateY(10px)";
+    setTimeout(function () {
+      wi = (wi + 1) % words.length;
+      el.textContent = words[wi];
+      el.style.opacity = 1; el.style.transform = "translateY(0)";
+    }, 350);
+  }, 2800);
+
+  // DNA helix
+  (function () {
+    var c = document.getElementById("dna"), x = c.getContext("2d"), t = 0;
+    function rs() { var d = Math.min(devicePixelRatio || 1, 2), r = c.getBoundingClientRect(); c.width = r.width * d; c.height = r.height * d; x.setTransform(d, 0, 0, d, 0, 0); }
+    rs(); addEventListener("resize", rs);
+    function f() {
+      var r = c.getBoundingClientRect(), w = r.width, h = r.height; x.clearRect(0, 0, w, h);
+      var cy = h * .5, R = Math.min(h * .32, 80), N = 90, pts = [];
+      for (var i = 0; i <= N; i++) {
+        var fr = i / N, px = w * .04 + fr * w * .92, a = fr * Math.PI * 5.2 + t;
+        for (var s = 0; s < 2; s++) { var an = a + s * Math.PI; pts.push({ x: px, y: cy + Math.cos(an) * R, z: Math.sin(an) * R, s: s, i: i }); }
+      }
+      for (var i = 0; i <= N; i += 6) {
+        var A = null, B = null;
+        for (var k = 0; k < pts.length; k++) { if (pts[k].i === i) { if (pts[k].s === 0) A = pts[k]; else B = pts[k]; } }
+        if (A && B) { var al = .05 + ((A.z + B.z) / 2 / R + 1) * .09; x.beginPath(); x.moveTo(A.x, A.y); x.lineTo(B.x, B.y); x.strokeStyle = "rgba(131,214,58," + al + ")"; x.stroke(); }
+      }
+      pts.sort(function (a, b) { return a.z - b.z; });
+      pts.forEach(function (p) {
+        var sc = 320 / (320 + p.z), rr = (p.s === 0 ? 2.6 : 2.2) * sc, d = (p.z / R + 1) / 2, al = .1 + d * .55;
+        x.beginPath(); x.arc(p.x, p.y, rr, 0, 7);
+        x.fillStyle = p.s === 0 ? "rgba(131,214,58," + al + ")" : "rgba(255,255,255," + al * .85 + ")"; x.fill();
+      });
+      t += .012; requestAnimationFrame(f);
+    }
+    f();
+  })();
+</script>
+</body>
+</html>

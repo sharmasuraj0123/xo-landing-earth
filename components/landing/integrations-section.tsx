@@ -69,7 +69,7 @@ const logos: Record<string, React.ReactNode> = {
 type Integration = {
   name: string;
   category: string;
-  /** position over the background image, in % of the image box — sits on a hand */
+  /** position over the background image, in % of the image box (sits on a hand) */
   x: number;
   y: number;
   /** float animation tuning, per icon, so nothing bobs in sync */
@@ -123,7 +123,7 @@ export function IntegrationsSection() {
   return (
     <section id="integrations" ref={sectionRef} className="relative overflow-hidden">
 
-      {/* Header — centré verticalement sur l'image */}
+      {/* Header - centré verticalement sur l'image */}
       <div className="relative z-10 pt-32 lg:pt-40 text-center">
         <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-8 transition-all duration-700 justify-center ${
           isVisible ? "opacity-100" : "opacity-0"
@@ -144,7 +144,7 @@ export function IntegrationsSection() {
         <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto transition-all duration-1000 delay-100 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          Bring your own model. Connect your own tools. XO wires them into every workspace through MCP.
+          Bring your own model. Connect the tools you already use: WhatsApp, Slack, Telegram, GitHub, Linear, ClickUp. XO wires them into every environment.
         </p>
       </div>
 
@@ -202,7 +202,7 @@ export function IntegrationsSection() {
         }`}>
           <div className="flex flex-wrap gap-12">
             {[
-              { value: "100+", label: "Integrations" },
+              { value: "19+", label: "Integrations" },
               { value: "BYOM", label: "Bring your own model" },
               { value: "MCP", label: "Custom tool protocol" },
             ].map((stat) => (
