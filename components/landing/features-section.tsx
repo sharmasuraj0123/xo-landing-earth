@@ -149,11 +149,11 @@ export function FeaturesSection() {
     <section
       id="features"
       ref={sectionRef}
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative py-14 lg:py-16 overflow-hidden"
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header - Full width with diagonal layout */}
-        <div className="relative mb-24 lg:mb-32">
+        <div className="relative mb-10">
           <div className="grid lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
@@ -161,7 +161,7 @@ export function FeaturesSection() {
                 Why XO
               </span>
               <h2
-                className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
+                className={`text-5xl md:text-6xl lg:text-[84px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
@@ -172,7 +172,16 @@ export function FeaturesSection() {
               <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}>
-                An environment is a runtime plus memory, tools, and the record. It snapshots the state before and after, meters every token in between, and scores the result against a definition of done. That bundle is <span className="text-foreground">the unit of work</span>: AI work you can check, price, and repeat.
+                An environment is where the output of every agent is tracked: runtime, memory, tools, and the record. It snapshots the state before and after, meters every token in between, and scores the result against a definition of done. That bundle is{" "}
+                <a
+                  href="https://docs.xo.builders/future-of-work/phase-1-agentic-workforce#what-is-a-unit-of-work"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground underline underline-offset-4 decoration-[#83d63a]/50 hover:decoration-[#83d63a] transition-colors"
+                >
+                  the unit of work
+                </a>
+                : the smallest business unit, AI work you can check, price, and repeat.
               </p>
               <a
                 href="https://docs.xo.builders/future-of-work"
@@ -193,22 +202,22 @@ export function FeaturesSection() {
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
           {/* Large feature card */}
           <div 
-            className={`lg:col-span-12 relative bg-black border border-foreground/10 min-h-[500px] overflow-hidden group transition-all duration-700 ${
+            className={`lg:col-span-12 relative bg-black border border-foreground/10 min-h-[300px] overflow-hidden group transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
             onMouseEnter={() => setActiveFeature(0)}
           >
             <ParticleVisualization />
-            <div className="relative z-10 p-8 lg:p-12">
+            <div className="relative z-10 p-6 lg:p-8">
               <span className="font-mono text-sm text-muted-foreground">{features[0].number}</span>
-              <h3 className="text-3xl lg:text-4xl font-display mt-4 mb-6 group-hover:translate-x-2 transition-transform duration-500">
+              <h3 className="text-2xl lg:text-3xl font-display mt-3 mb-4 group-hover:translate-x-2 transition-transform duration-500">
                 {features[0].title}
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-md mb-8">
                 {features[0].description}
               </p>
               <div>
-                <span className="text-5xl lg:text-6xl font-display">{features[0].stats.value}</span>
+                <span className="text-4xl lg:text-5xl font-display">{features[0].stats.value}</span>
                 <span className="block text-sm text-muted-foreground font-mono mt-2">{features[0].stats.label}</span>
               </div>
             </div>
@@ -218,7 +227,7 @@ export function FeaturesSection() {
           {features.slice(1).map((feature, index) => (
             <div
               key={feature.title}
-              className={`lg:col-span-4 relative bg-black border border-foreground/10 p-8 lg:p-10 transition-all duration-700 ${
+              className={`lg:col-span-4 relative bg-black border border-foreground/10 p-5 lg:p-6 transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
               style={{ transitionDelay: `${(index + 1) * 100}ms` }}
@@ -228,7 +237,7 @@ export function FeaturesSection() {
               <h3 className="text-2xl lg:text-3xl font-display mt-3 mb-4">{feature.title}</h3>
               <p className="text-muted-foreground leading-relaxed mb-8">{feature.description}</p>
               <div>
-                <span className="text-4xl lg:text-5xl font-display">{feature.stats.value}</span>
+                <span className="text-3xl lg:text-4xl font-display">{feature.stats.value}</span>
                 <span className="block text-sm text-muted-foreground font-mono mt-2">{feature.stats.label}</span>
               </div>
             </div>

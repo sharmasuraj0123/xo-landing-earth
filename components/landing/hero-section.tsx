@@ -76,7 +76,7 @@ export function HeroSection() {
         ))}
       </div>
       
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-16 lg:py-20">
         <div className="lg:max-w-[55%]">
         <div 
           className={`mb-8 transition-all duration-700 ${
@@ -142,9 +142,9 @@ export function HeroSection() {
       >
         <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
           {[
-            { value: "1T+", label: "tokens metered monthly" },
-            { value: "100%", label: "of spend tracked to the cent" },
-            { value: "1000+", label: "builders on XO" },
+            { value: "10,000+", label: "agents launched on platform" },
+            { value: "100B+", label: "monthly tokens" },
+            { value: "5000+", label: "builders with XO" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">
               <span className="text-3xl lg:text-4xl font-display text-white">{stat.value}</span>

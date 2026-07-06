@@ -57,7 +57,7 @@ export function SecuritySection() {
   }, []);
 
   return (
-    <section id="security" ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
+    <section id="security" ref={sectionRef} className="relative py-16 lg:py-20 overflow-hidden">
       {/* Full-section background images */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {securityFeatures.map((feature, index) => (
@@ -90,7 +90,7 @@ export function SecuritySection() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-8">
           <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
@@ -99,7 +99,7 @@ export function SecuritySection() {
           </span>
           
           {/* Title - full width */}
-          <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] mb-12 transition-all duration-1000 ${
+          <h2 className={`text-5xl md:text-6xl lg:text-[84px] font-display tracking-tight leading-[0.9] mb-6 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
             Isolated
@@ -120,13 +120,13 @@ export function SecuritySection() {
         {/* Main content */}
         <div className="grid lg:grid-cols-12 gap-6">
           {/* Large visual card */}
-          <div className={`lg:col-span-7 relative p-8 lg:p-12 border border-foreground/10 bg-background/15 backdrop-blur-[2px] min-h-[400px] overflow-hidden transition-all duration-700 ${
+          <div className={`lg:col-span-7 relative p-6 lg:p-8 border border-foreground/10 bg-background/15 backdrop-blur-[2px] min-h-[260px] overflow-hidden transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
             <div className="relative z-10">
               <span className="font-mono text-sm text-muted-foreground">Active protection</span>
               <div className="mt-8">
-                <span className="text-7xl lg:text-8xl font-display">100%</span>
+                <span className="text-5xl lg:text-6xl font-display">100%</span>
                 <span className="block text-muted-foreground mt-2">Of agent actions logged and inspectable</span>
               </div>
             </div>
@@ -152,7 +152,7 @@ export function SecuritySection() {
             {securityFeatures.map((feature, index) => (
               <div
                 key={feature.title}
-                className={`p-6 border transition-all duration-500 cursor-default backdrop-blur-[2px] ${
+                className={`p-4 border transition-all duration-500 cursor-default backdrop-blur-[2px] ${
                   activeFeature === index 
                     ? "border-foreground/30 bg-background/25" 
                     : "border-foreground/10 bg-background/10"

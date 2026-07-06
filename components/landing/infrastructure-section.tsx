@@ -58,20 +58,20 @@ export function InfrastructureSection() {
   }, []);
 
   return (
-    <section id="infra" ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
+    <section id="infra" ref={sectionRef} className="relative py-16 lg:py-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-10">
           <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <span className="w-12 h-px bg-foreground/20" />
-            Agents, separate from the work
+            Composable by design
           </span>
 
           <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-stretch">
             {/* Globe image */}
-            <div className={`w-48 lg:w-72 xl:w-80 shrink-0 transition-all duration-1000 ${
+            <div className={`w-32 lg:w-48 xl:w-56 shrink-0 transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
               <img
@@ -83,18 +83,18 @@ export function InfrastructureSection() {
 
             {/* Title + description */}
             <div className="flex flex-col justify-center">
-              <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
+              <h2 className={`text-5xl md:text-6xl lg:text-[84px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}>
-                The agent is
+                Compose anything.
                 <br />
-                <span className="text-muted-foreground">not the work.</span>
+                <span className="text-muted-foreground">It runs itself.</span>
               </h2>
 
-              <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg transition-all duration-1000 delay-100 ${
+              <p className={`mt-5 text-lg text-muted-foreground leading-relaxed max-w-lg transition-all duration-1000 delay-100 ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}>
-                On XO Platform, agents and projects are separate. Set up an agent once: model, data, secrets, budget. Then point it at any project, or put several agents on the same one. The work stays in the project: tracked, capped, shared, yours.
+                Agents, tools, and humans snap together like parts. Pick any agent, wire in any tool, point them at a project, and the work runs on its own: scheduled, triggered, or on demand. Swap any piece without losing the work.
               </p>
             </div>
           </div>
@@ -222,35 +222,35 @@ export function InfrastructureSection() {
             {/* Text content */}
             <div className="relative z-10 p-8 lg:p-12">
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-8xl lg:text-[10rem] font-display leading-none">1</span>
+                <span className="text-6xl lg:text-8xl font-display leading-none">1</span>
                 <span className="text-2xl text-muted-foreground">agent, many projects</span>
               </div>
               <p className="text-muted-foreground max-w-md">
-                Set up an agent once, reuse it on every project that needs it. The record of the work stays with the project, not the agent.
+                Set up an agent once, snap it into every project that needs it. The work keeps running, and its record stays with the project, whichever agent did it.
               </p>
             </div>
           </div>
 
           {/* Stacked stat cards */}
           <div className="flex flex-col gap-6">
-            <div className={`p-8 border border-foreground/10 bg-foreground/[0.02] transition-all duration-700 delay-100 ${
+            <div className={`p-6 border border-foreground/10 bg-foreground/[0.02] transition-all duration-700 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              <span className="text-5xl lg:text-6xl font-display">3</span>
+              <span className="text-4xl lg:text-5xl font-display">3</span>
               <span className="block text-sm text-muted-foreground mt-2">Steps to set up an agent: model, data, secrets</span>
             </div>
 
-            <div className={`p-8 border border-foreground/10 bg-foreground/[0.02] transition-all duration-700 delay-200 ${
+            <div className={`p-6 border border-foreground/10 bg-foreground/[0.02] transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              <span className="text-5xl lg:text-6xl font-display">&infin;</span>
+              <span className="text-4xl lg:text-5xl font-display">&infin;</span>
               <span className="block text-sm text-muted-foreground mt-2">Agents on one project</span>
             </div>
           </div>
         </div>
 
         {/* Host list */}
-        <div className={`mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-1000 delay-300 ${
+        <div className={`mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-1000 delay-300 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           {hosts.map((host, index) => (

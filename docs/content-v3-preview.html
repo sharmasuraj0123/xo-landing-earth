@@ -8,35 +8,41 @@
   :root { --lime: #83d63a; --bg: #08090a; --dim: rgba(255,255,255,.55); --dim2: rgba(255,255,255,.35); --line: rgba(255,255,255,.1); }
   * { box-sizing: border-box; margin: 0; }
   body { background: var(--bg); color: #fff; font: 16px/1.6 "Instrument Sans", system-ui, sans-serif; }
-  .section { max-width: 1100px; margin: 0 auto; padding: 72px 32px; border-bottom: 1px solid var(--line); }
+  .section { max-width: 1100px; margin: 0 auto; padding: 64px 32px; border-bottom: 1px solid var(--line); }
   .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .1em; color: var(--dim); display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
   .eyebrow::before { content: ""; width: 40px; height: 1px; background: rgba(255,255,255,.3); }
   h1, h2 { font-weight: 500; letter-spacing: -.03em; line-height: .95; }
   h1 { font-size: clamp(48px, 8vw, 96px); }
-  h2 { font-size: clamp(36px, 6vw, 72px); }
+  h2 { font-size: clamp(34px, 5.5vw, 64px); }
   .muted { color: var(--dim2); }
   .lime { color: var(--lime); }
-  .sub { font-size: 20px; color: var(--dim); max-width: 620px; margin-top: 24px; }
-  .stats { display: flex; gap: 56px; margin-top: 48px; flex-wrap: wrap; }
-  .stats .v { font-size: 34px; font-weight: 500; display: block; }
+  a.inline { color: #fff; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(131,214,58,.5); }
+  .sub { font-size: 19px; color: var(--dim); max-width: 640px; margin-top: 22px; }
+  .stats { display: flex; gap: 52px; margin-top: 44px; flex-wrap: wrap; }
+  .stats .v { font-size: 32px; font-weight: 500; display: block; }
   .stats .l { font-size: 12px; color: var(--dim); }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
-  .card { border: 1px solid var(--line); padding: 24px; background: rgba(255,255,255,.02); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 36px; }
+  .card { border: 1px solid var(--line); padding: 22px; background: rgba(255,255,255,.02); }
   .card .n { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--dim2); }
-  .card h3 { font-size: 20px; margin: 8px 0; font-weight: 500; }
+  .card h3 { font-size: 19px; margin: 8px 0; font-weight: 500; }
   .card p { font-size: 14px; color: var(--dim); }
-  .card .cs { display: block; margin-top: 16px; font-size: 24px; }
-  .card .cl { font-size: 11px; font-family: "JetBrains Mono", monospace; color: var(--dim2); }
   .tag { display: inline-block; border: 1px solid var(--line); font-family: "JetBrains Mono", monospace; font-size: 11px; padding: 3px 10px; margin: 4px 6px 0 0; color: var(--dim); }
-  .btn { display: inline-block; border-radius: 999px; padding: 12px 28px; font-size: 14px; text-decoration: none; margin-right: 12px; margin-top: 32px; }
+  .btn { display: inline-block; border-radius: 999px; padding: 12px 28px; font-size: 14px; text-decoration: none; margin-right: 12px; margin-top: 28px; }
   .btn.w { background: #fff; color: #000; }
   .btn.o { border: 1px solid rgba(255,255,255,.3); color: #fff; }
-  .note { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--dim); margin-top: 20px; }
-  code { font-family: "JetBrains Mono", monospace; font-size: 12px; color: rgba(255,255,255,.7); display: block; white-space: pre; background: #000; border: 1px solid var(--line); padding: 14px; margin-top: 14px; overflow-x: auto; }
+  .note { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--dim); margin-top: 18px; }
+  code { font-family: "JetBrains Mono", monospace; font-size: 12px; color: rgba(255,255,255,.7); display: block; white-space: pre; background: #000; border: 1px solid var(--line); padding: 12px; margin-top: 12px; overflow-x: auto; }
   .marquee-wrap { position: relative; overflow: hidden; }
-  .marquee { display: flex; gap: 72px; white-space: nowrap; width: max-content; animation: mq 26s linear infinite; align-items: center; }
-  .marquee span { color: rgba(255,255,255,.4); font-size: 22px; letter-spacing: -.02em; }
+  .marquee { display: flex; gap: 64px; white-space: nowrap; width: max-content; animation: mq 26s linear infinite; align-items: center; }
+  .marquee a { color: rgba(255,255,255,.4); font-size: 21px; letter-spacing: -.02em; text-decoration: none; }
+  .marquee a:hover { color: rgba(255,255,255,.85); }
   @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-q { width: 100%; background: none; border: none; color: #fff; font: 500 17px/1.4 "Instrument Sans", system-ui, sans-serif; padding: 16px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; }
+  .faq-q span.plus { border: 1px solid rgba(255,255,255,.2); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--dim); transition: all .3s; flex-shrink: 0; }
+  .faq-item.open .faq-q span.plus { transform: rotate(45deg); border-color: var(--lime); color: var(--lime); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s; color: var(--dim); font-size: 14px; }
+  .faq-item.open .faq-a { max-height: 140px; padding-bottom: 14px; }
 </style>
 </head>
 <body>
@@ -45,7 +51,7 @@
 <div class="section" style="padding:20px 32px;display:flex;gap:28px;align-items:center;font-size:14px">
   <span class="lime" style="font-weight:700">XO</span>
   <span class="muted">Environment · Process · Agents · Integrations · Security</span>
-  <span style="margin-left:auto" class="muted">Learn More · <span style="color:#000;background:#fff;border-radius:99px;padding:4px 14px">Try Now</span></span>
+  <span style="margin-left:auto" class="muted">Docs · <span style="color:#000;background:#fff;border-radius:99px;padding:4px 14px">Sign up</span></span>
 </div>
 
 <!-- 1 · Hero -->
@@ -53,52 +59,35 @@
   <div class="eyebrow">Workspaces for AI agents · XO</div>
   <h1>Workspaces for<br><span class="lime" id="cycle">AI agents.</span></h1>
   <p class="sub">The environment where your agents do real work, and you see exactly what that work costs and delivers.</p>
-  <a class="btn w" href="#">Try Now</a><a class="btn o" href="#">Learn More</a>
+  <a class="btn w" href="https://app.xo.builders">Sign up free</a><a class="btn o" href="https://docs.xo.builders">Read the docs</a>
   <div class="stats">
-    <div><span class="v">1T+</span><span class="l">tokens metered monthly</span></div>
-    <div><span class="v">100%</span><span class="l">of spend tracked to the cent</span></div>
-    <div><span class="v">1000+</span><span class="l">builders on XO</span></div>
+    <div><span class="v">10,000+</span><span class="l">agents launched on platform</span></div>
+    <div><span class="v">100B+</span><span class="l">monthly tokens</span></div>
+    <div><span class="v">5000+</span><span class="l">builders with XO</span></div>
   </div>
 </div>
 
-<!-- 2 · Features (DNA) -->
-<div class="section">
-  <div class="eyebrow">The Environment</div>
-  <h2>Your work has <span class="lime">DNA.</span></h2>
-  <p class="sub">Each project deserves different conditions, so each gets its own environment: a workplace for your agents where the work is tracked, remembered, and shared.</p>
-  <div style="position:relative;height:220px;margin-top:24px">
-    <canvas id="dna" style="width:100%;height:100%;display:block"></canvas>
-  </div>
-  <div class="cards">
-    <div class="card"><span class="n">01</span><h3>A place to act</h3><p>A desk, not a chat window. Any agent runs here.</p><span class="cs">1</span><span class="cl">environment per agent</span></div>
-    <div class="card"><span class="n">02</span><h3>Memory that compounds</h3><p>Every job makes the next one smarter and cheaper.</p><span class="cs">0</span><span class="cl">context lost between runs</span></div>
-    <div class="card"><span class="n">03</span><h3>Tools to reach your systems</h3><p>Linear, GitHub, Slack, your APIs. Wired in from the first second.</p><span class="cs">19+</span><span class="cl">integrations via MCP</span></div>
-    <div class="card"><span class="n">04</span><h3>A record it can't fake</h3><p>Before, after, and every action in between. The agent never grades its own homework.</p><span class="cs">100%</span><span class="cl">of actions recorded as they happen</span></div>
-  </div>
-  <p class="note">Note: on the real page only card 01 renders (with the helix). 02 to 04 are in the code, hidden.</p>
-</div>
-
-<!-- 3 · Trusted by -->
-<div class="section" style="padding:48px 0">
-  <div class="eyebrow" style="padding:0 32px">Trusted by</div>
+<!-- 2 · Trusted by -->
+<div class="section" style="padding:44px 0">
+  <div class="eyebrow" style="padding:0 32px">Trusted by · every logo opens its XO × Partner journey page</div>
   <div class="marquee-wrap">
     <div class="marquee">
-      <span>NVIDIA</span><span>Microsoft</span><span>AWS</span><span>Google</span><span>OKX</span>
-      <span>NVIDIA</span><span>Microsoft</span><span>AWS</span><span>Google</span><span>OKX</span>
-      <span>NVIDIA</span><span>Microsoft</span><span>AWS</span><span>Google</span><span>OKX</span>
+      <a href="#">NVIDIA</a><a href="#">Microsoft</a><a href="#">AWS</a><a href="#">Google</a><a href="#">OKX</a><a href="#">MagicPath</a>
+      <a href="#">NVIDIA</a><a href="#">Microsoft</a><a href="#">AWS</a><a href="#">Google</a><a href="#">OKX</a><a href="#">MagicPath</a>
+      <a href="#">NVIDIA</a><a href="#">Microsoft</a><a href="#">AWS</a><a href="#">Google</a><a href="#">OKX</a><a href="#">MagicPath</a>
     </div>
   </div>
-  <p class="note" style="padding:0 32px">Microsoft, AWS, Google render as greyscale logos on the real page; NVIDIA and OKX are text until their SVGs land in public/images/logos/.</p>
+  <p class="note" style="padding:0 32px">Journey pages: /blog/xo-google (2 chapters) · xo-anthropic (2) · xo-community (3) · xo-aws · xo-elevenlabs · xo-openclaw · + 4 drafts</p>
 </div>
 
-<!-- 4 · How It Works -->
+<!-- 3 · How It Works -->
 <div class="section">
   <div class="eyebrow">Process</div>
   <h2>Create. <span class="muted">Setup.</span> <span style="color:rgba(255,255,255,.15)">Share.</span></h2>
   <div class="cards">
     <div class="card">
-      <span class="n lime">01</span><h3>Create <span class="muted" style="font-size:16px">a project</span></h3>
-      <p>Pick a template: Cowork, OpenClaw, Hermes, or Claude Code. Your agent gets its own workspace, an ID, and a status the moment it exists.</p>
+      <span class="n lime">01</span><h3>Create <span class="muted" style="font-size:15px">a project</span></h3>
+      <p>Pick a starter template: Cowork, OpenClaw, Hermes, or Claude Code. They're just starting points; every workspace comes with full terminal access to run anything you like.</p>
       <code>xo.create({
   template: 'claude-code',
   name:     'gcpt-e',
@@ -106,7 +95,7 @@
 // -> project f6cf3515 · Ready</code>
     </div>
     <div class="card">
-      <span class="n lime">02</span><h3>Setup <span class="muted" style="font-size:16px">the checklist</span></h3>
+      <span class="n lime">02</span><h3>Setup <span class="muted" style="font-size:15px">the checklist</span></h3>
       <p>Three steps to bring the agent online: connect a model, sync your data, add secrets. The checklist takes it from created to ready.</p>
       <code>project.setup({
   model:   'claude',
@@ -115,7 +104,7 @@
 })</code>
     </div>
     <div class="card">
-      <span class="n lime">03</span><h3>Share <span class="muted" style="font-size:16px">and measure</span></h3>
+      <span class="n lime">03</span><h3>Share <span class="muted" style="font-size:15px">and measure</span></h3>
       <p>Share the project with anyone by email. Then watch the work land: messages, sessions, cost, and latency, per project.</p>
       <code>project.share({ with: 'bob@company.com' })
 
@@ -125,33 +114,45 @@ project.usage()
   </div>
 </div>
 
-<!-- 5 · Metrics -->
+<!-- 4 · Why XO (thesis) -->
 <div class="section">
-  <div class="eyebrow">LIVE · usage insights</div>
-  <h2>Every token, <span class="muted">every cent.</span></h2>
-  <div class="stats">
-    <div><span class="v">54,396</span><span class="l">Tokens metered daily · volume across your projects</span></div>
-    <div><span class="v">806ms</span><span class="l">Latency tracked · min / avg / p95 / max over time</span></div>
-    <div><span class="v">100%</span><span class="l">Spend visibility · actual cost per day, per project</span></div>
+  <div class="eyebrow">Why XO</div>
+  <h2>More than a <span class="lime">runtime.</span></h2>
+  <p class="sub">An environment is where the output of every agent is tracked: runtime, memory, tools, and the record. It snapshots the state before and after, meters every token in between, and scores the result against a definition of done. That bundle is <a class="inline" href="https://docs.xo.builders/future-of-work/phase-1-agentic-workforce#what-is-a-unit-of-work">the unit of work</a>: the smallest business unit, AI work you can check, price, and repeat.</p>
+  <p class="note">Read the research &rarr; docs.xo.builders/future-of-work</p>
+  <div class="cards">
+    <div class="card"><span class="n">01</span><h3>A place to act</h3><p>A desk, not a chat window. Any agent runs here.</p></div>
+    <div class="card"><span class="n">02</span><h3>Memory that compounds</h3><p>Every job makes the next one smarter and cheaper.</p></div>
+    <div class="card"><span class="n">03</span><h3>Tools to reach your systems</h3><p>Linear, GitHub, Slack, your APIs. Wired in from the first second.</p></div>
+    <div class="card"><span class="n">04</span><h3>A record it can't fake</h3><p>Before, after, and every action in between. The agent never grades its own homework.</p></div>
   </div>
-  <p class="note">Ticker: Cowork · OpenClaw · Hermes · Claude Code · every project measured the same way</p>
 </div>
 
-<!-- 6 · Agents vs work -->
+<!-- 5 · Impact, measured -->
+<div class="section">
+  <div class="eyebrow">Usage insights</div>
+  <h2>Impact, <span class="muted">measured.</span></h2>
+  <p class="sub">XO measures agents the way you measure employees: by what they deliver. Every unit of work records what it cost and what it changed, so you see the impact of agents on your business, not just a token bill. Every token, every cent, every outcome, per project, per day.</p>
+  <div class="stats">
+    <div><span class="v">54,396</span><span class="l">Tokens metered daily</span></div>
+    <div><span class="v">806ms</span><span class="l">Latency: min / avg / p95 / max</span></div>
+    <div><span class="v">100%</span><span class="l">Spend visibility per project</span></div>
+  </div>
+  <p class="note">Ticker: Cowork · OpenClaw · Hermes · Claude Code · every project measured the same way · (graph image now greyscale)</p>
+</div>
+
+<!-- 6 · Agent ≠ work -->
 <div class="section">
   <div class="eyebrow">Agents, separate from the work</div>
   <h2>The agent is <span class="muted">not the work.</span></h2>
-  <p class="sub">On XO Platform, agents and projects are separate. Set up an agent once: model, data, secrets. Then point it at any project, or put several agents on the same one. The work stays in the project: tracked, shared, yours.</p>
+  <p class="sub">On XO Platform, agents and projects are separate. Set up an agent once: model, data, secrets, budget. Then point it at any project, or put several agents on the same one. The work stays in the project: tracked, capped, shared, yours.</p>
   <div class="stats">
     <div><span class="v">1</span><span class="l">agent, many projects</span></div>
-    <div><span class="v">3</span><span class="l">steps to set up an agent: model, data, secrets</span></div>
+    <div><span class="v">3</span><span class="l">steps to set up an agent</span></div>
     <div><span class="v">&infin;</span><span class="l">agents on one project</span></div>
   </div>
-  <div style="margin-top:24px">
-    <span class="tag">Cowork · your everyday coworker · ready</span>
-    <span class="tag">OpenClaw · agents on your channels · ready</span>
-    <span class="tag">Hermes · your fast responder · ready</span>
-    <span class="tag">Claude Code · the coding agent · ready</span>
+  <div style="margin-top:22px">
+    <span class="tag">Cowork · your everyday coworker</span><span class="tag">OpenClaw · agents on your channels</span><span class="tag">Hermes · your fast responder</span><span class="tag">Claude Code · the coding agent</span>
   </div>
 </div>
 
@@ -171,50 +172,53 @@ project.usage()
 <div class="section">
   <div class="eyebrow">Security</div>
   <h2>Isolated <span class="muted">by default.</span></h2>
-  <p class="sub">Every environment is sandboxed, encrypted, and fully auditable.</p>
-  <div class="stats"><div><span class="v">100%</span><span class="l">of agent actions logged and inspectable</span></div></div>
-  <div style="margin-top:20px"><span class="tag">Sandboxed</span><span class="tag">Encrypted</span><span class="tag">Audited</span><span class="tag">RBAC</span></div>
-  <div class="cards">
-    <div class="card"><h3>Environment isolation</h3><p>Each agent runs in its own sandboxed environment.</p></div>
-    <div class="card"><h3>Encrypted memory</h3><p>Data encrypted at rest and in transit.</p></div>
-    <div class="card"><h3>Full audit trails</h3><p>Every action logged and inspectable.</p></div>
-    <div class="card"><h3>Permission boundaries</h3><p>Principle of least privilege by design.</p></div>
-  </div>
+  <p class="sub">Every environment is sandboxed, encrypted, budget-capped, and fully auditable.</p>
+  <div style="margin-top:18px"><span class="tag">Sandboxed</span><span class="tag">Encrypted</span><span class="tag">Audited</span><span class="tag">RBAC</span></div>
 </div>
 
-<!-- 9 · Developers -->
+<!-- 9 · DNA closer -->
 <div class="section">
-  <div class="eyebrow">For developers</div>
-  <h2>Bring your repo.<br><span class="muted">Or start blank.</span></h2>
-  <p class="sub">Blank Canvas gives you a full dev workspace: import from GitHub, pick your runtime, watch it run.</p>
-  <div class="cards">
-    <div class="card"><h3>Blank Canvas</h3><p>Start from scratch or import from GitHub.</p></div>
-    <div class="card"><h3>Any runtime</h3><p>OpenClaw, Claude Code, Hermes, or your own.</p></div>
-    <div class="card"><h3>Live logs</h3><p>Watch every run as it happens.</p></div>
-    <div class="card"><h3>Local to production</h3><p>Same workspace on any host.</p></div>
-  </div>
+  <div class="eyebrow">Work that compounds</div>
+  <h2>Give your work<br><span class="lime">DNA.</span></h2>
+  <p class="sub">Each project deserves its own conditions, so each gets its own environment. The work it produces carries its DNA: memory, records, and a sharper definition of done, compounding run after run.</p>
+  <div style="position:relative;height:180px;margin-top:10px"><canvas id="dna" style="width:100%;height:100%;display:block"></canvas></div>
+  <a class="btn w" href="https://app.xo.builders">Sign up free</a><a class="btn o" href="https://docs.xo.builders">Read the docs</a>
+  <p class="note">14-day free trial on paid tiers</p>
 </div>
 
 <!-- 10 · Pricing -->
 <div class="section">
   <div class="eyebrow">Pricing</div>
   <h2>Pay only for <span class="muted">Compute.</span></h2>
-  <div class="cards">
-    <div class="card"><span class="n">01</span><h3>Basic</h3><p>One environment. Try it free for 14 days.</p><span class="cs">$10<span style="font-size:13px;color:var(--dim)">/month</span></span><p style="margin-top:12px">1 workspace (2 CPU / 8 GB) · Runs 24/7 · SDK + tools · Core templates: Cowork, OpenClaw, Hermes, Claude Code · Bring your own model, no markup</p></div>
-    <div class="card" style="border-color:rgba(255,255,255,.5)"><span class="n">02 · Most Popular</span><h3>Pro</h3><p>Three environments for builders who need more.</p><span class="cs">$20<span style="font-size:13px;color:var(--dim)">/month</span></span><p style="margin-top:12px">3 workspaces · Full template library (n8n, Gaia, and more) · MCP integrations · Spend tracking per run · Compare agents</p></div>
-    <div class="card"><span class="n">03</span><h3>Business</h3><p>100 environments. White-label. Dedicated VM.</p><span class="cs">$500<span style="font-size:13px;color:var(--dim)">/month</span></span><p style="margin-top:12px">Dedicated VM, 24/7 · SSO/SAML · Audit trails · Custom templates</p></div>
-    <div class="card" style="border-color:rgba(131,214,58,.4)"><span class="n">04</span><h3>Enterprise</h3><p>Pay as you go. Custom pricing for fleets.</p><span class="cs">Custom</span><p style="margin-top:12px">Pay as you go · Custom pricing and allocation · SLA + dedicated support · Deploy in your own cloud · Contact us</p></div>
+  <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    <div class="card"><span class="n">01</span><h3>Free</h3><p>Start at zero. Researchers get 10 workspaces on us.</p><div class="lime" style="font-size:22px;margin-top:10px">$0</div><p style="margin-top:8px">1 workspace to start · 10 if you're doing research · Unlimited seats</p></div>
+    <div class="card"><span class="n">02</span><h3>Starter</h3><p>10 workspaces to put agents to work.</p><div class="lime" style="font-size:22px;margin-top:10px">$10<span style="font-size:12px;color:var(--dim)">/mo</span></div><p style="margin-top:8px">Core templates · Unlimited seats · 14-day trial</p></div>
+    <div class="card" style="border-color:rgba(255,255,255,.5)"><span class="n">03 · Most Popular</span><h3>Pro</h3><p>30 workspaces for teams shipping with agents.</p><div class="lime" style="font-size:22px;margin-top:10px">$20<span style="font-size:12px;color:var(--dim)">/mo</span></div><p style="margin-top:8px">Full template library · Spend tracking · Unlimited seats</p></div>
+    <div class="card"><span class="n">04</span><h3>Max</h3><p>500 workspaces. White-label. For fleets.</p><div class="lime" style="font-size:22px;margin-top:10px">$100<span style="font-size:12px;color:var(--dim)">/mo</span></div><p style="margin-top:8px">SSO/SAML · Audit trails · Unlimited seats</p></div>
+    <div class="card" style="border-color:rgba(131,214,58,.4)"><span class="n">05</span><h3>Enterprise</h3><p>Beyond Max: pay as you go, custom pricing.</p><div class="lime" style="font-size:22px;margin-top:10px">Custom</div><p style="margin-top:8px">Your own cloud · SLA · Unlimited seats</p></div>
   </div>
-  <p class="note">Per-workspace billing, active only · Bring your own model, no markup · Overage at $20/ws (Standard $40/ws)</p>
+  <p class="note">All CTAs: "Sign up" &rarr; app.xo.builders · You pay for compute used, nothing else · Per-workspace billing, active only · BYOM, no markup · Unlimited seats: priced per workspace, never per person</p>
 </div>
 
-<!-- 11 · CTA + Footer -->
+<!-- 11 · FAQ -->
+<div class="section">
+  <div class="eyebrow">FAQ</div>
+  <h2>Questions, <span class="muted">answered.</span></h2>
+  <div style="margin-top:28px;max-width:760px">
+    <div class="faq-item open"><button class="faq-q" onclick="toggleFaq(this)">What exactly is an environment?<span class="plus">+</span></button><div class="faq-a">A workspace where your agent does real work: runtime, memory, tools, and a record of everything that happens. A desk, not a chat window.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is a unit of work?<span class="plus">+</span></button><div class="faq-a">Runtime plus memory, tools, a record, and a definition of done. That bundle is what makes AI work checkable, priceable, and repeatable. The research behind it lives in our docs.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which agents can I run?<span class="plus">+</span></button><div class="faq-a">Cowork, OpenClaw, Hermes, and Claude Code today, or bring your own. Agents are separate from projects: set one up once and point it at any project.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is XO priced?<span class="plus">+</span></button><div class="faq-a">Per workspace, never per person. Every plan has unlimited seats. Paid tiers start at $10 per month with a 14-day free trial, and researchers get 10 workspaces free.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I bring my own model and tools?<span class="plus">+</span></button><div class="faq-a">Yes. Bring your own model with no markup, and connect the tools you already use (WhatsApp, Slack, GitHub, Linear, ClickUp) through MCP.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my data safe?<span class="plus">+</span></button><div class="faq-a">Every environment is sandboxed, encrypted, budget-capped, and fully auditable. The environment keeps the record, not the agent.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">I'm a developer. Can I start from code?<span class="plus">+</span></button><div class="faq-a">Yes. Blank Canvas gives you a full dev workspace: start from scratch or import from GitHub, pick your runtime, watch it run.</div></div>
+  </div>
+  <p class="note">More answers in the docs &rarr;</p>
+</div>
+
+<!-- 12 · Footer -->
 <div class="section" style="border-bottom:none">
-  <h2>Ready to put your<br>agents to work?</h2>
-  <p class="sub">Spin up an environment and see what your AI actually delivers.</p>
-  <a class="btn w" href="#">Start free</a><a class="btn o" href="#">Book a demo</a>
-  <p class="note">14-day free trial</p>
-  <p class="note" style="margin-top:48px;color:var(--dim2)">Footer: "Workspaces for AI agents." · 2026 XO. All rights reserved.</p>
+  <p class="note" style="color:var(--dim2)">Footer: "Workspaces for AI agents." · Product / Developers / Company / Legal · 2026 XO. All rights reserved.</p>
 </div>
 
 <script>
@@ -231,6 +235,14 @@ project.usage()
     }, 350);
   }, 2800);
 
+  // FAQ accordion
+  function toggleFaq(btn) {
+    var item = btn.parentElement;
+    var wasOpen = item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(function (i) { i.classList.remove("open"); });
+    if (!wasOpen) item.classList.add("open");
+  }
+
   // DNA helix
   (function () {
     var c = document.getElementById("dna"), x = c.getContext("2d"), t = 0;
@@ -238,7 +250,7 @@ project.usage()
     rs(); addEventListener("resize", rs);
     function f() {
       var r = c.getBoundingClientRect(), w = r.width, h = r.height; x.clearRect(0, 0, w, h);
-      var cy = h * .5, R = Math.min(h * .32, 80), N = 90, pts = [];
+      var cy = h * .5, R = Math.min(h * .32, 64), N = 90, pts = [];
       for (var i = 0; i <= N; i++) {
         var fr = i / N, px = w * .04 + fr * w * .92, a = fr * Math.PI * 5.2 + t;
         for (var s = 0; s < 2; s++) { var an = a + s * Math.PI; pts.push({ x: px, y: cy + Math.cos(an) * R, z: Math.sin(an) * R, s: s, i: i }); }

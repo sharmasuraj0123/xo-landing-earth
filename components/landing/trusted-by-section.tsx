@@ -20,6 +20,7 @@ const partners: Partner[] = [
   { name: "Google", src: "/images/logos/google.webp", sizeClass: "h-7 lg:h-9", href: "/blog/xo-google" },
   { name: "OKX", href: "/blog/xo-okx" },
   { name: "MagicPath", href: "/blog/xo-magicpath" },
+  { name: "Nebius", href: "/blog/xo-nebius" },
 ];
 
 export function TrustedBySection() {

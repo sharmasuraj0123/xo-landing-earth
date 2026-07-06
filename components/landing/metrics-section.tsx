@@ -233,31 +233,31 @@ export function MetricsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 lg:py-40 overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 lg:py-20 overflow-hidden">
       <GridBackground />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="grid lg:grid-cols-12 gap-8 mb-20 lg:mb-32">
+        <div className="grid lg:grid-cols-12 gap-8 mb-8">
           <div className="lg:col-span-8 lg:col-start-1">
             <div className="flex items-center gap-4 mb-6">
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground">
                 <span className="w-12 h-px bg-foreground/20" />
-                What you see
+                Measure the unit of work
               </span>
             </div>
 
-            <h2 className={`text-6xl md:text-7xl lg:text-[140px] font-display tracking-tight leading-[0.95] transition-all duration-1000 ${
+            <h2 className={`text-6xl md:text-7xl lg:text-[84px] font-display tracking-tight leading-[0.95] transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              Every token,
+              Impact,
               <br />
-              <span className="text-muted-foreground">every cent.</span>
+              <span className="text-muted-foreground">measured.</span>
             </h2>
             <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}>
-              Every project ships with a usage dashboard from day one: tokens over time, daily cost, message breakdown, and latency from min to p95. Per project, per day.
+              XO measures agents the way you measure employees: by what they deliver. Every unit of work records what it cost and what it changed, so you see the impact of agents on your business, not just a token bill. Every token, every cent, every outcome, per project, per day.
             </p>
           </div>
         </div>
@@ -270,17 +270,17 @@ export function MetricsSection() {
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/real-time-graph-INFmn3u0MlUwvNPynoIhwxtPaPjxM5.png"
             alt=""
             aria-hidden="true"
-            className="w-full h-auto object-cover grayscale"
+            className="w-full h-auto max-h-[140px] object-cover grayscale"
           />
         </div>
 
         {/* Metrics grid */}
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Large metric */}
-          <div className={`lg:col-span-1 bg-foreground/[0.02] border border-foreground/10 p-10 lg:p-14 transition-all duration-700 ${
+          <div className={`lg:col-span-1 bg-foreground/[0.02] border border-foreground/10 p-6 lg:p-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}>
-            <div className="text-4xl md:text-5xl lg:text-6xl font-display tracking-tight mb-4 whitespace-nowrap overflow-hidden">
+            <div className="text-3xl md:text-4xl lg:text-5xl font-display tracking-tight mb-4 whitespace-nowrap overflow-hidden">
               <AnimatedNumber end={metrics[0].value} suffix={metrics[0].suffix} prefix={metrics[0].prefix} />
             </div>
             <div className="mb-6">
@@ -313,7 +313,7 @@ export function MetricsSection() {
                   amplitude={index === 0 ? 0.45 : 0.6}
                 />
               </div>
-              <div className="text-3xl md:text-4xl lg:text-5xl font-display tracking-tight w-full">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-display tracking-tight w-full">
                 <AnimatedNumber end={metric.value} suffix={metric.suffix} prefix={metric.prefix} />
               </div>
             </div>
@@ -321,7 +321,7 @@ export function MetricsSection() {
         </div>
 
         {/* Bottom ticker */}
-        <div className={`mt-16 pt-8 border-t border-foreground/10 flex flex-wrap items-center gap-x-12 gap-y-4 text-sm font-mono text-muted-foreground transition-all duration-1000 delay-500 ${
+        <div className={`mt-8 pt-6 border-t border-foreground/10 flex flex-wrap items-center gap-x-12 gap-y-4 text-sm font-mono text-muted-foreground transition-all duration-1000 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <span>Cowork</span>

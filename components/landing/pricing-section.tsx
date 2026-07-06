@@ -101,16 +101,16 @@ export function PricingSection() {
   }, []);
 
   return (
-    <section id="pricing" ref={sectionRef} className="relative py-32 lg:py-40">
+    <section id="pricing" ref={sectionRef} className="relative py-16 lg:py-20">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header - Dramatic offset */}
-        <div className="grid lg:grid-cols-12 gap-8 mb-20">
+        <div className="grid lg:grid-cols-12 gap-8 mb-8">
           <div className="lg:col-span-7">
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-8">
               <span className="w-12 h-px bg-foreground/30" />
               Pricing
             </span>
-            <h2 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
+            <h2 className={`text-5xl md:text-6xl lg:text-[84px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
               Pay only for
@@ -119,7 +119,7 @@ export function PricingSection() {
             </h2>
           </div>
           
-          <div className="lg:col-span-5 relative p-0 h-96 lg:h-auto">
+          <div className="lg:col-span-5 relative p-0 h-48 lg:h-auto">
             {/* Tree image */}
             <div className={`absolute inset-0 pointer-events-none transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100" : "opacity-0"
@@ -157,13 +157,13 @@ export function PricingSection() {
                   </div>
                 )}
 
-                <div className="p-6 lg:p-8">
+                <div className="p-4 lg:p-5">
                   {/* Plan header */}
-                  <div className="mb-8 pb-8 border-b border-foreground/10">
+                  <div className="mb-4 pb-4 border-b border-foreground/10">
                     <span className="font-mono text-xs text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-2xl lg:text-3xl font-display mt-2">{plan.name}</h3>
+                    <h3 className="text-xl lg:text-2xl font-display mt-1">{plan.name}</h3>
                     <p className="text-sm text-muted-foreground mt-2">{plan.description}</p>
                   </div>
 
@@ -172,13 +172,13 @@ export function PricingSection() {
                     <div className="flex items-baseline gap-2">
                       {plan.price ? (
                         <>
-                          <span className="text-5xl lg:text-6xl font-display">
+                          <span className="text-3xl lg:text-4xl font-display">
                             ${plan.price.monthly}
                           </span>
                           <span className="text-muted-foreground text-sm">/month</span>
                         </>
                       ) : (
-                        <span className="text-5xl lg:text-6xl font-display">Custom</span>
+                        <span className="text-3xl lg:text-4xl font-display">Custom</span>
                       )}
                     </div>
                     {plan.trial && (
@@ -187,7 +187,7 @@ export function PricingSection() {
                   </div>
 
                   {/* Features */}
-                  <ul className="space-y-3 mb-10">
+                  <ul className="space-y-2 mb-6">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
                         <Check className="w-4 h-4 text-[#83d63a] mt-0.5 shrink-0" />
@@ -201,7 +201,7 @@ export function PricingSection() {
                     href="https://app.xo.builders"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
+                    className={`w-full py-3 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
                       plan.highlight
                         ? "bg-foreground text-background hover:bg-foreground/90"
                         : "border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5"
@@ -217,10 +217,14 @@ export function PricingSection() {
         </div>
 
         {/* Bottom note with icons */}
-        <div className={`mt-20 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 pt-12 border-t border-foreground/10 transition-all duration-1000 delay-500 ${
+        <div className={`mt-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 pt-12 border-t border-foreground/10 transition-all duration-1000 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
+            <span className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-[#83d63a]" />
+              You pay for compute used, nothing else
+            </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#83d63a]" />
               Per-workspace billing, active only
