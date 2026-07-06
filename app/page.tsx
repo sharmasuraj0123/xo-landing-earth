@@ -17,9 +17,9 @@ export default function Home() {
     <main className="relative min-h-screen overflow-x-hidden">
       <Navigation />
       <HeroSection />
-      <FeaturesSection />
       <TrustedBySection />
       <HowItWorksSection />
+      <FeaturesSection />
       <MetricsSection />
       <InfrastructureSection />
       <IntegrationsSection />

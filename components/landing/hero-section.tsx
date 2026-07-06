@@ -121,7 +121,7 @@ export function HeroSection() {
             size="lg"
             className="rounded-full bg-white hover:bg-white/90 text-black h-12 px-8"
           >
-            <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer">Try Now</a>
+            <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer">Sign up free</a>
           </Button>
           <Button
             asChild
@@ -129,7 +129,7 @@ export function HeroSection() {
             variant="outline"
             className="rounded-full border-white/30 text-white hover:bg-white/10 bg-transparent h-12 px-8"
           >
-            <a href="https://docs.xo.builders" target="_blank" rel="noopener noreferrer">Learn More</a>
+            <a href="https://docs.xo.builders" target="_blank" rel="noopener noreferrer">Read the docs</a>
           </Button>
         </div>
         </div>

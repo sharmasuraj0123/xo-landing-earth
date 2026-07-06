@@ -6,11 +6,11 @@ import { BrandLogo } from "@/components/brand-logo";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Environment", href: "#features"      },
-  { name: "Process",       href: "#how-it-works"  },
-  { name: "Agents", href: "#infra"          },
-  { name: "Integrations",  href: "#integrations"  },
-  { name: "Security",      href: "#security"      },
+  { name: "How it works", href: "#how-it-works" },
+  { name: "Why XO", href: "#features" },
+  { name: "Agents", href: "#infra" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "Docs", href: "https://docs.xo.builders" },
 ];
 
 export function Navigation() {
@@ -79,7 +79,7 @@ export function Navigation() {
                   : "border-white/30 text-white hover:bg-white/10 bg-transparent h-9 px-5"
               }`}
             >
-              <a href="https://docs.xo.builders" target="_blank" rel="noopener noreferrer">Learn More</a>
+              <a href="https://docs.xo.builders" target="_blank" rel="noopener noreferrer">Docs</a>
             </Button>
             <Button
               asChild
@@ -90,7 +90,7 @@ export function Navigation() {
                   : "bg-white hover:bg-white/90 text-black px-6 h-9"
               }`}
             >
-              <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer">Try Now</a>
+              <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer">Sign up</a>
             </Button>
           </div>
 
@@ -158,7 +158,7 @@ export function Navigation() {
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Learn More
+                Docs
               </a>
             </Button>
             <Button
@@ -171,7 +171,7 @@ export function Navigation() {
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Try Now
+                Sign up
               </a>
             </Button>
           </div>

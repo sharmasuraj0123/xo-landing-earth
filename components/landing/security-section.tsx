@@ -112,7 +112,7 @@ export function SecuritySection() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              Every environment is sandboxed, encrypted, and fully auditable.
+              Every environment is sandboxed, encrypted, budget-capped, and fully auditable.
             </p>
           </div>
         </div>

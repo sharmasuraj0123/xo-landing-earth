@@ -6,26 +6,23 @@ import { BrandLogo } from "@/components/brand-logo";
 
 const footerLinks = {
   Product: [
-    { name: "The environment", href: "#features" },
+    { name: "Why XO", href: "#features" },
     { name: "How it works", href: "#how-it-works" },
     { name: "Pricing", href: "#pricing" },
-    { name: "Integrations", href: "#integrations" },
+    { name: "Sign up", href: "https://app.xo.builders" },
   ],
   Developers: [
-    { name: "Documentation", href: "#developers" },
-    { name: "Workspace SDK", href: "#" },
-    { name: "API Reference", href: "#developers" },
-    { name: "Status", href: "#" },
+    { name: "Documentation", href: "https://docs.xo.builders" },
+    { name: "Getting started", href: "https://docs.xo.builders/getting-started" },
+    { name: "The research", href: "https://docs.xo.builders/future-of-work" },
+    { name: "Troubleshooting", href: "https://docs.xo.builders/troubleshooting" },
   ],
   Company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Careers", href: "#", badge: "Hiring" },
-    { name: "Contact", href: "#" },
+    { name: "About", href: "https://xo.builders" },
+    { name: "Careers", href: "https://xo.builders", badge: "Hiring" },
+    { name: "Contact", href: "https://xo.builders" },
   ],
   Legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
     { name: "Security", href: "#security" },
   ],
 };

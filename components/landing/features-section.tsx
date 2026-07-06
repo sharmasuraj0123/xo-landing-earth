@@ -158,7 +158,7 @@ export function FeaturesSection() {
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-12 h-px bg-foreground/30" />
-                The Environment
+                Why XO
               </span>
               <h2
                 className={`text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
@@ -172,8 +172,19 @@ export function FeaturesSection() {
               <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}>
-                An environment is a runtime plus memory, tools, and the record. It snapshots the state before and after, and meters every token in between. That is how AI work becomes something you can quantify.
+                An environment is a runtime plus memory, tools, and the record. It snapshots the state before and after, meters every token in between, and scores the result against a definition of done. That bundle is <span className="text-foreground">the unit of work</span>: AI work you can check, price, and repeat.
               </p>
+              <a
+                href="https://docs.xo.builders/future-of-work"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-6 inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-all duration-1000 delay-300 ${
+                  isVisible ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Read the research
+                <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </div>
         </div>
@@ -202,6 +213,26 @@ export function FeaturesSection() {
               </div>
             </div>
           </div>
+
+          {/* Remaining cards */}
+          {features.slice(1).map((feature, index) => (
+            <div
+              key={feature.title}
+              className={`lg:col-span-4 relative bg-black border border-foreground/10 p-8 lg:p-10 transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              }`}
+              style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+              onMouseEnter={() => setActiveFeature(index + 1)}
+            >
+              <span className="font-mono text-sm text-muted-foreground">{feature.number}</span>
+              <h3 className="text-2xl lg:text-3xl font-display mt-3 mb-4">{feature.title}</h3>
+              <p className="text-muted-foreground leading-relaxed mb-8">{feature.description}</p>
+              <div>
+                <span className="text-4xl lg:text-5xl font-display">{feature.stats.value}</span>
+                <span className="block text-sm text-muted-foreground font-mono mt-2">{feature.stats.label}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

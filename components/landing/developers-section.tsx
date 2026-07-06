@@ -85,6 +85,16 @@ export function DevelopersSection() {
               </div>
             ))}
           </div>
+
+          <a
+            href="https://docs.xo.builders"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-12 inline-flex items-center gap-2 rounded-full border border-foreground/20 px-8 h-12 text-sm font-medium text-foreground hover:border-foreground hover:bg-foreground/5 transition-all group"
+          >
+            Read the docs
+            <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span>
+          </a>
         </div>
       </div>
     </section>

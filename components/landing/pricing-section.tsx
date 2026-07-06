@@ -56,7 +56,7 @@ const plans = [
     price: { monthly: 100, annual: 100 },
     trial: null,
     features: [
-      "500 workspaces",
+      "500 workspaces: $0.20 per workspace, the volume price",
       "Unlimited seats, share with anyone",
       "White-label",
       "SSO / SAML",
@@ -190,7 +190,7 @@ export function PricingSection() {
                   <ul className="space-y-3 mb-10">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 text-[#eca8d6] mt-0.5 shrink-0" />
+                        <Check className="w-4 h-4 text-[#83d63a] mt-0.5 shrink-0" />
                         <span className="text-sm text-muted-foreground">{feature}</span>
                       </li>
                     ))}

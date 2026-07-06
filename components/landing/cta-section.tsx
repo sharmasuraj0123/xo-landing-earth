@@ -63,23 +63,29 @@ export function CtaSection() {
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Button
+                    asChild
                     size="lg"
                     className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
                   >
-                    Start free
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer">
+                      Sign up free
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    </a>
                   </Button>
                   <Button
+                    asChild
                     size="lg"
                     variant="outline"
                     className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
                   >
-                    Book a demo
+                    <a href="https://docs.xo.builders" target="_blank" rel="noopener noreferrer">
+                      Read the docs
+                    </a>
                   </Button>
                 </div>
 
                 <p className="text-sm text-muted-foreground mt-8 font-mono">
-                  14-day free trial
+                  14-day free trial on paid tiers
                 </p>
               </div>
 

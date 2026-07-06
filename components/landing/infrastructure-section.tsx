@@ -94,7 +94,7 @@ export function InfrastructureSection() {
               <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-lg transition-all duration-1000 delay-100 ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}>
-                On XO Platform, agents and projects are separate. Set up an agent once: model, data, secrets. Then point it at any project, or put several agents on the same one. The work stays in the project: tracked, shared, yours.
+                On XO Platform, agents and projects are separate. Set up an agent once: model, data, secrets, budget. Then point it at any project, or put several agents on the same one. The work stays in the project: tracked, capped, shared, yours.
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export function InfrastructureSection() {
                       100% { stroke-dashoffset: 0; opacity: 0; }
                     }
                     .connecting-line {
-                      stroke: #eca8d6;
+                      stroke: #83d63a;
                       stroke-width: 1.2;
                       fill: none;
                       stroke-dasharray: 1000;
@@ -167,7 +167,7 @@ export function InfrastructureSection() {
                     width:  isActive ? "10px" : "6px",
                     height: isActive ? "10px" : "6px",
                     transform: "translate(-50%, -50%)",
-                    backgroundColor: isActive ? PROVIDERS[providerIdx].color : "#eca8d6",
+                    backgroundColor: isActive ? PROVIDERS[providerIdx].color : "#83d63a",
                     animation: `pulse 2s ease-in-out ${i * 0.1}s infinite`,
                     zIndex: isActive ? 20 : 2,
                     boxShadow: isActive ? `0 0 8px 2px ${PROVIDERS[providerIdx].color}` : "none",

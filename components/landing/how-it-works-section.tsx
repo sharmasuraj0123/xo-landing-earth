@@ -165,8 +165,28 @@ export function HowItWorksSection() {
           ))}
         </div>
 
-        {/* Code Preview - Large terminal */}
-        
+        {/* Product screenshots: export the app's project page and usage
+            dashboard to public/images/app/project-setup.png and
+            public/images/app/usage-dashboard.png, then uncomment.
+        <div className="mt-6 grid lg:grid-cols-2 gap-4">
+          <img src="/images/app/project-setup.png" alt="An XO project with its setup checklist" className="w-full border border-white/15" />
+          <img src="/images/app/usage-dashboard.png" alt="The XO usage dashboard: cost, tokens, messages, latency" className="w-full border border-white/15" />
+        </div>
+        */}
+
+        {/* Micro-CTA */}
+        <div className="mt-12 flex flex-wrap items-center gap-4">
+          <p className="text-white/50">Create your first project in about a minute.</p>
+          <a
+            href="https://app.xo.builders"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#83d63a] hover:text-white transition-colors"
+          >
+            Sign up
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
       </div>
 
       <style jsx>{`

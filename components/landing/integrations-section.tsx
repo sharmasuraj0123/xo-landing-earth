@@ -80,10 +80,10 @@ type Integration = {
 
 // Placed to rest on the two mossy hands: two on the left hand, two on the right.
 const integrations: Integration[] = [
-  { name: "Codex", category: "Agent", x: 14, y: 40, dur: 6.5, delay: 0.0, amp: 5 },
-  { name: "Claude", category: "Agent", x: 31, y: 50, dur: 7.2, delay: 0.8, amp: 4 },
-  { name: "Slack", category: "Comms", x: 69, y: 47, dur: 6.8, delay: 0.4, amp: 5 },
-  { name: "Vercel", category: "Deploy", x: 86, y: 33, dur: 7.5, delay: 1.0, amp: 4 },
+  { name: "WhatsApp", category: "Comms", x: 14, y: 40, dur: 6.5, delay: 0.0, amp: 5 },
+  { name: "Slack", category: "Comms", x: 31, y: 50, dur: 7.2, delay: 0.8, amp: 4 },
+  { name: "GitHub", category: "Code", x: 69, y: 47, dur: 6.8, delay: 0.4, amp: 5 },
+  { name: "Linear", category: "Tasks", x: 86, y: 33, dur: 7.5, delay: 1.0, amp: 4 },
 ];
 
 // A glassy circular chip holding a tool logo, legible over any part of the image.
@@ -213,7 +213,7 @@ export function IntegrationsSection() {
             ))}
           </div>
 
-          <a href="#" className="group inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors">
+          <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors">
             Browse all connectors
             <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </a>
