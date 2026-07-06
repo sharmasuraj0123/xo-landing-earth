@@ -1,25 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { EnvironmentDiagram } from "@/components/landing/environment-diagram";
 
 const features = [
   {
     number: "01",
-    title: "A place to act",
-    description: "A desk, not a chat window. Any agent runs here.",
-    stats: { value: "1", label: "environment per agent" },
+    title: "A definition of done",
+    description: "You can describe what finished and correct looks like.",
+    stats: { value: "1", label: "end state per action item" },
   },
   {
     number: "02",
-    title: "Memory that compounds",
-    description: "Every job makes the next one smarter and cheaper.",
-    stats: { value: "0", label: "context lost between runs" },
+    title: "A checkable result",
+    description: "The environment snapshots state before and after. Compare the two, the same check a manager makes.",
+    stats: { value: "2", label: "snapshots per unit of work" },
   },
   {
     number: "03",
-    title: "Tools to reach your systems",
-    description: "Linear, GitHub, Slack, your APIs. Wired in from the first second.",
-    stats: { value: "19+", label: "integrations via MCP" },
+    title: "One owner",
+    description: "Scoped small enough for a single agent to be accountable. Scope it like a contractor, not a utility meter.",
+    stats: { value: "1", label: "owner per unit" },
   },
   {
     number: "04",
@@ -172,16 +173,16 @@ export function FeaturesSection() {
               <p className={`text-xl text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}>
-                An environment is where the output of every agent is tracked: runtime, memory, tools, and the record. It snapshots the state before and after, meters every token in between, and scores the result against a definition of done. That bundle is{" "}
+                An agent needs a workspace, not just a prompt. The environment tracks everything the agent does, turning it into{" "}
                 <a
                   href="https://docs.xo.builders/future-of-work/phase-1-agentic-workforce#what-is-a-unit-of-work"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-foreground underline underline-offset-4 decoration-[#83d63a]/50 hover:decoration-[#83d63a] transition-colors"
                 >
-                  the unit of work
-                </a>
-                : the smallest business unit, AI work you can check, price, and repeat.
+                  units of work
+                </a>{" "}
+                you can check, price, and repeat.
               </p>
               <a
                 href="https://docs.xo.builders/future-of-work"
@@ -196,6 +197,15 @@ export function FeaturesSection() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* The environment loop, drawn */}
+        <div
+          className={`mb-10 border border-foreground/10 bg-black p-6 lg:p-10 text-foreground transition-all duration-1000 delay-200 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <EnvironmentDiagram />
         </div>
 
         {/* Bento Grid Layout */}

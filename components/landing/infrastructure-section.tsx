@@ -94,7 +94,7 @@ export function InfrastructureSection() {
               <p className={`mt-5 text-lg text-muted-foreground leading-relaxed max-w-lg transition-all duration-1000 delay-100 ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}>
-                Agents, tools, and humans snap together like parts. Pick any agent, wire in any tool, point them at a project, and the work runs on its own: scheduled, triggered, or on demand. Swap any piece without losing the work.
+                Agents, tools, and humans snap together like parts. Swap any piece without losing the work. Agents are replaceable. The environment compounds.
               </p>
             </div>
           </div>

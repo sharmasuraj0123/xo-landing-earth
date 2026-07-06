@@ -47,7 +47,7 @@ export function DevelopersSection() {
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              Each project deserves its own conditions, so each gets its own environment. The work it produces carries its DNA: memory, records, and a sharper definition of done, compounding run after run.
+              Each project gets its own environment, and the work carries its DNA: memory, records, a sharper definition of done. Run after run, the same unit gets cheaper.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start gap-4">

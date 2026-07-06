@@ -124,7 +124,7 @@ export function FooterSection() {
               </a>
 
               <p className="text-white/50 leading-relaxed mb-8 max-w-xs text-sm">
-                Workspaces for AI agents.
+                Hire the skill, not the hours.
               </p>
 
               {/* Social Links */}

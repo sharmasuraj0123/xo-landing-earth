@@ -7,7 +7,7 @@ const steps = [
     number: "01",
     title: "Create",
     subtitle: "a project",
-    description: "Pick a starter template: Cowork, OpenClaw, Hermes, or Claude Code. They're just starting points; every workspace comes with full terminal access to run anything you like.",
+    description: "Cowork, OpenClaw, Hermes, or Claude Code. Just starting points: every workspace has full terminal access.",
     code: `xo.create({
   template: 'claude-code',  // cowork | openclaw | hermes
   name:     'gcpt-e',
@@ -18,7 +18,7 @@ const steps = [
     number: "02",
     title: "Setup",
     subtitle: "the checklist",
-    description: "Three steps to bring the agent online: connect a model, sync your data, add secrets. The checklist takes it from created to ready.",
+    description: "Connect a model, sync your data, add secrets. Created to ready in three steps.",
     code: `project.setup({
   model:   'claude',           // model connected
   data:    ['knowledge/'],     // data synced
@@ -29,7 +29,7 @@ const steps = [
     number: "03",
     title: "Share",
     subtitle: "and measure",
-    description: "Share the project with anyone by email. Then watch the work land: messages, sessions, cost, and latency, per project.",
+    description: "Share by email. One session per intent, cost and outcome tracked per intent, not smeared across a token bill.",
     code: `project.share({ with: 'bob@company.com' })
 
 // then measure what it delivers
