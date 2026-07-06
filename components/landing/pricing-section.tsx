@@ -11,6 +11,7 @@ const plans = [
     trial: "Free forever",
     features: [
       "1 workspace to start",
+      "Unlimited units of work inside 1 workspace",
       "10 workspaces if you're doing research",
       "Unlimited seats, share with anyone",
       "Full SDK + usage dashboards",
@@ -26,6 +27,7 @@ const plans = [
     trial: "14-day free trial",
     features: [
       "10 workspaces",
+      "Unlimited units of work per workspace",
       "Unlimited seats, share with anyone",
       "Core templates: Cowork, OpenClaw, Hermes, Claude Code",
       "Community support",
@@ -41,6 +43,7 @@ const plans = [
     trial: null,
     features: [
       "30 workspaces",
+      "Unlimited units of work per workspace",
       "Unlimited seats, share with anyone",
       "Full template library (n8n, Gaia, and more)",
       "MCP integrations",
@@ -57,6 +60,7 @@ const plans = [
     trial: null,
     features: [
       "500 workspaces: $0.20 per workspace, the volume price",
+      "Unlimited units of work per workspace",
       "Unlimited seats, share with anyone",
       "White-label",
       "SSO / SAML",
@@ -74,15 +78,19 @@ const plans = [
     trial: null,
     features: [
       "Pay as you go",
+      "Unlimited units of work per workspace",
       "Unlimited seats, share with anyone",
       "Custom pricing and allocation",
       "SLA + dedicated support",
       "Deploy in your own cloud",
     ],
-    cta: "Sign up",
+    cta: "Contact us",
     highlight: false,
   },
 ];
+
+const CONTACT_URL = "mailto:team@xo.builders";
+const SIGNUP_URL = "https://app.xo.builders";
 
 export function PricingSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -198,7 +206,7 @@ export function PricingSection() {
 
                   {/* CTA */}
                   <a
-                    href="https://app.xo.builders"
+                    href={plan.cta === "Contact us" ? CONTACT_URL : SIGNUP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-full py-3 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
@@ -223,7 +231,7 @@ export function PricingSection() {
           <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#83d63a]" />
-              You pay for compute used, nothing else
+              Tokens price the machinery. Units price the result. You pay for the compute in between
             </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#83d63a]" />

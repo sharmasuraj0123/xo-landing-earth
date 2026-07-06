@@ -257,7 +257,7 @@ export function MetricsSection() {
             <p className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}>
-              XO measures agents the way you measure employees: by what they deliver. Every unit of work records what it cost and what it changed, so you see the impact of agents on your business, not just a token bill. Every token, every cent, every outcome, per project, per day.
+              XO measures agents the way you measure employees: by what they deliver. Did the state change? What did it cost? That's the whole calculation.
             </p>
           </div>
         </div>
@@ -274,50 +274,73 @@ export function MetricsSection() {
           />
         </div>
 
-        {/* Metrics grid */}
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Large metric */}
-          <div className={`lg:col-span-1 bg-foreground/[0.02] border border-foreground/10 p-6 lg:p-8 transition-all duration-700 ${
+        {/* The Calculation panel */}
+        <div className="grid lg:grid-cols-2 gap-6">
+          {/* Did the state change? */}
+          <div className={`bg-foreground/[0.02] border border-foreground/10 p-6 lg:p-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}>
-            <div className="text-3xl md:text-4xl lg:text-5xl font-display tracking-tight mb-4 whitespace-nowrap overflow-hidden">
-              <AnimatedNumber end={metrics[0].value} suffix={metrics[0].suffix} prefix={metrics[0].prefix} />
+            <div className="text-sm text-muted-foreground font-mono uppercase tracking-widest mb-6">
+              Did the state change?
             </div>
-            <div className="mb-6">
-              <DotGraph color="white" height={36} freq1={0.28} freq2={0.09} freqT={0.5} speed={0.018} baseline={0.35} amplitude={0.55} />
+            <div className="flex items-center gap-4">
+              <div className="flex-1 border border-dashed border-foreground/25 p-4">
+                <span className="block text-sm text-foreground">State before</span>
+                <span className="block mt-1 text-sm text-muted-foreground font-mono">
+                  ticket open · unassigned
+                </span>
+              </div>
+              <span className="text-[#83d63a] text-2xl shrink-0" aria-hidden="true">&rarr;</span>
+              <div className="flex-1 border border-[#83d63a]/50 bg-[#83d63a]/[0.04] p-4">
+                <span className="block text-sm text-foreground">State after</span>
+                <span className="block mt-1 text-sm text-[#83d63a] font-mono">
+                  ticket closed · verified
+                </span>
+              </div>
             </div>
-            <div className="text-lg text-foreground mb-2">{metrics[0].label}</div>
-            <div className="text-sm text-muted-foreground font-mono">{metrics[0].sublabel}</div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              The same check a manager makes today. If the world moved the way you asked, the work is done.
+            </p>
           </div>
 
-          {/* Metrics */}
-          {metrics.slice(1).map((metric, index) => (
-            <div
-              key={metric.label}
-              className={`bg-foreground/[0.02] border border-foreground/10 p-8 flex flex-col items-start justify-between gap-6 transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              }`}
-              style={{ transitionDelay: `${(index + 1) * 100}ms` }}
-            >
-              <div className="w-full">
-                <div className="text-sm text-muted-foreground font-mono mb-2">{metric.sublabel}</div>
-                <div className="text-base text-foreground mb-3">{metric.label}</div>
-                <DotGraph
-                  color={index === 0 ? "green" : "white"}
-                  height={24}
-                  freq1={index === 0 ? 0.45 : 0.22}
-                  freq2={index === 0 ? 0.18 : 0.07}
-                  freqT={index === 0 ? 1.1 : 0.4}
-                  speed={index === 0 ? 0.032 : 0.015}
-                  baseline={index === 0 ? 0.4 : 0.25}
-                  amplitude={index === 0 ? 0.45 : 0.6}
-                />
+          {/* What did it cost? */}
+          <div className={`bg-foreground/[0.02] border border-foreground/10 p-6 lg:p-8 transition-all duration-700 delay-100 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}>
+            <div className="text-sm text-muted-foreground font-mono uppercase tracking-widest mb-6">
+              What did it cost?
+            </div>
+            <div className="space-y-5">
+              <div>
+                <div className="flex justify-between text-sm mb-2">
+                  <span className="text-foreground">Budget</span>
+                  <span className="text-muted-foreground font-mono">the price of the outcome</span>
+                </div>
+                <div className="h-2.5 rounded-sm bg-foreground/20 w-full" />
               </div>
-              <div className="text-2xl md:text-3xl lg:text-4xl font-display tracking-tight w-full">
-                <AnimatedNumber end={metric.value} suffix={metric.suffix} prefix={metric.prefix} />
+              <div>
+                <div className="flex justify-between text-sm mb-2">
+                  <span className="text-foreground">AI spend</span>
+                  <span className="text-muted-foreground font-mono">metered as it happens, BYOM</span>
+                </div>
+                <div className="relative h-2.5 rounded-sm bg-[#83d63a]/15 w-full overflow-hidden">
+                  <div
+                    className={`absolute inset-y-0 left-0 rounded-sm bg-foreground/35 transition-all duration-1000 delay-500 ${
+                      isVisible ? "w-[58%]" : "w-0"
+                    }`}
+                  />
+                </div>
+                <div className="flex justify-end mt-2">
+                  <span className="text-xs font-mono text-[#83d63a]">
+                    &larr; the gap is your efficiency
+                  </span>
+                </div>
               </div>
             </div>
-          ))}
+            <p className="mt-4 text-sm text-muted-foreground">
+              Budget minus spend, per unit, per session. XO only enables the tracking; the gap is yours to widen.
+            </p>
+          </div>
         </div>
 
         {/* Bottom ticker */}

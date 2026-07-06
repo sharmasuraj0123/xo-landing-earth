@@ -85,7 +85,7 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-white/60">
             <span className="w-8 h-px bg-white/30" />
-            Workspaces for AI agents · XO
+            Hire the skill, not the hours · XO
           </span>
         </div>
         
@@ -106,7 +106,7 @@ export function HeroSection() {
               {cyclingWords[phraseIndex]}
             </span>
             <span className="block text-white/50 mt-4 text-[clamp(0.9rem,1.8vw,1.75rem)] font-sans font-normal tracking-normal leading-snug max-w-[28ch]">
-              The environment where your agents do real work, and you see exactly what that work costs and delivers.
+              Where agent work becomes a unit you can check, price, and repeat.
             </span>
           </h1>
         </div>
