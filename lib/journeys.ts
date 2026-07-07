@@ -32,6 +32,8 @@ export type Journey = {
   slug: string;
   partner: string;
   intro: string;
+  /** Partner logo under /public. Falls back to a generated monogram. */
+  logo?: string;
   articles: JourneyArticle[];
 };
 
@@ -39,6 +41,7 @@ export const journeys: Record<string, Journey> = {
   "xo-google": {
     slug: "xo-google",
     partner: "Google",
+    logo: "/images/logos/google.webp",
     intro:
       "From joining the Google Cloud startup ecosystem to a $375K commitment from Google for Startups. Milestone by milestone, the partnership powering XO's agentic infrastructure.",
     articles: [
@@ -112,6 +115,7 @@ export const journeys: Record<string, Journey> = {
   "xo-aws": {
     slug: "xo-aws",
     partner: "AWS",
+    logo: "/images/logos/aws.svg",
     intro:
       "XO's first cloud partnership. AWS for Startups made the workspace image cloud-native from day one.",
     articles: [
@@ -162,6 +166,7 @@ export const journeys: Record<string, Journey> = {
   "xo-microsoft": {
     slug: "xo-microsoft",
     partner: "Microsoft",
+    logo: "/images/logos/microsoft.svg",
     intro: "XO and Microsoft. A chapter in progress.",
     articles: [
       {
@@ -431,6 +436,100 @@ export const journeys: Record<string, Journey> = {
         title: "XO × MagicPath: the first chapter",
         summary:
           "Milestone article coming soon. The full story of this partnership lands here.",
+      },
+    ],
+  },
+
+  "xo-gaia": {
+    slug: "xo-gaia",
+    partner: "Gaia",
+    intro:
+      "Gaia nodes run as a launchpad template on XO: your own LLM, zero configuration. The chapters of that collaboration live here.",
+    articles: [
+      {
+        id: "first",
+        date: "2026",
+        tag: "Partnership",
+        latest: true,
+        draft: true,
+        title: "XO × Gaia: the first chapter",
+        summary:
+          "Milestone article coming soon. The full story of this partnership lands here.",
+      },
+    ],
+  },
+
+  "xo-evm-capital": {
+    slug: "xo-evm-capital",
+    partner: "EVM Capital",
+    intro: "XO and EVM Capital. A chapter in progress.",
+    articles: [
+      {
+        id: "first",
+        date: "2026",
+        tag: "Partnership",
+        latest: true,
+        draft: true,
+        title: "XO × EVM Capital: the first chapter",
+        summary:
+          "Milestone article coming soon. The full story of this partnership lands here.",
+      },
+    ],
+  },
+
+  "xo-hysolwin": {
+    slug: "xo-hysolwin",
+    partner: "Hysolwin Green Energy",
+    intro:
+      "Hysolwin Green Energy runs on XO. A green-energy team putting agent workspaces to work.",
+    articles: [
+      {
+        id: "first",
+        date: "2026",
+        tag: "Customer",
+        latest: true,
+        title: "XO × Hysolwin Green Energy: the first chapter",
+        summary:
+          "The full story of this collaboration is coming. Until then, follow Hysolwin Green Energy on LinkedIn.",
+        sourceUrl: "https://www.linkedin.com/company/hysolwin-green-energy/",
+      },
+    ],
+  },
+
+  "xo-ppai": {
+    slug: "xo-ppai",
+    partner: "PPAI Innovations",
+    intro:
+      "PPAI Innovations runs on XO. Building with agent workspaces, one project at a time.",
+    articles: [
+      {
+        id: "first",
+        date: "2026",
+        tag: "Customer",
+        latest: true,
+        title: "XO × PPAI Innovations: the first chapter",
+        summary:
+          "The full story of this collaboration is coming. Until then, follow PPAI Innovations on LinkedIn.",
+        sourceUrl: "https://www.linkedin.com/company/ppai-innovations-llp/",
+      },
+    ],
+  },
+
+  "xo-enviroedge": {
+    slug: "xo-enviroedge",
+    partner: "EnviroEdge Partner",
+    intro:
+      "EnviroEdge Partner runs on XO. Environmental work, measured the unit-of-work way.",
+    articles: [
+      {
+        id: "first",
+        date: "2026",
+        tag: "Customer",
+        latest: true,
+        title: "XO × EnviroEdge Partner: the first chapter",
+        summary:
+          "The full story of this collaboration is coming. Until then, follow EnviroEdge Partner on LinkedIn.",
+        sourceUrl: "https://www.linkedin.com/company/enviroedge-partner-pvt-ltd/",
       },
     ],
   },

@@ -6,11 +6,10 @@ import { BrandLogo } from "@/components/brand-logo";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "How it works", href: "#how-it-works" },
-  { name: "Why XO", href: "#features" },
-  { name: "Agents", href: "#infra" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Docs", href: "https://docs.xo.builders" },
+  { name: "How it works", href: "/#how-it-works" },
+  { name: "Why XO", href: "/#features" },
+  { name: "Pricing", href: "/#pricing" },
+  { name: "Whitepaper", href: "/whitepaper" },
 ];
 
 export function Navigation() {
@@ -28,32 +27,30 @@ export function Navigation() {
   return (
     <header
       className={`fixed z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "top-4 left-4 right-4" 
+        isScrolled
+          ? "top-4 left-4 right-4"
           : "top-0 left-0 right-0"
       }`}
     >
-      <nav 
+      <nav
         className={`mx-auto transition-all duration-500 ${
           isScrolled || isMobileMenuOpen
             ? "bg-background/80 backdrop-blur-xl border border-foreground/10 rounded-2xl shadow-lg max-w-[1200px]"
             : "bg-transparent max-w-[1400px]"
         }`}
       >
-        <div 
+        <div
           className={`flex items-center justify-between transition-all duration-500 px-6 lg:px-8 ${
             isScrolled ? "h-14" : "h-20"
           }`}
         >
-          {/* Logo */}
-          <a href="#" className="flex items-center group">
+          <a href="/" className="flex items-center group">
             <BrandLogo
               variant="dark"
               className={`transition-all duration-500 ${isScrolled ? "h-7 w-7" : "h-8 w-8"}`}
             />
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-12">
             {navLinks.map((link) => (
               <a
@@ -62,12 +59,13 @@ export function Navigation() {
                 className={`text-sm transition-colors duration-300 relative group ${isScrolled ? "text-foreground/70 hover:text-foreground" : "text-white/70 hover:text-white"}`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${isScrolled ? "bg-foreground" : "bg-white"}`} />
+                <span
+                  className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${isScrolled ? "bg-foreground" : "bg-white"}`}
+                />
               </a>
             ))}
           </div>
 
-          {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Button
               asChild
@@ -79,7 +77,13 @@ export function Navigation() {
                   : "border-white/30 text-white hover:bg-white/10 bg-transparent h-9 px-5"
               }`}
             >
-              <a href="https://docs.xo.builders" target="_blank" rel="noopener noreferrer">Docs</a>
+              <a
+                href="https://docs.xo.builders"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Docs
+              </a>
             </Button>
             <Button
               asChild
@@ -90,14 +94,19 @@ export function Navigation() {
                   : "bg-white hover:bg-white/90 text-black px-6 h-9"
               }`}
             >
-              <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer">Sign up</a>
+              <a
+                href="https://app.xo.builders"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get started
+              </a>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 transition-colors duration-500 ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"}`}
+            className={`md:hidden p-2 rounded-full transition-colors duration-500 ${isScrolled || isMobileMenuOpen ? "text-foreground" : "text-white"}`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -107,20 +116,17 @@ export function Navigation() {
             )}
           </button>
         </div>
-
       </nav>
-      
-      {/* Mobile Menu - Full Screen Overlay */}
+
       <div
         className={`md:hidden fixed inset-0 bg-background z-40 transition-all duration-500 ${
-          isMobileMenuOpen 
-            ? "opacity-100 pointer-events-auto" 
+          isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
         style={{ top: 0 }}
       >
         <div className="flex flex-col h-full px-8 pt-28 pb-8">
-          {/* Navigation Links */}
           <div className="flex-1 flex flex-col justify-center gap-8">
             {navLinks.map((link, i) => (
               <a
@@ -128,8 +134,8 @@ export function Navigation() {
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-5xl font-display text-foreground hover:text-muted-foreground transition-all duration-500 ${
-                  isMobileMenuOpen 
-                    ? "opacity-100 translate-y-0" 
+                  isMobileMenuOpen
+                    ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: isMobileMenuOpen ? `${i * 75}ms` : "0ms" }}
@@ -138,14 +144,14 @@ export function Navigation() {
               </a>
             ))}
           </div>
-          
-          {/* Bottom CTAs */}
-          <div className={`flex flex-col sm:flex-row gap-3 pt-8 border-t border-foreground/10 transition-all duration-500 ${
-            isMobileMenuOpen 
-              ? "opacity-100 translate-y-0" 
-              : "opacity-0 translate-y-4"
-          }`}
-          style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
+
+          <div
+            className={`flex flex-col sm:flex-row gap-3 pt-8 border-t border-foreground/10 transition-all duration-500 ${
+              isMobileMenuOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
             <Button
               asChild
@@ -171,7 +177,7 @@ export function Navigation() {
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Sign up
+                Get started
               </a>
             </Button>
           </div>

@@ -16,4 +16,13 @@ next.user-config.*
 # Common ignores
 node_modules
 .next/
+.next-old-*/
+*.tsbuildinfo
+.fuse_hidden*
 .DS_Store
+
+# Clerk keyless dev credentials
+/.clerk/
+
+# Runtime blog data
+/data/

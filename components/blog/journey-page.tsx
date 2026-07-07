@@ -1,18 +1,28 @@
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
-import { JourneyExplorer } from "@/components/blog/journey-explorer";
-import type { Journey } from "@/lib/journeys";
+import { WorkResults } from "@/components/blog/work-results";
+import { PartnerLockup } from "@/components/blog/partner-lockup";
+import { journeys, type Journey } from "@/lib/journeys";
 
 /* Shared shell for every XO × Partner journey page.
-   Same idea for every company; only the articles differ. */
+
+   Reads like a search results page for the partnership: full-width
+   lockup banner, the work as expandable results on the left, and a
+   sticky profile panel (the knowledge card) on the right. */
 
 export function JourneyPage({ journey }: { journey: Journey }) {
+  const chapters = journey.articles;
+  const latest = chapters[0];
+  const first = chapters[chapters.length - 1];
+  const links = chapters.filter((a) => a.sourceUrl).slice(0, 4);
+  const related = Object.values(journeys).filter((j) => j.slug !== journey.slug);
+
   return (
     <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
       <Navigation />
 
-      {/* ── Header ──────────────────────────────────────────── */}
-      <header className="relative pt-40 lg:pt-52 pb-14 lg:pb-20 overflow-hidden">
+      {/* ── Banner: full-width lockup right under the nav ─────── */}
+      <header className="relative pt-28 lg:pt-36 pb-10 overflow-hidden">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-[0.13]"
@@ -24,94 +34,106 @@ export function JourneyPage({ journey }: { journey: Journey }) {
             WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent)",
           }}
         />
-        <div
-          aria-hidden="true"
-          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[760px] h-[440px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(closest-side, rgba(131,214,58,0.14), transparent)" }}
-        />
 
-        <div className="relative z-10 max-w-[1100px] mx-auto px-6 lg:px-12">
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-12">
           <a
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-mono text-white/40 hover:text-white transition-colors mb-14"
+            className="inline-flex items-center gap-2 text-sm font-mono text-white/40 hover:text-white transition-colors mb-6"
           >
             <span aria-hidden="true">&larr;</span> Back to XO
           </a>
 
-          <p className="flex items-center gap-3 text-sm font-mono text-white/50 mb-8">
-            <span className="w-8 h-px bg-[#83d63a]/60" />
-            The journey · {journey.articles.length}{" "}
-            {journey.articles.length === 1 ? "chapter" : "chapters"} and counting
-          </p>
-
-          <h1 className="text-[clamp(2.8rem,8vw,6.5rem)] font-display tracking-tight leading-[0.95]">
-            XO <span className="text-[#83d63a]">&times;</span> {journey.partner}
-          </h1>
-
-          <p className="mt-8 text-xl text-white/55 leading-relaxed max-w-[52ch]">
-            {journey.intro}
-          </p>
-
-          {/* Two strands converging: how the two companies evolved together */}
-          <svg
-            viewBox="0 0 900 150"
-            className="w-full h-auto mt-12"
-            role="img"
-            aria-label={`Two paths, XO and ${journey.partner}, weaving together into one line`}
-          >
-            <defs>
-              <linearGradient id="xoStrand" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="rgba(131,214,58,0.15)" />
-                <stop offset="100%" stopColor="#83d63a" />
-              </linearGradient>
-              <linearGradient id="gStrand" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="rgba(255,255,255,0.1)" />
-                <stop offset="100%" stopColor="rgba(255,255,255,0.85)" />
-              </linearGradient>
-            </defs>
-            <path
-              id="xoPath"
-              d="M 40 30 C 220 30, 260 115, 450 115 C 600 115, 660 80, 860 78"
-              fill="none"
-              stroke="url(#xoStrand)"
-              strokeWidth="1.6"
-            />
-            <path
-              id="gPath"
-              d="M 40 125 C 220 125, 260 40, 450 40 C 600 40, 660 74, 860 76"
-              fill="none"
-              stroke="url(#gStrand)"
-              strokeWidth="1.6"
-            />
-            <text x="40" y="18" fontFamily="var(--font-jetbrains), monospace" fontSize="12" fill="#83d63a">
-              XO
-            </text>
-            <text x="40" y="146" fontFamily="var(--font-jetbrains), monospace" fontSize="12" fill="rgba(255,255,255,0.6)">
-              {journey.partner}
-            </text>
-            <circle cx="860" cy="77" r="3" fill="#83d63a" />
-            <circle r="2.5" fill="#83d63a">
-              <animateMotion dur="7s" repeatCount="indefinite">
-                <mpath href="#xoPath" />
-              </animateMotion>
-            </circle>
-            <circle r="2.5" fill="rgba(255,255,255,0.9)">
-              <animateMotion dur="7s" begin="3.5s" repeatCount="indefinite">
-                <mpath href="#gPath" />
-              </animateMotion>
-            </circle>
-          </svg>
+          <h1 className="sr-only">XO and {journey.partner}: everything built together</h1>
+          <PartnerLockup partner={journey.partner} logo={journey.logo} />
         </div>
       </header>
 
-      {/* ── Article list + reader ───────────────────────────── */}
-      <section className="relative max-w-[1100px] mx-auto px-6 lg:px-12 pb-8">
-        <JourneyExplorer articles={journey.articles} />
+      {/* ── Results + profile panel ───────────────────────────── */}
+      <section className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pb-16">
+        <div className="grid lg:grid-cols-[1fr_330px] gap-10 lg:gap-14 items-start">
+          {/* Left: the work, as results */}
+          <WorkResults articles={chapters} slug={journey.slug} partner={journey.partner} />
+
+          {/* Right: sticky profile card */}
+          <aside className="lg:sticky lg:top-28 border border-white/10 rounded-2xl overflow-hidden">
+            <div className="p-6 border-b border-white/10 bg-white/[0.02]">
+              <p className="font-mono text-xs text-white/40 mb-1">Partnership profile</p>
+              <p className="font-display text-2xl tracking-tight">
+                XO <span className="text-[#83d63a]">&times;</span> {journey.partner}
+              </p>
+            </div>
+
+            <div className="p-6 border-b border-white/10">
+              <p className="text-sm text-white/60 leading-relaxed">{journey.intro}</p>
+            </div>
+
+            <dl className="p-6 space-y-3 text-sm border-b border-white/10">
+              <div className="flex items-baseline justify-between gap-4">
+                <dt className="font-mono text-white/40">Chapters</dt>
+                <dd className="text-white">{chapters.length}</dd>
+              </div>
+              {first && (
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="font-mono text-white/40">Since</dt>
+                  <dd className="text-white text-right">{first.date}</dd>
+                </div>
+              )}
+              {latest && (
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="font-mono text-white/40">Latest</dt>
+                  <dd className="text-white text-right">{latest.tag} · {latest.date}</dd>
+                </div>
+              )}
+            </dl>
+
+            {links.length > 0 && (
+              <div className="p-6 border-b border-white/10">
+                <p className="font-mono text-xs text-white/40 mb-3">Links</p>
+                <ul className="space-y-2">
+                  {links.map((a) => (
+                    <li key={a.id}>
+                      <a
+                        href={a.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                      >
+                        <span className="text-[#83d63a]" aria-hidden="true">&#8599;</span>
+                        <span className="truncate max-w-[30ch]">{a.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="p-6">
+              <p className="font-mono text-xs text-white/40 mb-3">More journeys</p>
+              <ul className="space-y-2">
+                {related.slice(0, 6).map((j) => (
+                  <li key={j.slug}>
+                    <a
+                      href={`/blog/${j.slug}`}
+                      className="group flex items-baseline justify-between gap-3 text-sm text-white/60 hover:text-white transition-colors"
+                    >
+                      <span>
+                        XO <span className="text-[#83d63a]">&times;</span> {j.partner}
+                      </span>
+                      <span className="font-mono text-xs text-white/30 group-hover:text-white/60 shrink-0">
+                        {j.articles.length} ch.
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </div>
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────── */}
-      <section className="relative max-w-[1100px] mx-auto px-6 lg:px-12 py-24 lg:py-32">
-        <div className="relative border border-white/10 p-10 lg:p-14 overflow-hidden">
+      <section className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pb-24">
+        <div className="relative border border-white/10 rounded-2xl p-10 lg:p-14 overflow-hidden">
           <div
             aria-hidden="true"
             className="absolute -top-24 -right-24 w-[340px] h-[340px] rounded-full pointer-events-none"

@@ -123,9 +123,9 @@ export function IntegrationsSection() {
   return (
     <section id="integrations" ref={sectionRef} className="relative overflow-hidden">
 
-      {/* Header - centré verticalement sur l'image */}
-      <div className="relative z-10 pt-16 lg:pt-20 text-center">
-        <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-8 transition-all duration-700 justify-center ${
+      {/* Header */}
+      <div className="relative z-10 pt-10 lg:pt-12 text-center">
+        <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-5 transition-all duration-700 justify-center ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <span className="w-12 h-px bg-foreground/20" />
@@ -133,18 +133,18 @@ export function IntegrationsSection() {
           <span className="w-12 h-px bg-foreground/20" />
         </span>
 
-        <h2 className={`text-5xl md:text-6xl lg:text-[84px] font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
+        <h2 className={`text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.9] transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          Your tools,
+          Agents, humans, tools.
           <br />
-          <span className="text-muted-foreground">your work.</span>
+          <span className="text-muted-foreground">No barriers.</span>
         </h2>
 
-        <p className={`mt-5 text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto transition-all duration-1000 delay-100 ${
+        <p className={`mt-4 text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto transition-all duration-1000 delay-100 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
-          Connect everything you already use: WhatsApp, Slack, Telegram, GitHub, Linear, ClickUp. The more you plug in, the more work your agents can take off your plate, and the faster the impact shows up in your business.
+         Agents change but the environment compounds. Swap in a cheaper model tomorrow, keep every saving you've earned.
         </p>
       </div>
 
@@ -157,6 +157,10 @@ export function IntegrationsSection() {
           alt=""
           aria-hidden="true"
           className="w-full h-auto max-h-[46vh] object-cover"
+        />
+        <div
+          className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,transparent_0%,transparent_22%,rgba(0,0,0,0.18)_42%,rgba(0,0,0,0.52)_58%,rgba(0,0,0,0.78)_72%,rgba(0,0,0,0.94)_86%,rgba(0,0,0,0.98)_100%)]"
+          aria-hidden="true"
         />
 
         {/* Tool icons resting on the hands */}
@@ -196,15 +200,15 @@ export function IntegrationsSection() {
       </div>
 
       {/* Bottom stats row */}
-      <div className="relative z-10 mt-8 max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className={`flex flex-wrap items-center justify-between gap-8 pt-12 border-t border-foreground/10 transition-all duration-1000 delay-500 pb-16 lg:pb-20 ${
+      <div className="relative z-10 mt-5 max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className={`flex flex-wrap items-center justify-between gap-6 pt-7 border-t border-foreground/10 transition-all duration-1000 delay-500 pb-10 lg:pb-12 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}>
           <div className="flex flex-wrap gap-12">
             {[
-              { value: "19+", label: "Integrations" },
+              { value: "100+", label: "Integrations" },
               { value: "BYOM", label: "Bring your own model" },
-              { value: "MCP", label: "Custom tool protocol" },
+              { value: "MCP", label: "Model Context Protocol: add any tool" },
             ].map((stat) => (
               <div key={stat.label} className="flex items-baseline gap-3">
                 <span className="text-3xl font-display">{stat.value}</span>
@@ -214,7 +218,7 @@ export function IntegrationsSection() {
           </div>
 
           <a href="https://app.xo.builders" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors">
-            Browse all connectors
+            Connect yours in the app
             <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </a>
         </div>

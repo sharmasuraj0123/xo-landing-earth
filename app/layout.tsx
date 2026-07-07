@@ -1,5 +1,6 @@
 import React from "react"
 import type { Metadata } from 'next'
+import { ClerkProvider } from '@clerk/nextjs'
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -39,11 +40,26 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        {children}
-        <Analytics />
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#83d63a",
+          colorPrimaryForeground: "#000000",
+          colorBackground: "#0a0a0a",
+          colorForeground: "#ffffff",
+          colorNeutral: "#ffffff",
+          colorInput: "#141414",
+          colorInputForeground: "#ffffff",
+          borderRadius: "0.25rem",
+        },
+      }}
+    >
+      <html lang="en">
+        <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+          {children}
+          <Analytics />
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
