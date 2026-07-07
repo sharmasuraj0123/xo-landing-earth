@@ -7,34 +7,19 @@ const steps = [
     number: "01",
     title: "Create",
     subtitle: "a project",
-    description: "Cowork, OpenClaw, Hermes, or Claude Code. Just starting points: every workspace has full terminal access.",
-    code: `xo.create({
-  template: 'claude-code',  // cowork | openclaw | hermes
-  name:     'gcpt-e',
-})
-// -> project f6cf3515 · Ready`,
+    description: "Pick a template: Cowork, OpenClaw, Hermes, or Claude Code. Full terminal access included.",
   },
   {
     number: "02",
-    title: "Setup",
-    subtitle: "the checklist",
-    description: "Connect a model, sync your data, add secrets. Created to ready in three steps.",
-    code: `project.setup({
-  model:   'claude',           // model connected
-  data:    ['knowledge/'],     // data synced
-  secrets: ['LINEAR_API_KEY'], // secrets added
-})`,
+    title: "Set up",
+    subtitle: "the essentials",
+    description: "Connect a model, sync your data, add secrets. That's the whole checklist between created and ready.",
   },
   {
     number: "03",
     title: "Share",
     subtitle: "and measure",
-    description: "Share by email. One session per intent, cost and outcome tracked per intent, not smeared across a token bill.",
-    code: `project.share({ with: 'bob@company.com' })
-
-// then measure what it delivers
-project.usage()
-// -> cost · tokens · messages · latency`,
+    description: "Share by email. Each session is one unit of work, its cost and outcome tracked on their own, never smeared across a token bill.",
   },
 ];
 
@@ -71,87 +56,55 @@ export function HowItWorksSection() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/[0.02] blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Header - titre + image cerisier */}
-        <div className="relative mb-0 lg:mb-0 grid lg:grid-cols-2 gap-4 lg:gap-12 items-end">
-          {/* Titre colonne gauche */}
-          <div className="overflow-hidden pb-0 lg:pb-8">
-            <div className={`transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"}`}>
-              <span className="inline-flex items-center gap-3 text-sm font-mono text-white/40 mb-8">
-                <span className="w-12 h-px bg-white/20" />
-                Process
-              </span>
-            </div>
-            
-            <h2 className={`text-5xl md:text-6xl lg:text-[84px] font-display tracking-tight leading-[0.85] transition-all duration-1000 delay-100 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
-            }`}>
-              <span className="block">Create.</span>
-              <span className="block text-white/30">Setup.</span>
-              <span className="block text-white/10">Share.</span>
-
-            </h2>
+        {/* Header */}
+        <div className="mb-8">
+          <div className={`transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"}`}>
+            <span className="inline-flex items-center gap-3 text-sm font-mono text-white/40 mb-6">
+              <span className="w-12 h-px bg-white/20" />
+              Process
+            </span>
           </div>
 
-          {/* Bridge shown normally with a mirrored reflection, the two arcs
-              closing into a circle */}
-          <div className={`relative h-[200px] lg:h-[320px] overflow-hidden transition-all duration-1000 delay-200 ${
-            isVisible ? "opacity-100" : "opacity-0"
+          <h2 className={`text-4xl md:text-5xl lg:text-[64px] font-display tracking-tight leading-[0.95] transition-all duration-1000 delay-100 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
           }`}>
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              {/* Left half - mirrored reflection */}
-              <img
-                src="/images/bridge-vertical-mirror.png"
-                alt=""
-                aria-hidden="true"
-                className="h-full w-1/2 object-contain object-right"
-              />
-              {/* Right half - normal */}
-              <img
-                src="/images/bridge-vertical.png"
-                alt="Organic bridge mirrored into a circle"
-                className="h-full w-1/2 object-contain object-left"
-              />
-            </div>
-          </div>
+            Create. <span className="text-white/60">Set up.</span> <span className="text-white/30">Share.</span>
+          </h2>
         </div>
 
-        {/* Horizontal Steps Layout */}
-        <div className="grid lg:grid-cols-3 gap-4">
+        {/* Steps (left) + live screen (right) */}
+        <div className="grid lg:grid-cols-5 gap-4 lg:items-stretch">
+        <div className="lg:col-span-2 flex flex-col gap-3">
           {steps.map((step, index) => (
             <button
               key={step.number}
               type="button"
               onClick={() => setActiveStep(index)}
-              className={`relative text-left p-5 lg:p-6 border transition-all duration-500 ${
-                activeStep === index 
-                  ? "bg-[#000000] border-white/60" 
+              className={`relative flex-1 text-left p-4 lg:p-5 border rounded-xl overflow-hidden transition-all duration-500 ${
+                activeStep === index
+                  ? "bg-[#000000] border-white/60"
                   : "bg-[#000000] border-white/25 hover:border-white/50"
               }`}
             >
-              {/* Step number with animated line */}
-              <div className="flex items-center gap-4 mb-4">
-                <span className={`text-3xl font-display transition-colors duration-300 ${
+              {/* Step number + title on one line */}
+              <div className="flex items-baseline gap-3 mb-2">
+                <span className={`text-2xl font-display transition-colors duration-300 ${
                   activeStep === index ? "text-[#83d63a]" : "text-white/20"
                 }`}>
                   {step.number}
                 </span>
-                <div className="flex-1 h-px bg-white/10 overflow-hidden">
+                <h3 className="text-xl lg:text-2xl font-display">
+                  {step.title} <span className="text-base text-white/40">{step.subtitle}</span>
+                </h3>
+                <div className="flex-1 h-px bg-white/10 overflow-hidden self-center">
                   {activeStep === index && (
                     <div className="h-full bg-[#83d63a]/50 animate-progress" />
                   )}
                 </div>
               </div>
 
-              {/* Title */}
-              <h3 className="text-2xl lg:text-3xl font-display mb-1">
-                {step.title}
-              </h3>
-              <span className="text-lg text-white/40 font-display block mb-3">
-                {step.subtitle}
-              </span>
-
               {/* Description */}
-              <p className={`text-white/60 leading-relaxed transition-opacity duration-300 ${
+              <p className={`text-sm text-white/60 leading-relaxed transition-opacity duration-300 ${
                 activeStep === index ? "opacity-100" : "opacity-60"
               }`}>
                 {step.description}
@@ -166,7 +119,7 @@ export function HowItWorksSection() {
         </div>
 
         {/* What happens on screen: a browser frame showing the UI for the active step */}
-        <div className="mt-8 border border-white/15 bg-[#0b0d0a] overflow-hidden">
+        <div className="lg:col-span-3 border border-white/15 bg-[#0b0d0a] rounded-2xl overflow-hidden flex flex-col">
           {/* Browser chrome */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 bg-black/60">
             <span className="flex gap-1.5" aria-hidden="true">
@@ -200,9 +153,10 @@ export function HowItWorksSection() {
             />
           </div>
         </div>
+        </div>
 
         {/* Micro-CTA */}
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <div className="mt-6 flex flex-wrap items-center gap-4">
           <p className="text-white/50">Create your first project in about a minute.</p>
           <a
             href="https://app.xo.builders"
@@ -210,7 +164,7 @@ export function HowItWorksSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium text-[#83d63a] hover:text-white transition-colors"
           >
-            Sign up
+            Sign up free
             <span aria-hidden="true">&rarr;</span>
           </a>
         </div>

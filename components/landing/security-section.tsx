@@ -19,7 +19,7 @@ const securityFeatures = [
   {
     icon: Eye,
     title: "Full audit trails",
-    description: "Every action logged and inspectable.",
+    description: "The environment keeps the record, not the agent: tamper-evident, hash-chained.",
     image: "/images/audit.jpg",
   },
   {
@@ -30,7 +30,7 @@ const securityFeatures = [
   },
 ];
 
-const certifications = ["Sandboxed", "Encrypted", "Audited", "RBAC"];
+const badges = ["Sandboxed", "Encrypted", "Audited", "Budget-capped"];
 
 export function SecuritySection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,7 +57,7 @@ export function SecuritySection() {
   }, []);
 
   return (
-    <section id="security" ref={sectionRef} className="relative py-16 lg:py-20 overflow-hidden">
+    <section id="security" ref={sectionRef} className="relative py-10 lg:py-12 overflow-hidden">
       {/* Full-section background images */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {securityFeatures.map((feature, index) => (
@@ -90,16 +90,16 @@ export function SecuritySection() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="mb-8">
-          <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-8 transition-all duration-700 ${
+        <div className="mb-6">
+          <span className={`inline-flex items-center gap-4 text-sm font-mono text-muted-foreground mb-5 transition-all duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
             <span className="w-12 h-px bg-foreground/20" />
             Security
           </span>
-          
+
           {/* Title - full width */}
-          <h2 className={`text-5xl md:text-6xl lg:text-[84px] font-display tracking-tight leading-[0.9] mb-6 transition-all duration-1000 ${
+          <h2 className={`text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.9] mb-4 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
             Isolated
@@ -111,32 +111,32 @@ export function SecuritySection() {
           <div className={`transition-all duration-1000 delay-100 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Every environment is sandboxed, encrypted, budget-capped, and fully auditable.
             </p>
           </div>
         </div>
 
         {/* Main content */}
-        <div className="grid lg:grid-cols-12 gap-6">
+        <div className="grid lg:grid-cols-12 gap-5">
           {/* Large visual card */}
-          <div className={`lg:col-span-7 relative p-6 lg:p-8 border border-foreground/10 bg-background/15 backdrop-blur-[2px] min-h-[260px] overflow-hidden transition-all duration-700 ${
+          <div className={`lg:col-span-7 relative p-6 lg:p-7 rounded-2xl border border-foreground/10 bg-background/15 backdrop-blur-[2px] min-h-[220px] overflow-hidden transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}>
             <div className="relative z-10">
               <span className="font-mono text-sm text-muted-foreground">Active protection</span>
-              <div className="mt-8">
+              <div className="mt-6">
                 <span className="text-5xl lg:text-6xl font-display">100%</span>
                 <span className="block text-muted-foreground mt-2">Of agent actions logged and inspectable</span>
               </div>
             </div>
-            
+
             {/* Certification badges */}
-            <div className="absolute bottom-8 left-8 right-8 flex flex-wrap gap-2">
-              {certifications.map((cert, index) => (
+            <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-2">
+              {badges.map((cert, index) => (
                 <span
                   key={cert}
-                  className={`px-3 py-1 border border-foreground/10 text-xs font-mono text-muted-foreground transition-all duration-500 ${
+                  className={`px-3 py-1 rounded-full border border-foreground/10 bg-foreground/[0.04] text-xs font-mono text-muted-foreground transition-all duration-500 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{ transitionDelay: `${index * 100 + 300}ms` }}
@@ -148,11 +148,11 @@ export function SecuritySection() {
           </div>
 
           {/* Feature cards stack */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
+          <div className="lg:col-span-5 flex flex-col gap-3">
             {securityFeatures.map((feature, index) => (
               <div
                 key={feature.title}
-                className={`p-4 border transition-all duration-500 cursor-default backdrop-blur-[2px] ${
+                className={`p-4 rounded-xl border transition-all duration-500 cursor-default backdrop-blur-[2px] ${
                   activeFeature === index 
                     ? "border-foreground/30 bg-background/25" 
                     : "border-foreground/10 bg-background/10"
@@ -162,7 +162,7 @@ export function SecuritySection() {
                 onMouseEnter={() => setActiveFeature(index)}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`shrink-0 w-10 h-10 flex items-center justify-center border transition-colors ${
+                  <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center border transition-colors ${
                     activeFeature === index 
                       ? "border-foreground bg-foreground text-background" 
                       : "border-foreground/20"
@@ -176,6 +176,7 @@ export function SecuritySection() {
                 </div>
               </div>
             ))}
+            <a href="https://docs.xo.builders" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors">Read the security model <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </div>

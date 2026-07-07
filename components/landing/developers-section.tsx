@@ -23,7 +23,7 @@ export function DevelopersSection() {
   }, []);
 
   return (
-    <section id="developers" ref={sectionRef} className="relative py-14 lg:py-16 overflow-hidden">
+    <section id="compounding" ref={sectionRef} className="relative py-14 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 opacity-40 pointer-events-none">
         <AsciiScene />
       </div>
@@ -47,7 +47,7 @@ export function DevelopersSection() {
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              Each project gets its own environment, and the work carries its DNA: memory, records, a sharper definition of done. Run after run, the same unit gets cheaper.
+              The work carries its DNA: memory, records, a sharpening definition of done. Same unit, cheaper every run: 85.6% cost decay by run six in the reference harness.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -72,10 +72,6 @@ export function DevelopersSection() {
                 </a>
               </Button>
             </div>
-
-            <p className="text-sm text-muted-foreground mt-8 font-mono">
-              14-day free trial on paid tiers
-            </p>
           </div>
 
           {/* Right visual: rotating DNA helix */}
