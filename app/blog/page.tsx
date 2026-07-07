@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { auth } from "@clerk/nextjs/server";
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
 import { journeys } from "@/lib/journeys";
@@ -12,6 +11,9 @@ export const metadata: Metadata = {
     "Partner journeys, customer chapters, and posts from the builders and companies shipping on XO.",
 };
 
+/* Posts are runtime data; keep the page fresh. */
+export const dynamic = "force-dynamic";
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", {
     month: "short",
@@ -21,7 +23,7 @@ function formatDate(iso: string): string {
 }
 
 export default async function BlogIndex() {
-  const [{ userId }, posts] = await Promise.all([auth(), listCommunityPosts()]);
+  const posts = await listCommunityPosts();
   const partnerJourneys = Object.values(journeys);
 
   return (
@@ -51,41 +53,15 @@ export default async function BlogIndex() {
             Partner journeys, customer chapters, and posts from the builders and
             companies shipping on XO.
           </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              href="/blog/new"
-              className="rounded-full bg-[#83d63a] text-black font-medium text-sm px-6 py-3 hover:bg-[#93e64a] transition-colors"
-            >
-              Write a post
-            </Link>
-            {!userId && (
-              <p className="font-mono text-xs text-white/40">
-                Sign in to publish as yourself or your company.
-              </p>
-            )}
-          </div>
         </div>
       </header>
 
       {/* ── Community posts ───────────────────────────────────── */}
-      <section className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pb-20">
-        <h2 className="font-mono text-xs text-white/40 uppercase tracking-widest mb-6">
-          From the community
-        </h2>
-
-        {posts.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-white/15 p-10 text-center">
-            <p className="text-white/60">No community posts yet.</p>
-            <p className="mt-1 text-sm text-white/40">
-              Be the first:{" "}
-              <Link href="/blog/new" className="text-[#83d63a] hover:underline">
-                write a post
-              </Link>
-              .
-            </p>
-          </div>
-        ) : (
+      {posts.length > 0 && (
+        <section className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pb-20">
+          <h2 className="font-mono text-xs text-white/40 uppercase tracking-widest mb-6">
+            From the community
+          </h2>
           <div className="rounded-xl overflow-hidden border border-white/10 divide-y divide-white/10">
             {posts.map((post) => (
               <Link
@@ -114,8 +90,8 @@ export default async function BlogIndex() {
               </Link>
             ))}
           </div>
-        )}
-      </section>
+        </section>
+      )}
 
       {/* ── Partner journeys ──────────────────────────────────── */}
       <section className="relative max-w-[1200px] mx-auto px-6 lg:px-12 pb-24">

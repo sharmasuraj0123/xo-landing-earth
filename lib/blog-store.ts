@@ -1,7 +1,7 @@
 /* ────────────────────────────────────────────────────────────────
    Community blog posts.
 
-   Posts written by signed-in users or companies through /blog/new.
+   Community posts written by users or companies.
    Stored as JSON on disk under data/, the single integration point
    to swap for a hosted database (Neon, Turso) when deploying.
 ──────────────────────────────────────────────────────────────── */
@@ -23,7 +23,7 @@ export type CommunityPost = {
   authorName: string;
   /** Set when the post is published on behalf of a company. */
   companyName?: string;
-  /** Clerk user id of the author. */
+  /** Id of the authoring user. */
   userId: string;
   /** ISO timestamp. */
   createdAt: string;
