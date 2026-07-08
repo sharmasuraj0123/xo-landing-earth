@@ -53,8 +53,8 @@ export function WhitepaperSection() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="/whitepaper/the-quirq.pdf"
-                download="XO-The-quirq.pdf"
+                href="/whitepaper/qq.pdf"
+                download="qq.pdf"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5 h-12 px-8 text-sm font-medium transition-colors"
               >
                 <Download className="w-4 h-4" />
@@ -85,7 +85,7 @@ export function WhitepaperSection() {
                 Whitepaper · Draft v3
               </p>
               <p className="mt-3 font-display text-2xl leading-snug text-foreground">
-                The quirq: a unit of measurement for the business impact of an agentic workforce
+                quirq: a unit of work for intelligence
               </p>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed line-clamp-4">
                 A quirq is minted, never self-reported: an owner budgets an outcome, the

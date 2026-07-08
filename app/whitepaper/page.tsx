@@ -5,12 +5,12 @@ import { DnaVisualization } from "@/components/landing/dna-visualization";
 import { Download, Orbit } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "The quirq: XO Whitepaper",
+  title: "quirq: A Unit of Work for Intelligence | XO Whitepaper",
   description:
-    "A unit of measurement for the business impact of an agentic workforce. Read the XO whitepaper in the browser or download the PDF.",
+    "quirq: a unit of work for intelligence. Read the XO whitepaper in the browser or download the PDF.",
 };
 
-const PDF_PATH = "/whitepaper/the-quirq.pdf";
+const PDF_PATH = "/whitepaper/qq.pdf";
 
 export default function WhitepaperPage() {
   return (
@@ -39,8 +39,7 @@ export default function WhitepaperPage() {
                 <span className="text-[#83d63a]">DNA.</span>
               </h1>
               <p className="mt-5 text-lg text-white/55 leading-relaxed max-w-[52ch]">
-                The quirq: a unit of measurement for the business impact of an agentic
-                workforce. New way to measure output of AI.
+                quirq: a unit of work for intelligence. A new way to measure the output of AI.
                 Suraj Sharma, XO Labs.
               </p>
 
@@ -57,7 +56,7 @@ export default function WhitepaperPage() {
               </a>
               <a
                 href={PDF_PATH}
-                download="XO-The-quirq.pdf"
+                download="qq.pdf"
                 className="group relative inline-flex items-center gap-4 rounded-full border border-[#83d63a]/40 bg-[#83d63a]/[0.06] hover:border-[#83d63a] hover:bg-[#83d63a]/[0.12] hover:shadow-[0_0_28px_rgba(131,214,58,0.25)] h-12 pl-6 pr-1.5 transition-all duration-300"
               >
                 <span className="inline-flex items-center gap-2.5 text-sm font-medium text-white">
@@ -98,7 +97,7 @@ export default function WhitepaperPage() {
               </p>
               <a
                 href={PDF_PATH}
-                download="XO-The-quirq.pdf"
+                download="qq.pdf"
                 className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/30 text-white hover:bg-white/10 h-12 px-8 text-sm font-medium transition-colors"
               >
                 <Download className="w-4 h-4" />

@@ -80,8 +80,8 @@ export function QuirqVisualization() {
               Read the paper
             </Link>
             <a
-              href="/whitepaper/the-quirq.pdf"
-              download="XO-The-quirq.pdf"
+              href="/whitepaper/qq.pdf"
+              download="qq.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-white/25 text-white h-11 px-6 text-sm hover:bg-white/10 transition-colors"
             >
               <Download className="w-4 h-4" /> PDF
