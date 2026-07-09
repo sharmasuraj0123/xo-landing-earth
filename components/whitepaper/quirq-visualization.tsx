@@ -13,6 +13,7 @@
 import Link from "next/link";
 import { Download } from "lucide-react";
 import { caveat } from "@/lib/quirq-data";
+import { WHITEPAPER_PDF_DOWNLOAD_PATH } from "@/lib/whitepaper-pdf";
 import { QuirqCalculator } from "./quirq-calculator";
 
 export function QuirqVisualization() {
@@ -80,8 +81,7 @@ export function QuirqVisualization() {
               Read the paper
             </Link>
             <a
-              href="/whitepaper/qq.pdf"
-              download="qq.pdf"
+              href={WHITEPAPER_PDF_DOWNLOAD_PATH}
               className="inline-flex items-center gap-2 rounded-full border border-white/25 text-white h-11 px-6 text-sm hover:bg-white/10 transition-colors"
             >
               <Download className="w-4 h-4" /> PDF

@@ -3,6 +3,11 @@ import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
 import { DnaVisualization } from "@/components/landing/dna-visualization";
 import { Download, Orbit } from "lucide-react";
+import {
+  WHITEPAPER_PDF_DOWNLOAD_PATH,
+  WHITEPAPER_PDF_PATH,
+  WHITEPAPER_PDF_VERSION,
+} from "@/lib/whitepaper-pdf";
 
 export const metadata: Metadata = {
   title: "quirq: A Unit of Work for Intelligence | XO Whitepaper",
@@ -10,7 +15,7 @@ export const metadata: Metadata = {
     "quirq: a unit of work for intelligence. Read the XO whitepaper in the browser or download the PDF.",
 };
 
-const PDF_PATH = "/whitepaper/qq.pdf";
+const PDF_PATH = WHITEPAPER_PDF_PATH;
 
 export default function WhitepaperPage() {
   return (
@@ -55,8 +60,7 @@ export default function WhitepaperPage() {
                 Visualize
               </a>
               <a
-                href={PDF_PATH}
-                download="qq.pdf"
+                href={WHITEPAPER_PDF_DOWNLOAD_PATH}
                 className="group relative inline-flex items-center gap-4 rounded-full border border-[#83d63a]/40 bg-[#83d63a]/[0.06] hover:border-[#83d63a] hover:bg-[#83d63a]/[0.12] hover:shadow-[0_0_28px_rgba(131,214,58,0.25)] h-12 pl-6 pr-1.5 transition-all duration-300"
               >
                 <span className="inline-flex items-center gap-2.5 text-sm font-medium text-white">
@@ -67,7 +71,7 @@ export default function WhitepaperPage() {
                   Download the paper
                 </span>
                 <span className="hidden sm:inline-flex items-center h-9 rounded-full bg-black/60 border border-white/10 px-3.5 font-mono text-[11px] tracking-wide text-white/50 group-hover:text-white/80 transition-colors">
-                  PDF · 0.5 MB · v3
+                  PDF · 0.5 MB · {WHITEPAPER_PDF_VERSION}
                 </span>
               </a>
               </div>
@@ -96,8 +100,7 @@ export default function WhitepaperPage() {
                 Your browser can&apos;t display the PDF inline.
               </p>
               <a
-                href={PDF_PATH}
-                download="qq.pdf"
+                href={WHITEPAPER_PDF_DOWNLOAD_PATH}
                 className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/30 text-white hover:bg-white/10 h-12 px-8 text-sm font-medium transition-colors"
               >
                 <Download className="w-4 h-4" />

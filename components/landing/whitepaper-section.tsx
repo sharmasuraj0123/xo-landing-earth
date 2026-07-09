@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Download, FileText } from "lucide-react";
+import {
+  WHITEPAPER_PDF_DOWNLOAD_PATH,
+} from "@/lib/whitepaper-pdf";
 
 /* The whitepaper section: a teaser card for the Quirq paper.
    Clicking it opens /whitepaper, where the paper renders in the
@@ -53,8 +56,7 @@ export function WhitepaperSection() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="/whitepaper/qq.pdf"
-                download="qq.pdf"
+                href={WHITEPAPER_PDF_DOWNLOAD_PATH}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5 h-12 px-8 text-sm font-medium transition-colors"
               >
                 <Download className="w-4 h-4" />
