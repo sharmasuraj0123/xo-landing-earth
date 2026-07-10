@@ -5,12 +5,18 @@
 
 import { useState } from "react";
 import { Bot, Workflow } from "lucide-react";
+import posthog from "posthog-js";
 import { AiReferee } from "@/components/whitepaper/ai-referee";
 
 type Tab = "model" | "agent";
 
 export function ValidateTabs() {
   const [tab, setTab] = useState<Tab>("model");
+
+  const handleTabSwitch = (next: Tab) => {
+    setTab(next);
+    posthog.capture("whitepaper_validate_tab_switched", { tab: next });
+  };
 
   return (
     <div>
@@ -23,7 +29,7 @@ export function ValidateTabs() {
           <button
             role="tab"
             aria-selected={tab === "model"}
-            onClick={() => setTab("model")}
+            onClick={() => handleTabSwitch("model")}
             className={`inline-flex items-center gap-2 rounded-full px-5 h-10 text-sm font-medium transition-all duration-300 ${
               tab === "model" ? "bg-[#83d63a] text-black" : "text-white/50 hover:text-white"
             }`}
@@ -34,7 +40,7 @@ export function ValidateTabs() {
           <button
             role="tab"
             aria-selected={tab === "agent"}
-            onClick={() => setTab("agent")}
+            onClick={() => handleTabSwitch("agent")}
             className={`inline-flex items-center gap-2 rounded-full px-5 h-10 text-sm font-medium transition-all duration-300 ${
               tab === "agent" ? "bg-[#83d63a] text-black" : "text-white/50 hover:text-white"
             }`}

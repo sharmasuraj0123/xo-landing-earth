@@ -11,6 +11,7 @@
 ──────────────────────────────────────────────────────────────── */
 
 import { useEffect, useRef, useState } from "react";
+import posthog from "posthog-js";
 import {
   Check,
   ClipboardCopy,
@@ -201,6 +202,13 @@ export function AiReferee() {
     }
     const found = extractReceipt(text);
     setReceipt(found);
+    if (found) {
+      posthog.capture("whitepaper_validate_receipt_parsed", {
+        model: found.model,
+        verdict: found.verdict,
+        source: "paste",
+      });
+    }
     setParseError(
       found
         ? null
@@ -216,6 +224,7 @@ export function AiReferee() {
         `${INSTRUCTIONS}\n\nThe paper follows below.\n\n---\n\n${paper}`,
       );
       setCopied(true);
+      posthog.capture("whitepaper_validate_copy_paper");
       setTimeout(() => setCopied(false), 2400);
     } catch {
       setCopied(false);
@@ -238,9 +247,20 @@ export function AiReferee() {
       const d = await res.json();
       if (!res.ok) throw new Error(d.error);
       setLogState("done");
+      posthog.capture("whitepaper_validate_receipt_submitted", {
+        verdict: receipt.verdict,
+        model: receipt.model,
+        has_thoughts: thoughts.trim().length > 0,
+        has_name: name.trim().length > 0,
+        source: pasted.length > 0 ? "paste" : "file",
+      });
       await refreshFiled();
     } catch {
       setLogState("error");
+      posthog.capture("whitepaper_validate_receipt_submit_error", {
+        verdict: receipt.verdict,
+        model: receipt.model,
+      });
     }
   };
 
@@ -279,15 +299,33 @@ export function AiReferee() {
               )}
               {copied ? "Copied" : "Copy paper + brief"}
             </button>
-            <a href={chatgptUrl} target="_blank" rel="noopener noreferrer" className={ACTION_BTN}>
+            <a
+              href={chatgptUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={ACTION_BTN}
+              onClick={() => posthog.capture("whitepaper_validate_open_model", { model: "chatgpt" })}
+            >
               <BrandIcon d={OPENAI_PATH} className="w-4 h-4" />
               Open in ChatGPT
             </a>
-            <a href={claudeUrl} target="_blank" rel="noopener noreferrer" className={ACTION_BTN}>
+            <a
+              href={claudeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={ACTION_BTN}
+              onClick={() => posthog.capture("whitepaper_validate_open_model", { model: "claude" })}
+            >
               <BrandIcon d={CLAUDE_PATH} className="w-4 h-4" />
               Open in Claude
             </a>
-            <a href={perplexityUrl} target="_blank" rel="noopener noreferrer" className={ACTION_BTN}>
+            <a
+              href={perplexityUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={ACTION_BTN}
+              onClick={() => posthog.capture("whitepaper_validate_open_model", { model: "perplexity" })}
+            >
               <BrandIcon d={PERPLEXITY_PATH} className="w-4 h-4" />
               Open in Perplexity
             </a>
@@ -332,7 +370,13 @@ export function AiReferee() {
               className="hidden"
               onChange={(e) => {
                 const f = e.target.files?.[0];
-                if (f) f.text().then(handleText);
+                if (f) {
+                  posthog.capture("whitepaper_validate_file_uploaded", {
+                    filename: f.name,
+                    size: f.size,
+                  });
+                  f.text().then(handleText);
+                }
               }}
             />
           </div>
