@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { BrandLogo } from "@/components/brand-logo";
+import { AiViewButton } from "@/components/landing/ai-view-button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -67,14 +68,15 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
+            <AiViewButton compact={isScrolled} />
             <Button
               asChild
               variant="outline"
               size="sm"
               className={`rounded-full transition-all duration-500 ${
                 isScrolled
-                  ? "border-foreground/20 text-foreground hover:bg-foreground/5 h-8 px-4 text-xs"
-                  : "border-white/30 text-white hover:bg-white/10 bg-transparent h-9 px-5"
+                  ? "border-foreground/30 text-foreground hover:bg-foreground/5 h-8 px-4 text-xs"
+                  : "border-white/40 text-white hover:bg-white/10 bg-transparent h-9 px-5"
               }`}
             >
               <a
@@ -146,13 +148,19 @@ export function Navigation() {
           </div>
 
           <div
-            className={`flex flex-col sm:flex-row gap-3 pt-8 border-t border-foreground/10 transition-all duration-500 ${
+            className={`flex flex-col gap-3 pt-8 border-t border-foreground/10 transition-all duration-500 ${
               isMobileMenuOpen
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
+            <AiViewButton
+              compact={false}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="self-center !h-12 !px-6 !text-base"
+            />
+            <div className="flex flex-col sm:flex-row gap-3">
             <Button
               asChild
               variant="outline"
@@ -180,6 +188,7 @@ export function Navigation() {
                 Get started
               </a>
             </Button>
+            </div>
           </div>
         </div>
       </div>

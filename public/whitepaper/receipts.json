@@ -1,0 +1,47 @@
+[
+  {
+    "name": null,
+    "comment": "hii",
+    "receipt": {
+      "kind": "validation-receipt",
+      "paper": "quirq-draft-v3",
+      "model": "GPT-5.6 Thinking",
+      "date": "2026-07-10",
+      "verdict": "disputed",
+      "scores": {
+        "arithmetic": 78,
+        "sources": 57,
+        "logic": 43,
+        "gaming_resistance": 29
+      },
+      "confirmed": [
+        "The $4 support-ticket cost calculation reproduces at $0.128",
+        "The ticket's cost-per-quirq, margin, multiple and divisible-settlement calculations reproduce after normal rounding",
+        "Table 1's monthly total costs and monthly QER values reproduce",
+        "The +141% quirq-velocity and +83% inference-spend figures reproduce",
+        "State-based verification is stronger than agent self-report",
+        "The paper clearly discloses that E1-E3 are mock-mode machinery demonstrations and that real-agent, predictive-validity and budget-governance claims remain open"
+      ],
+      "issues": [
+        "Table 1's exact QER increase is 77.1%, not 81%; 81% is obtained improperly from rounded display values",
+        "Table 1 does not expose enough inputs to reproduce potential value, minted Q or intervention rate",
+        "The audit correction has the wrong sign: maximally farmed checks can increase rather than reduce corrected QER",
+        "The audit correction is also invalid as an unweighted portfolio multiplier when unit budgets differ",
+        "QER is a budgeted benefit-cost ratio, not ROI",
+        "IR measures failed or unsettled units, not actual human interventions",
+        "Quirqs measure assigned budget times check completion, not causally realized business impact",
+        "The all-in cost claim omits specification, budgeting, auditing, acceptance, governance and downstream-error costs",
+        "Non-decreasing memory does not logically imply non-increasing cost",
+        "Budget setters and owners can game budgets, unit selection, acceptance and decomposition",
+        "The formalism lacks budget conservation, duplicate-credit prevention, clawbacks and negative settlement",
+        "Several load-bearing claims are absent from or mistiered in the claim ledger",
+        "Reference 4 misstates the title and authorship of arXiv:2511.18397",
+        "Reference 15 could not be verified as the joint MIT and AI Consulting Network report cited",
+        "Cross-company comparability is not established, and quirqs per kWh is not dimensionless"
+      ],
+      "one_line": "The ledger is a useful accounting scaffold, but it does not yet measure business impact, its audit correction is mathematically backward, and its anti-gaming claims remain unproven."
+    },
+    "id": "ev9lqbgx",
+    "receivedAt": "2026-07-10T04:30:35.816Z"
+  }
+]
