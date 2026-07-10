@@ -12,6 +12,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import posthog from "posthog-js";
+import { toast } from "sonner";
 import {
   Check,
   ClipboardCopy,
@@ -178,7 +179,7 @@ export function AiReferee() {
   const [copied, setCopied] = useState(false);
   const [thoughts, setThoughts] = useState("");
   const [name, setName] = useState("");
-  const [logState, setLogState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [sending, setSending] = useState(false);
   const [filed, setFiled] = useState<DiscussionEntry[]>([]);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -194,7 +195,7 @@ export function AiReferee() {
 
   const handleText = (text: string) => {
     setPasted(text);
-    setLogState("idle");
+    setSending(false);
     if (!text.trim()) {
       setReceipt(null);
       setParseError(null);
@@ -232,8 +233,8 @@ export function AiReferee() {
   };
 
   const logReceipt = async () => {
-    if (!receipt || logState === "sending") return;
-    setLogState("sending");
+    if (!receipt || sending) return;
+    setSending(true);
     try {
       const res = await fetch("/api/validate/receipt", {
         method: "POST",
@@ -246,7 +247,11 @@ export function AiReferee() {
       });
       const d = await res.json();
       if (!res.ok) throw new Error(d.error);
-      setLogState("done");
+      toast.success("Added to the discussion");
+      setPasted("");
+      setReceipt(null);
+      setThoughts("");
+      setName("");
       posthog.capture("whitepaper_validate_receipt_submitted", {
         verdict: receipt.verdict,
         model: receipt.model,
@@ -256,11 +261,13 @@ export function AiReferee() {
       });
       await refreshFiled();
     } catch {
-      setLogState("error");
+      toast.error("Could not add it; try again.");
       posthog.capture("whitepaper_validate_receipt_submit_error", {
         verdict: receipt.verdict,
         model: receipt.model,
       });
+    } finally {
+      setSending(false);
     }
   };
 
@@ -475,15 +482,11 @@ export function AiReferee() {
               />
               <button
                 onClick={logReceipt}
-                disabled={!receipt || logState === "sending" || logState === "done"}
+                disabled={!receipt || sending}
                 className="inline-flex items-center gap-2 rounded-full bg-white text-black h-11 px-6 text-sm font-medium hover:bg-white/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <Gavel className="w-4 h-4" />
-                {logState === "done"
-                  ? "Added to the discussion"
-                  : logState === "sending"
-                    ? "Adding..."
-                    : "Add to the discussion"}
+                {sending ? "Adding..." : "Add to the discussion"}
               </button>
             </div>
             {!receipt && (
@@ -491,9 +494,6 @@ export function AiReferee() {
                 The AI receipt above is the ticket in: paste it first, thoughts and name are
                 yours to add.
               </p>
-            )}
-            {logState === "error" && (
-              <p className="mt-2 text-xs text-[#fb9a9a]">Could not add it; try again.</p>
             )}
           </div>
         </div>
