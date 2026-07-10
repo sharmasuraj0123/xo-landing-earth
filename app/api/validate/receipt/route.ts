@@ -1,57 +1,62 @@
+import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { addEntry, listEntries } from "@/lib/receipt-store";
+import {
+  insertDiscussionEntry,
+  listDiscussionEntries,
+  receiptSchema,
+} from "@/db";
 
-/* The public discussion on quirq: people (named or anonymous),
-   their typed thoughts, and their AI referee's receipt. GET
-   returns the discussion; POST files one entry. */
+/* ────────────────────────────────────────────────────────────────
+   The public discussion on quirq — DB-backed.
+
+   GET  /api/validate/receipt        → list discussion entries
+   POST /api/validate/receipt        → file a new entry
+──────────────────────────────────────────────────────────────── */
 
 export const runtime = "nodejs";
+
+// GET must be dynamic — it returns live data from the database.
 export const dynamic = "force-dynamic";
 
-const receiptSchema = z.object({
-  kind: z.literal("validation-receipt"),
-  paper: z.string().trim().min(1).max(80),
-  model: z.string().trim().min(1).max(120),
-  date: z.string().trim().max(40),
-  verdict: z.enum(["holds", "holds-with-caveats", "disputed"]),
-  scores: z.object({
-    arithmetic: z.number().min(0).max(100),
-    sources: z.number().min(0).max(100),
-    logic: z.number().min(0).max(100),
-    gaming_resistance: z.number().min(0).max(100),
-  }),
-  confirmed: z.array(z.string().max(400)).max(20),
-  issues: z.array(z.string().max(400)).max(20),
-  one_line: z.string().trim().min(1).max(400),
-});
-
-const entrySchema = z.object({
+// Body schema: name & comment are optional (client may omit them);
+// the receipt shape is the canonical one from db/schema.ts.
+const bodySchema = z.object({
   name: z.string().trim().max(60).optional(),
   comment: z.string().trim().max(20000).optional(),
   receipt: receiptSchema,
 });
 
+/* ── GET /api/validate/receipt ────────────────────────────────── */
+
 export async function GET() {
-  /* the file is public and hand-editable: skip anything malformed */
-  const entries = (await listEntries()).filter(
-    (e) => e && e.receipt && typeof e.receipt.verdict === "string",
-  );
-  return NextResponse.json({
-    count: entries.length,
-    entries: entries.slice(0, 200).map((e) => ({
+  try {
+    const entries = await listDiscussionEntries(200);
+    // receipt is typed as Receipt via Drizzle's jsonb().$type<>() —
+    // no unsafe casts needed.
+    const rows = entries.map((e) => ({
       id: e.id,
       name: e.name,
       comment: e.comment,
-      receivedAt: e.receivedAt,
+      receivedAt: e.createdAt.toISOString(),
       model: e.receipt.model,
       verdict: e.receipt.verdict,
       one_line: e.receipt.one_line,
       date: e.receipt.date,
       scores: e.receipt.scores,
-    })),
-  });
+    }));
+
+    return NextResponse.json({ count: rows.length, entries: rows });
+  } catch (err) {
+    console.error("[receipt] GET failed:", err);
+    return NextResponse.json(
+      { error: "Database unavailable.", detail: String(err) },
+      { status: 500 },
+    );
+  }
 }
+
+/* ── POST /api/validate/receipt ───────────────────────────────── */
 
 export async function POST(req: NextRequest) {
   let body: unknown;
@@ -60,18 +65,36 @@ export async function POST(req: NextRequest) {
   } catch {
     return NextResponse.json({ error: "Body must be JSON." }, { status: 400 });
   }
-  const parsed = entrySchema.safeParse(body);
+
+  const parsed = bodySchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
-      { error: "That does not match the discussion-entry schema.", issues: parsed.error.issues.slice(0, 5) },
+      {
+        error: "That does not match the discussion-entry schema.",
+        issues: parsed.error.issues.slice(0, 5),
+      },
       { status: 422 },
     );
   }
-  const stored = await addEntry({
-    name: parsed.data.name || null,
-    comment: parsed.data.comment || null,
-    receipt: parsed.data.receipt,
-  });
-  const entries = await listEntries();
-  return NextResponse.json({ ok: true, id: stored.id, count: entries.length });
+
+  try {
+    const row = await insertDiscussionEntry({
+      // Convert optional → nullable for the DB layer (JSON omits undefined keys).
+      name: parsed.data.name ?? null,
+      comment: parsed.data.comment ?? null,
+      receipt: parsed.data.receipt,
+    });
+
+    // Refresh any cached renders of the validate page so the discussion
+    // list picks up the new entry immediately.
+    revalidatePath("/whitepaper/validate");
+
+    return NextResponse.json({ ok: true, id: row.id }, { status: 201 });
+  } catch (err) {
+    console.error("[receipt] POST failed:", err);
+    return NextResponse.json(
+      { error: "Database write failed.", detail: String(err) },
+      { status: 500 },
+    );
+  }
 }

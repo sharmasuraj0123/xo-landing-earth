@@ -507,12 +507,12 @@ export function AiReferee() {
               The discussion · comments from people, receipts from their AIs
             </h3>
             <a
-              href="/whitepaper/receipts.json"
+              href="/api/validate/receipt"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-[11px] text-white/35 hover:text-white transition-colors"
             >
-              raw: /whitepaper/receipts.json &rarr;
+              raw: /api/validate/receipt &rarr;
             </a>
           </div>
           <div className="rounded-xl border border-white/10 overflow-hidden divide-y divide-white/10">
