@@ -710,6 +710,7 @@ export function TokenNetwork({
   }, [vector]);
 
   return (
+    <>
     <div ref={wrapRef} className="relative h-[100svh] min-h-[560px] overflow-hidden bg-[#050310]">
       <canvas
         ref={canvasRef}
@@ -778,7 +779,8 @@ export function TokenNetwork({
           </span>
         </div>
 
-        <div className="px-6 lg:px-12 pt-8 lg:pt-12 max-w-2xl">
+        {/* on phones the sky comes first; this intro lives below the fold */}
+        <div className="hidden md:block px-6 lg:px-12 pt-8 lg:pt-12 max-w-2xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-indigo-300/50 mb-4">
             The AI view · a simulation
           </p>
@@ -828,6 +830,9 @@ export function TokenNetwork({
         <div className="flex-1" />
 
         <div className="px-6 lg:px-12 pb-5 lg:pb-6 space-y-3 lg:space-y-4">
+          <p className="md:hidden font-mono text-[9px] uppercase tracking-[0.24em] text-indigo-300/50">
+            drag to orbit · pinch to zoom · tap a star · scroll for more
+          </p>
           <div className="pointer-events-auto hidden sm:block max-w-[680px] rounded-2xl border border-indigo-200/10 bg-[#0a0722]/60 backdrop-blur-md px-4 py-3">
             <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-indigo-300/45 mb-2.5">
               A sentence enters the model
@@ -962,5 +967,56 @@ export function TokenNetwork({
         }
       `}</style>
     </div>
+
+    {/* ── phones: the words arrive after the sky ─────────────── */}
+    <section className="md:hidden bg-[#050310] px-6 pt-10 pb-14">
+      <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-indigo-300/50 mb-4">
+        The AI view · a simulation
+      </p>
+      <h1
+        className="font-display text-4xl tracking-tight leading-[0.95] text-transparent bg-clip-text"
+        style={{
+          backgroundImage: "linear-gradient(105deg, #f1f5ff 20%, #a5b4fc 55%, #22d3ee 90%)",
+        }}
+      >
+        The paper, tokenised.
+      </h1>
+      <p className="mt-4 text-sm leading-relaxed text-indigo-100/55">
+        What a model sees: every meaningful term in the whitepaper, a star in a vector sky,
+        clustered by meaning and sized by how often it burns through the text. Tokens and
+        counts are real; the geometry is simulated for wonder.
+      </p>
+
+      <div className="mt-6 flex flex-wrap items-center gap-2.5">
+        <a
+          href="/whitepaper/llm.txt"
+          download="quirq-llm.txt"
+          className="inline-flex items-center gap-2 rounded-full bg-white text-black h-10 px-5 text-sm font-medium hover:bg-white/90 transition-colors"
+        >
+          <FileText className="w-4 h-4" aria-hidden="true" /> llm.txt
+        </a>
+        <a
+          href="/whitepaper/vectors.json"
+          download="quirq-vectors.json"
+          className="inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-300/[0.1] text-cyan-100 h-10 px-5 text-sm font-medium hover:bg-cyan-300/20 transition-colors"
+        >
+          <Braces className="w-4 h-4 text-cyan-300" aria-hidden="true" /> vectors.json
+        </a>
+        <a
+          href={WHITEPAPER_PDF_DOWNLOAD_PATH}
+          className="inline-flex items-center gap-2 rounded-full border border-indigo-200/25 bg-[#0a0722]/50 text-indigo-100 h-10 px-5 text-sm hover:bg-white/10 transition-colors"
+        >
+          <Download className="w-4 h-4" aria-hidden="true" /> PDF
+        </a>
+      </div>
+
+      <div className="mt-8 rounded-2xl border border-indigo-200/10 bg-[#0a0722]/60 px-4 py-3">
+        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-indigo-300/45 mb-2.5">
+          A sentence enters the model
+        </p>
+        <TokenizerBar />
+      </div>
+    </section>
+    </>
   );
 }

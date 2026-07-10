@@ -1,16 +1,6 @@
-import type { Metadata } from "next";
-import { TokenNetwork } from "@/components/whitepaper/token-network";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "The paper, tokenised | XO",
-  description:
-    "The quirq whitepaper as a galaxy: every meaningful term a star in a simulated vector sky. Click a token to see what the model sees.",
-};
-
-export default function WhitepaperAiPage() {
-  return (
-    <main className="bg-[#050310]">
-      <TokenNetwork />
-    </main>
-  );
+/* The AI view moved to its own address. */
+export default function WhitepaperAiRedirect() {
+  redirect("/ai");
 }

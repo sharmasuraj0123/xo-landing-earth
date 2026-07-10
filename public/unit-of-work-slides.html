@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>The Unit of Work — quirq, in slides | XO</title>
 <meta name="description" content="The XO whitepaper's argument in twelve slides: why tokens can't measure work, why the budget can, and the calculus that mints a quirq." />
 <link rel="icon" href="/icon.svg" />
@@ -155,6 +155,84 @@
 
   .foot { font-family: var(--mono); font-size: 11px; color: var(--faint); margin-top: 26px; }
   a.plain { color: rgba(255,255,255,.7); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(131,214,58,.5); }
+
+  /* ── mobile: portrait phones ─────────────────────────────── */
+  @media (max-width: 640px) {
+    .slide { padding: 64px 18px 96px; align-items: flex-start; }
+    .inner { padding-top: 2vh; }
+    h1 { font-size: clamp(34px, 10vw, 48px); }
+    h2 { font-size: clamp(24px, 7.4vw, 34px); }
+    .lead { font-size: 14px; }
+    .card { padding: 16px; }
+    .card p { font-size: 13px; }
+    .chrome.hint { display: none; }
+    .chrome.brand { top: 66px; left: 20px; font-size: 10px; }
+    .chrome.brand svg { width: 22px; height: 22px; }
+    .chrome.back { top: 16px; left: 16px; }
+    .chrome.back a { padding: 7px 12px; font-size: 10px; }
+    .chrome.counter { top: 25px; right: 16px; font-size: 10px; }
+    .topright { top: 16px; right: 68px; gap: 6px; }
+    .topright button, .topright a { height: 30px; }
+    .arrows { bottom: 14px; right: 14px; }
+    .arrows button { width: 36px; height: 36px; }
+    .dots { bottom: 24px; left: 18px; transform: none; gap: 5px; }
+    .dots button { width: 5px; height: 5px; }
+    .eq { font-size: clamp(19px, 6vw, 26px); }
+    table { font-size: 11px; }
+    th, td { padding: 8px 8px; }
+    .mint { padding: 18px; }
+    /* the 16:9 cover art: crop would cut the title off on a tall
+       narrow screen, so letterbox it instead — the art fades to the
+       same near-black as the page, so the seams are invisible */
+    .cover img { object-fit: contain; }
+    .cover .veil { background: linear-gradient(180deg, transparent 62%, rgba(5,6,4,.9) 100%); }
+    .cover .begin { bottom: 64px; width: max-content; }
+    .foot { font-size: 10px; }
+  }
+
+  /* ── mobile: landscape (short viewport) ──────────────────── */
+  @media (max-height: 500px) {
+    .slide { padding: 46px max(20px, env(safe-area-inset-left)) 54px max(20px, env(safe-area-inset-right)); align-items: flex-start; }
+    h1 { font-size: clamp(26px, 6vh + 10px, 44px); }
+    h2 { font-size: clamp(19px, 5.6vh + 6px, 30px); margin-bottom: 10px; }
+    .kicker { margin-bottom: 10px; font-size: 10px; }
+    .lead { font-size: 13px; line-height: 1.45; }
+    .cards { margin-top: 14px; gap: 10px; }
+    /* keep grids side-by-side: in landscape, height is scarce, width is not */
+    .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+    .cards.c2 { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 13px; border-radius: 12px; }
+    .card p { font-size: 12px; }
+    .card .t { margin-bottom: 6px; }
+    .chrome.hint, .chrome.brand { display: none; }
+    .chrome.back { top: 8px; left: max(12px, env(safe-area-inset-left)); }
+    .chrome.back a { padding: 5px 11px; font-size: 10px; }
+    .chrome.counter { top: 14px; right: max(12px, env(safe-area-inset-right)); font-size: 10px; }
+    .topright { top: 8px; right: calc(max(12px, env(safe-area-inset-right)) + 52px); }
+    .topright button, .topright a { height: 27px; padding: 0 10px; font-size: 10px; }
+    .topright span.lbl { display: none; }
+    .arrows { bottom: 8px; right: max(12px, env(safe-area-inset-right)); }
+    .arrows button { width: 32px; height: 32px; font-size: 13px; }
+    .dots { bottom: 15px; left: max(16px, env(safe-area-inset-left)); transform: none; gap: 5px; }
+    .dots button { width: 5px; height: 5px; }
+    .pipe { margin-top: 14px; }
+    .stage { padding: 10px 12px; min-width: 120px; margin-right: 20px; }
+    .stage .name { font-size: 16px; margin: 3px 0 4px; }
+    .stage p { font-size: 10.5px; }
+    .pairs { margin-top: 14px; gap: 8px; }
+    .pair .u { padding: 7px 12px; font-size: 11px; }
+    .pair.ai { margin-top: 4px; padding-top: 10px; }
+    .eq { font-size: 20px; margin: 10px 0 6px; }
+    table { font-size: 11px; margin-top: 12px; }
+    th, td { padding: 6px 8px; }
+    .mint { padding: 14px; margin-top: 14px; }
+    .mint .big { font-size: 26px; }
+    .stack { height: 34px; margin: 14px 0 8px; }
+    .legend { font-size: 10px; gap: 10px; }
+    .cta { padding: 10px 18px; font-size: 12.5px; }
+    .foot { margin-top: 12px; font-size: 10px; }
+    .cover .begin { bottom: 44px; padding: 8px 16px; font-size: 10px; }
+  }
 </style>
 </head>
 <body>

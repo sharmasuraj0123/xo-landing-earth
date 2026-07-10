@@ -23,7 +23,7 @@ export function AiViewButton({
 
   return (
     <Link
-      href="/whitepaper?view=ai"
+      href="/ai"
       onClick={onClick}
       aria-label="Open the AI view of the whitepaper"
       className={`inline-flex items-center rounded-full border font-medium transition-all duration-500 ${size} ${tone} ${className}`}
