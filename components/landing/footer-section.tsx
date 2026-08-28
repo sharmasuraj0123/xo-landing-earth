@@ -16,6 +16,11 @@ const resourceLinks = [
   { name: "Get started", href: "https://app.xo.builders" },
 ];
 
+const legalLinks = [
+  { name: "Privacy", href: "/privacy" },
+  { name: "Terms of Service", href: "/terms-of-service" },
+];
+
 const socialLinks = [
   { name: "Twitter", href: "https://x.com/xo_builders" },
   { name: "GitHub", href: "https://github.com/sharmasuraj0123" },
@@ -103,10 +108,22 @@ export function FooterSection() {
           </div>
         </div>
 
-        <div className="py-8 border-t border-white/10">
+        <div className="py-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-sm text-white/30 text-center md:text-left">
             &copy; 2026 XO. All rights reserved.
           </p>
+
+          <div className="flex justify-center md:justify-end gap-6">
+            {legalLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm text-white/30 hover:text-white transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

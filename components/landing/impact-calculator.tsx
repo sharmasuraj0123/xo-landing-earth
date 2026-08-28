@@ -26,8 +26,13 @@ export function ImpactCalculator({ active }: { active: boolean }) {
   const costAt = (r: number) => perUnit * (1 - SAVE + SAVE * Math.exp(-r / 9));
   const saved = spend * SAVE;
 
-  const x = (r: number) => PAD.l + ((W - PAD.l - PAD.r) * r) / RUNS;
-  const y = (c: number) => PAD.t + (H - PAD.t - PAD.b) * (1 - c / (perUnit * 1.12));
+  /* Quantize the plotted coordinates. Math.exp is allowed to differ in the
+     last ULP between the server and the browser's JS engine, and that shows
+     up as a hydration mismatch on the serialized path strings. Two decimals
+     is far below a pixel at this viewBox. */
+  const q = (n: number) => Math.round(n * 100) / 100;
+  const x = (r: number) => q(PAD.l + ((W - PAD.l - PAD.r) * r) / RUNS);
+  const y = (c: number) => q(PAD.t + (H - PAD.t - PAD.b) * (1 - c / (perUnit * 1.12)));
 
   const { curve, area } = useMemo(() => {
     const pts: string[] = [];
